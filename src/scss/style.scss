@@ -1,0 +1,29 @@
+@import "fonts";
+
+$widthContainer: 1170;
+$fontFamily: "Times New Roman", Georgia, Serif;
+$fontSize: 14px;
+$mainColor: #000000;
+$background: #fff;
+
+// Брейк-поинты
+$pc: $widthContainer + px; // ПК, ноутбуки, некоторые планшеты в горизонтальном положении
+$tablet: 991.98px; // Планшеты, некоторые телефоны в горизонтальном положении
+$mobile: 767.98px; // Телефоны L
+$mobileSmall: 479.98px; // Телефоны S
+
+body {
+	font-family: sans-serif;
+	font-size: 50px;
+}
+
+._container {
+	max-width: $widthContainer;
+	margin: 0 auto;
+}
+
+.hidden {
+	opacity: 0;
+	z-index: -1;
+}
+
