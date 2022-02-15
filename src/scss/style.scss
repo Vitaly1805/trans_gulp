@@ -1,9 +1,11 @@
 @import "fonts";
+@import "base/iconsfont";
+@import "base/swiper-bundle";
 
-$widthContainer: 1170;
+$widthContainer: 1170px;
 $fontFamily: "Times New Roman", Georgia, Serif;
 $fontSize: 14px;
-$mainColor: #000000;
+$mainColor: #00599b;
 $background: #fff;
 
 // Брейк-поинты
@@ -15,11 +17,85 @@ $mobileSmall: 479.98px; // Телефоны S
 body {
 	font-family: sans-serif;
 	font-size: 50px;
+	color: $mainColor;
+
+	span {
+		color: $mainColor;
+		font-size: 30px;
+	}
+}
+
+.input {
+	width: 100%;
+	font-size: 18px;
+	padding: 10px 10px;
+	border-radius: 5px;
+	border: 2px solid #cdcdcd;
+	outline: none;
+	margin: 0 0 20px 0;
+
+	&:focus {
+		border: 2px solid $mainColor;
+	}
+}
+
+.wrap {
+	width: 100vw;
+	height: 100vh;
+	overflow: auto;
+}
+
+.content {
+	height: 100%;
+	background: #EFF8FB;
+
+	&__text {
+		font-size: 24px;
+		font-weight: 600;
+	}
+
+	&__purpose {
+		text-align: center;
+		padding: 100px 0;
+
+		// @media (max-width: $mobileSmall) {
+		// 	padding: 80px 0;
+		// }
+	}
+
+	&__auth-reg {
+		width: 800px;
+		margin: 0 auto;
+		display: flex;
+		justify-content: space-between;
+
+		@media (max-width: 870px) {
+			width: 100%;
+		}
+
+		@media (max-width: $mobileSmall) {
+			flex-direction: column;
+		}
+	}
+
+	&__button-auth,
+	&__button-reg {
+		width: 350px;
+
+		@media (max-width: 870px) {
+			width: 48%;
+		}
+
+		@media (max-width: $mobileSmall) {
+			width: 100%;
+		}
+	}
 }
 
 ._container {
 	max-width: $widthContainer;
 	margin: 0 auto;
+	padding: 0 15px;
 }
 
 .hidden {
@@ -27,3 +103,147 @@ body {
 	z-index: -1;
 }
 
+.button {
+	height: 45px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	background-color: $mainColor;
+	color: #fff;
+	border: none;
+	transition: all 0.5s ease 0;
+
+	&:hover {
+		background-color: #0059bc;
+		transition: all 0.5s ease 0s;	
+	}
+
+	&:focus {
+		border: none;
+	}
+}
+
+.block-button {
+	text-align: center;
+}
+
+.window-authorization {
+	overflow-y: scroll;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    background: rgb(0, 0, 0, .7);
+    z-index: -10;
+    padding: 0 10px;
+
+	&__password {
+		position: relative;
+	}
+	
+	&__icon {
+		position: absolute;
+		right: 15px;
+		top: 8px;
+		cursor: pointer;
+		font-size: 28px;
+	}
+
+    &.open {
+        z-index: 10;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        .window-authorization__body {
+            transform: translateY(60px);
+            margin: 0 auto;
+            width: 100%;
+
+			@media (any-hover: hover) {
+				transform: translateY(0);
+			}
+        }
+    }
+
+    &.hide {
+        z-index: 10;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    &__body {
+        z-index: 11;
+        transform: translateY(-1500px);
+        transition: transform 1s ease 0s;
+        background: #fff;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+		@media (max-width: $mobileSmall) {
+			max-width: none;
+		}
+    }
+
+    &__top {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+	&__titles {
+        display: flex;
+		justify-content: space-between;
+		width: 250px;
+		margin: 0 auto;
+    }
+
+    &__title {
+        font-size: 24px;
+		font-weight: 600;
+		cursor: pointer;
+
+		&_active {
+			border-bottom: 2px solid $mainColor;
+		}
+    }
+
+    &__clear {
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    &__rating {
+        padding: 20px 0 20px 0;
+    }
+
+	&__form {
+		display: flex;
+		flex-direction: column;
+		width: 350px;
+		margin: 30px auto 0 auto;
+		display: none;
+
+		&_active {
+			display: flex;
+		}
+
+		@media (max-width: $mobileSmall) {
+			width: 100%;
+		}
+	}
+
+	&__question {
+		font-size: 16px;
+		margin: 0 0 20px 0;
+		cursor: pointer;
+	}
+}
+@import "base/null";
+@import "header";

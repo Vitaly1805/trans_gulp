@@ -1,22 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+	<div class="wrap">
 	 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<link rel="stylesheet" href="css/style.min.css">
 	<title>Главная</title>
 </head>
 	<body>
 		<header class="header">
     <div class="header__body _container">
-        
+        <img class="header__logo" src="img/logo.png" alt="">
+        <div class="header__icons">
+            <div class="header__icon">
+                <span class="icon-user"></span>
+                <span class="header__subtitle">
+                    Войти
+                </span>
+            </div>
+        </div>
     </div>
 </header>
-		<main>
-
+		<main class="content">
+			<div class="content__body _container">
+				<p class="content__text content__purpose">
+					Данный сайт предназначен для сотрудников компании "Транснефть"
+				</p>
+				<div class="content__form content__auth-reg">
+					<div class="input button block-button content__button-auth">Войти</div>
+					<div class="input button block-button content__button-reg">Регистрация</div>
+				</div>
+			</div>
+			<div class="window-authorization">
+				<div class="window-authorization__body">
+					<div class="window-authorization__top">
+						<div class="window-authorization__clear">
+							<span class="icon-clear"></span>
+						</div>
+					</div>
+					<div class="window-authorization__titles">
+						<div class="window-authorization__title window-authorization__title-in  window-authorization__title_active">
+							Войти
+						</div>
+						<div class="window-authorization__title window-authorization__title-reg">
+							Регистрация
+						</div>	
+					</div>
+					<div class="window-authorization__form window-authorization__form-in window-authorization__form_active">
+						<input type="text" class="input" placeholder="Email">
+						<div class="window-authorization__password">
+							<input type="password" class="input input-password" placeholder="Пароль">
+							<span class="window-authorization__icon icon-password"></span>
+						</div>
+						<div class="window-authorization__question">Забыли пароль?</div>
+						<input type="submit" class="input button" value="Войти">
+					</div>
+						<div class="window-authorization__form window-authorization__form-reg">
+						<input type="text" class="input" placeholder="Имя">
+						<input type="text" class="input" placeholder="Фамилия">
+						<input type="text" class="input" placeholder="Отчество">
+						<input type="text" class="input" placeholder="Отдел">
+						<input type="text" class="input" placeholder="Должность">
+						<input type="text" class="input" placeholder="Email">
+						<div class="window-authorization__password">
+							<input type="password" class="input input-password" placeholder="Пароль">
+							<span class="window-authorization__icon icon-password"></span>
+						</div>
+						<div class="window-authorization__password">
+							<input type="password" class="input input-password" placeholder="Подтвердите пароль">
+							<span class="window-authorization__icon icon-password"></span>
+						</div>
+						<input type="submit" class="input button" value="Регистрация">
+					</div>
+				</div>
+			</div>
 		</main>
 		<footer></footer>
+	</div>
 		<script src="js/app.min.js"></script>
 	</body>
 </html>
