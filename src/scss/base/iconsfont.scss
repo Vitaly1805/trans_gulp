@@ -25,6 +25,18 @@
     -moz-osx-font-smoothing: grayscale;
   }
   
+  .icon-instagram-second:before {
+    content: "\e92e";
+  }
+  .icon-viber:before {
+    content: "\e92f";
+  }
+  .icon-telegram:before {
+    content: "\e930";
+  }
+  .icon-youtube:before {
+    content: "\e931";
+  }
   .icon-password-hidden:before {
     content: "\e92c";
   }
