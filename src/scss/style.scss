@@ -62,6 +62,34 @@ body {
 	background: #cbedfa;
 	background: linear-gradient(135deg, rgb(219, 243, 252), rgb(158, 209, 229));
 
+	&__button-checkout {
+		background: #fff;
+		color: $mainColor;
+		font-size: 20px;
+		font-weight: 600;
+		padding: 15px 0;
+		width: 200px;
+		border: 1px solid $mainColor;
+		cursor: pointer;
+		transition: all 0.5s ease 0;
+
+		&_active {
+			background-color: #EFF5FB;
+		}
+
+		&:hover {
+			background-color: #EFF5FB;
+			transition: all 0.5s ease 0;
+		}
+	}
+
+	&__buttons {
+		display: flex;
+		justify-content: space-between;
+		width: 400px;
+		padding: 40px 0;
+	}
+
 	&__title {
 		font-size: 22px;
 		font-weight: 600;
@@ -110,6 +138,50 @@ body {
 			width: 100%;
 		}
 	}
+
+	&__table-func {
+		display: flex;
+		justify-content: space-between;
+	}
+}
+
+.func-content {
+	&__block {
+		display: flex;
+		flex-direction: column;
+		margin: 65px 0 0 0;
+		position: sticky;
+		top: 20px;
+	}
+}
+
+.button-content {
+	width: 200px;
+	min-width: 200px;
+	text-align: center;
+}
+
+.filter-content {
+	display: flex;
+
+	&__search {
+		position: relative;
+		margin: 0 0 0 20px;
+		height: 46px;
+		width: 700px;
+	}
+}
+
+.icon-search {
+	position: absolute;
+	top: 10px;
+	font-size: 25px;
+	right: 7px;
+	cursor: pointer;
+}
+
+.button-permission {
+	width: 270px;
 }
 
 ._container {
@@ -316,5 +388,6 @@ body {
 
 @import "base/null";
 @import "select_box";
+@import "permission";
 @import "header";
 @import "footer";

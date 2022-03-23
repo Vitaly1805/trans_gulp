@@ -1004,6 +1004,30 @@ body span {
   background: #cbedfa;
   background: linear-gradient(135deg, #dbf3fc, #9ed1e5);
 }
+.content__button-checkout {
+  background: #fff;
+  color: #00599b;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 15px 0;
+  width: 200px;
+  border: 1px solid #00599b;
+  cursor: pointer;
+  transition: all 0.5s ease 0;
+}
+.content__button-checkout_active {
+  background-color: #EFF5FB;
+}
+.content__button-checkout:hover {
+  background-color: #EFF5FB;
+  transition: all 0.5s ease 0;
+}
+.content__buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+  padding: 40px 0;
+}
 .content__title {
   font-size: 22px;
   font-weight: 600;
@@ -1046,6 +1070,46 @@ body span {
   .content__button-auth, .content__button-reg {
     width: 100%;
   }
+}
+.content__table-func {
+  display: flex;
+  justify-content: space-between;
+}
+
+.func-content__block {
+  display: flex;
+  flex-direction: column;
+  margin: 65px 0 0 0;
+  position: sticky;
+  top: 20px;
+}
+
+.button-content {
+  width: 200px;
+  min-width: 200px;
+  text-align: center;
+}
+
+.filter-content {
+  display: flex;
+}
+.filter-content__search {
+  position: relative;
+  margin: 0 0 0 20px;
+  height: 46px;
+  width: 700px;
+}
+
+.icon-search {
+  position: absolute;
+  top: 10px;
+  font-size: 25px;
+  right: 7px;
+  cursor: pointer;
+}
+
+.button-permission {
+  width: 270px;
 }
 
 ._container {
@@ -1366,6 +1430,40 @@ h6 {
 
 .select-hide {
   display: none;
+}
+
+.table-content {
+  margin: 0 0 20px 0;
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+}
+.table-content__row {
+  display: flex;
+  justify-content: space-between;
+}
+.table-content__row_head {
+  padding: 10px 0;
+  background: #00599b;
+  color: #fff;
+}
+.table-content__row:hover input {
+  background: #CEE3F6;
+  transition: background-color 1s ease;
+}
+.table-content__col {
+  text-align: center;
+  width: 100%;
+}
+.table-content__col input {
+  cursor: pointer;
+  transition: background-color 1s ease;
+  background: #fff;
+  padding: 10px 0;
+  text-align: center;
+  width: 100%;
+  outline: none;
+  border: 1px solid #00599b;
 }
 
 .header {

@@ -1,7 +1,7 @@
 import { isMobile } from "./functions.js";
 
 //Модальное окно регистрации о сайте
-if(document.querySelector('.icon_reg_auth')) {
+if(document.querySelector('.window')) {
     const SPEED_ANIMATE = 500;
     const modal = document.querySelector('.window-authorization');
     const closeModal = document.querySelector('.window-authorization__clear');
@@ -250,43 +250,55 @@ if(document.querySelector('.window-authorization__form-reg')) {
 
 
 //Оповещение об успешной подачи заявки на регистрацию
-if(document.querySelector('.content__ad').value) {
-    const SPEED_ANIMATE = 500;
-    const modal = document.querySelector('.window-ad');
-    const closeModal = document.querySelector('.window-ad__clear');
-    const button = document.querySelector('.window-ad__button');
 
-    modal.classList.add('open');
-
-    closeModal.addEventListener('click', () => {
-        modal.classList.remove('open');
-        modal.classList.add('hide');
-
-        setTimeout(() => {
-            modal.classList.remove('hide');
-        }, SPEED_ANIMATE);
-    });
-
-    button.addEventListener('click', () => {
-        modal.classList.remove('open');
-        modal.classList.add('hide');
-
-        setTimeout(() => {
-            modal.classList.remove('hide');
-        }, SPEED_ANIMATE);
-    });
-
-
-    addEventListener('keydown', (e) => {
-        if(e.key === 'Escape') {
-            if(modal.classList.contains('open')) {
-                modal.classList.remove('open'); 
-                modal.classList.add('hide');
-            }
-
+if(document.querySelector('.content__ad')) {
+    if(document.querySelector('.content__ad').value) {
+        const SPEED_ANIMATE = 500;
+        const modal = document.querySelector('.window-ad');
+        const closeModal = document.querySelector('.window-ad__clear');
+        const button = document.querySelector('.window-ad__button');
+    
+        modal.classList.add('open');
+    
+        closeModal.addEventListener('click', () => {
+            modal.classList.remove('open');
+            modal.classList.add('hide');
+    
             setTimeout(() => {
                 modal.classList.remove('hide');
             }, SPEED_ANIMATE);
-        }
-    });
+        });
+    
+        button.addEventListener('click', () => {
+            modal.classList.remove('open');
+            modal.classList.add('hide');
+    
+            setTimeout(() => {
+                modal.classList.remove('hide');
+            }, SPEED_ANIMATE);
+        });
+    
+    
+        addEventListener('keydown', (e) => {
+            if(e.key === 'Escape') {
+                if(modal.classList.contains('open')) {
+                    modal.classList.remove('open'); 
+                    modal.classList.add('hide');
+                }
+    
+                setTimeout(() => {
+                    modal.classList.remove('hide');
+                }, SPEED_ANIMATE);
+            }
+        });
+    }
+}
+
+if(document.querySelector('.icon-search')) {
+    let iconSearch = document.querySelector('.icon-search');
+    let formSearch = document.querySelector('.filter-content__search');
+
+    iconSearch.addEventListener('click', () => {
+        formSearch.submit();
+    })
 }
