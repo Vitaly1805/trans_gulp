@@ -320,9 +320,9 @@ if(document.querySelector('.filter')) {
 }
 
 //Фиксирование данных строки таблицы
-if(document.querySelector('.table-content__row')) {
-    let rowsTable = document.querySelectorAll('.table-content__row');
-    let colsTable = document.querySelectorAll('.table-col');
+if(document.querySelector('.filter')) {
+    let rowsTable = document.querySelectorAll('.table-permission__row');
+    let colsTable = document.querySelectorAll('.table-permission__col');
     let activeRowTable = 'table-content__row_active';
 
     colsTable.forEach((e) => {

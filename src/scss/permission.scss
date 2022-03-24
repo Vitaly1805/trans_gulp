@@ -1,39 +1,7 @@
-.table-content {
-    margin: 0 0 20px 0;
-    display: flex;
-    flex-direction: column;
-    font-size: 18px;
-
-    &__col {
-        text-align: center;
-        width: 100%;
-
+.table-permission {
+    &__row {
         input { 
             cursor: pointer;
-            transition: background-color 1s ease;
-            background: #fff;
-            padding: 10px 0;
-            text-align: center;
-            width: 100%;
-            outline: none;
-            border: 1px solid $mainColor;
-        }
-    }
-
-    &__row {
-        display: flex;
-        justify-content: space-between;
-
-        &_head {
-            padding: 10px 0;
-            background: $mainColor;
-            color: #fff;
-        }
-
-        &_active {
-            input {
-                background: #A9BCF5;
-            }
         }
 
         &:hover {

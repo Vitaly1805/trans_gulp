@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	@@include('html/head.html',{
+	"title":"Главная"
+	})
+	<body>
+		<div class="wrap">
+		@@include('html/header.html',{})
+		<main class="content">
+			<div class="content__body _container">
+                <div class="navigation-chain">
+                    <div class="navigation-chain__item"><a href="permission.html">Разрешения / </a></div>
+                    <div class="navigation-chain__item"><a href="permission_add.html">Добавление разрешения /</a></div>
+                    <div class="navigation-chain__item navigation-chain__item_active">Даты работ</div>
+                </div>
+                <div class="content__table">
+					<form method="post" class="content__table table-content table-dates">
+						<div class="table-content__row table-content__row_head">
+							<div class="table-content__col table-content__head">Дата</div>
+							<div class="table-content__col table-content__head">Время начала</div>
+							<div class="table-content__col table-content__head">Время окончания</div>
+						</div>
+						<div class="table-content__row">
+							<div class="table-content__col table-col">
+								<input type="text" name="cell-1.1" value="Ячейка 1">
+							</div>
+							<div class="table-content__col table-col">
+								<input type="text" name="cell-2.1" value="Ячейка 2">
+							</div>
+							<div class="table-content__col table-col">
+								<input type="text" name="cell-3.1" value="Ячейка 3">
+							</div>
+						</div>
+					</form>
+					<div class="content__func func-content sticky">
+                        <div class="input button button-content button-add-row">
+                            Добавить
+                        </div>
+                        <div class="input button button-content">
+                            Сохранить
+                        </div>
+					</div>
+				</div>
+			</div>
+		</main>
+		@@include('html/footer.html',{})
+		</div>
+		<script src="js/app.min.js"></script>
+	</body>
+</html>
