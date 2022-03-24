@@ -354,3 +354,87 @@ if(document.querySelector('.button-send-types-work')) {
         formTypesWork.submit();
     });
 }
+
+//Вставка новой строки в таблицу
+if(document.querySelector('.button-add-row')) {
+    let button = document.querySelector('.button-add-row');
+    let table = document.querySelector('.table-content');
+    let countCols = document.querySelector('.table-content__row_head').children.length;
+    let heads = document.querySelectorAll('.table-content__head');
+    let names = getAttributeName(heads);
+
+     button.addEventListener('click', () => {
+        let countRows = document.querySelectorAll('.table-content__row').length;
+
+        addRow(countRows);   
+    })
+
+    function getAttributeName(tags) {
+        let result = [];
+
+        tags.forEach(e => {
+            result.push(e.getAttribute('name')); 
+        });
+
+        return result;
+    }
+
+    function getRow() {
+        let row = document.createElement('div');
+        row.classList.add('table-content__row');
+
+        return row;
+    }
+
+    function getCols() {
+        let result = [];
+
+        for(let i = 0; i < countCols; i++) {
+            let col = document.createElement('div');
+            col.classList.add('table-content__col');
+            col.classList.add('table-col');
+            result.push(col)
+        }
+
+        return result
+    }
+
+    function getInputs(countRows) {
+        let result = [];
+
+        for(let i = 0; i < countCols; i++) {
+            let input = document.createElement('input');
+            let name = names[i] + '-' + countRows;
+            input.classList.add('table-col__input');
+            input.setAttribute('name', name);
+            result.push(input)
+        }
+
+        return result
+    }
+
+    function addColsIntoRow(row, cols) {
+        for(let i = 0; i < cols.length; i++) {
+            row.appendChild(cols[i]);
+        }
+    }
+
+    function addInputsIntoCols(cols, inputs) {
+        for(let i = 0; i < cols.length; i++) {
+            cols[i].appendChild(inputs[i]);
+        }
+    }
+
+    function addRow(countRows) {
+        let row = getRow();
+        let cols = getCols();
+        let inputs = getInputs(countRows);
+       
+        addColsIntoRow(row, cols);
+        addInputsIntoCols(cols, inputs);
+
+        table.appendChild(row);
+}
+}
+
+
