@@ -320,7 +320,7 @@ if(document.querySelector('.filter')) {
 }
 
 //Фиксирование данных строки таблицы
-if(document.querySelector('.filter')) {
+if(document.querySelector('.table-permission__row')) {
     let rowsTable = document.querySelectorAll('.table-permission__row');
     let colsTable = document.querySelectorAll('.table-permission__col');
     let activeRowTable = 'table-content__row_active';
@@ -357,13 +357,13 @@ if(document.querySelector('.button-send-types-work')) {
 
 //Вставка новой строки в таблицу
 if(document.querySelector('.button-add-row')) {
-    let button = document.querySelector('.button-add-row');
+    let buttonAdd = document.querySelector('.button-add-row');
     let table = document.querySelector('.table-content');
     let countCols = document.querySelector('.table-content__row_head').children.length;
     let heads = document.querySelectorAll('.table-content__head');
     let names = getAttributeName(heads);
 
-     button.addEventListener('click', () => {
+    buttonAdd.addEventListener('click', () => {
         let countRows = document.querySelectorAll('.table-content__row').length;
 
         addRow(countRows);   
@@ -382,6 +382,7 @@ if(document.querySelector('.button-add-row')) {
     function getRow() {
         let row = document.createElement('div');
         row.classList.add('table-content__row');
+        row.classList.add('table-row');
 
         return row;
     }
@@ -434,7 +435,38 @@ if(document.querySelector('.button-add-row')) {
         addInputsIntoCols(cols, inputs);
 
         table.appendChild(row);
+        fixRow();
+    }
+
+//Фиксирование строки 
+let delRow;
+fixRow();
+
+function fixRow() {
+    let rowsTable = document.querySelectorAll('.table-row');
+    let activeRowTable = 'table-content__row_active';
+    
+    rowsTable.forEach((e) => {
+        e.addEventListener('click', () => {
+            rowsTable.forEach((e) => {
+                e.classList.remove(activeRowTable);  
+            });
+
+            e.classList.add(activeRowTable);  
+            delRow = e;   
+       });
+    });
+
 }
+
+//Удаление строки
+let delButton = document.querySelector('.button-del-row');
+
+delButton.addEventListener('click', () => {
+    if(delRow) {
+        delRow.remove();
+    }
+});
 }
 
 

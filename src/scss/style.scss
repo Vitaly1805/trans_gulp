@@ -483,6 +483,13 @@ body {
         display: flex;
         justify-content: space-between;
 
+		&:hover {
+            input {
+                background: #A9BCF5;
+                transition: background-color 1s ease;
+            }
+        }
+
         &_head {
             padding: 10px 0;
             background: $mainColor;

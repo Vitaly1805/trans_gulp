@@ -1375,6 +1375,10 @@ body span {
   display: flex;
   justify-content: space-between;
 }
+.table-content__row:hover input {
+  background: #A9BCF5;
+  transition: background-color 1s ease;
+}
 .table-content__row_head {
   padding: 10px 0;
   background: #00599b;
