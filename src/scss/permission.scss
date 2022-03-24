@@ -4,24 +4,6 @@
     flex-direction: column;
     font-size: 18px;
 
-    &__row {
-        display: flex;
-        justify-content: space-between;
-
-        &_head {
-            padding: 10px 0;
-            background: $mainColor;
-            color: #fff;
-        }
-
-        &:hover {
-            input {
-                background: #CEE3F6;
-                transition: background-color 1s ease;
-            }
-        }
-    }
-
     &__col {
         text-align: center;
         width: 100%;
@@ -35,6 +17,30 @@
             width: 100%;
             outline: none;
             border: 1px solid $mainColor;
+        }
+    }
+
+    &__row {
+        display: flex;
+        justify-content: space-between;
+
+        &_head {
+            padding: 10px 0;
+            background: $mainColor;
+            color: #fff;
+        }
+
+        &_active {
+            input {
+                background: #A9BCF5;
+            }
+        }
+
+        &:hover {
+            input {
+                background: #A9BCF5;
+                transition: background-color 1s ease;
+            }
         }
     }
 }

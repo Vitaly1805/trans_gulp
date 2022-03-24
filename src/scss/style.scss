@@ -143,6 +143,11 @@ body {
 		display: flex;
 		justify-content: space-between;
 	}
+
+	&__types-work {
+		display: flex;
+		justify-content: space-between;
+	}
 }
 
 .func-content {
@@ -163,12 +168,64 @@ body {
 
 .filter-content {
 	display: flex;
+	flex-direction: column;
+
+	&__block {
+		display: flex;
+	}
 
 	&__search {
 		position: relative;
 		margin: 0 0 0 20px;
 		height: 46px;
 		width: 700px;
+	}
+
+	&__list {
+		background: #fff;
+		border-radius: 5px;
+		margin: 0 0 20px 0;
+		width: 100%;
+		padding: 20px 100px;
+	}
+
+	&__date {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__item {
+		input {
+			outline: none;
+			color: $mainColor;
+		}
+	}
+
+	&__span {
+		display: inline-block;
+		padding: 10px 0;
+		width: 150px;
+		font-size: 18px;
+	}
+
+	&__buttons {
+		display: flex;
+		justify-content: end;
+		margin: 20px 0;
+	}
+
+	&__button {
+		width: 200px;
+		color: #fff !important;
+		margin: 0 0 0 40px;
+	}
+}
+
+.filter-block {
+	display: none;
+
+	&_active {
+		display: block;
 	}
 }
 
@@ -381,6 +438,20 @@ body {
 	}
 }
 
+.navigation-chain {
+	padding: 20px 0;
+	display: flex;
+
+	&__item {
+		font-size: 20px;
+		margin: 0 7px 0 0;
+
+		&_active {
+			text-decoration: underline;
+		}
+	}
+}
+
 .error {
 	font-size: 16px;
 	margin: 0 auto;
@@ -389,5 +460,7 @@ body {
 @import "base/null";
 @import "select_box";
 @import "permission";
+@import "permission_add";
+@import "type_work";
 @import "header";
 @import "footer";

@@ -294,11 +294,63 @@ if(document.querySelector('.content__ad')) {
     }
 }
 
+//Отправка формы при нажатии на иконку поиска
 if(document.querySelector('.icon-search')) {
     let iconSearch = document.querySelector('.icon-search');
     let formSearch = document.querySelector('.filter-content__search');
 
     iconSearch.addEventListener('click', () => {
         formSearch.submit();
-    })
+    });
+}
+
+//Открытие формы фильтрации при нажатии на соответсвующую кнопку
+if(document.querySelector('.filter')) {
+    let submitFilter = document.querySelector('.filter');
+    let blockFilter = document.querySelector('.filter-block');
+    let closeFilter = document.querySelector('.close-filter');
+
+    submitFilter.addEventListener('click', () => {
+        blockFilter.classList.toggle('filter-block_active');
+    });
+
+    closeFilter.addEventListener('click', () => {
+        blockFilter.classList.toggle('filter-block_active');
+    });
+}
+
+//Фиксирование данных строки таблицы
+if(document.querySelector('.table-content__row')) {
+    let rowsTable = document.querySelectorAll('.table-content__row');
+    let colsTable = document.querySelectorAll('.table-col');
+    let activeRowTable = 'table-content__row_active';
+
+    colsTable.forEach((e) => {
+        e.addEventListener('click', () => {
+            let idPermission = e.parentElement.lastElementChild.value;
+            let inputsProcess = document.querySelectorAll('.row-id-process');
+
+            if(document.querySelector('.table-content__row_active')) {
+                rowsTable.forEach((e) => {
+                    e.classList.remove(activeRowTable);
+                });
+            }
+
+            inputsProcess.forEach((e) => {
+                e.value = idPermission;
+            });
+
+            e.parentElement.classList.add(activeRowTable);
+        });
+    });
+}
+
+//Отправка типов работ 
+if(document.querySelector('.button-send-types-work')) {
+    let buttonSendTypesWork = document.querySelector('.button-send-types-work');
+    let formTypesWork = document.querySelector('.content__types-work');
+
+    buttonSendTypesWork.addEventListener('click', () => {
+        formTypesWork.submit();
+    });
 }
