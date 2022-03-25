@@ -86,46 +86,48 @@ if(document.querySelector('.window')) {
 
 //Скрытие пароля
 if(document.querySelector('.window-authorization__icon')) {
-    let blockPass = document.querySelectorAll('.window-authorization__password');
-
-    blockPass.forEach( (pass, index) =>  {
-        let icon = pass.lastElementChild;
+    if(document.querySelector('.window-authorization__icon')) {
+        let blockPass = document.querySelectorAll('.window-authorization__password');
+    
+        blockPass.forEach( (pass, index) =>  {
+            let icon = pass.lastElementChild;
+            
+            icon.addEventListener('click', () => {
+                let inputPassword = document.querySelectorAll('.input-password')[index];
+    
+                if (inputPassword.getAttribute('type') == 'password') {
+                    icon.classList.remove('icon-password');
+                    icon.classList.add('icon-password-hidden');
+                    inputPassword.setAttribute('type', 'text');
+                } else {
+                    icon.classList.remove('icon-password-hidden');
+                    icon.classList.add('icon-password');
+                    inputPassword.setAttribute('type', 'password');
+                }
+            });
+        });
+    }
+    
+    if(document.querySelectorAll('input').length > 0) {
+        let inputs = []; 
+    
+        document.querySelectorAll('input').forEach(e => {
+            inputs.push(e);
+        });
         
-        icon.addEventListener('click', () => {
-            let inputPassword = document.querySelectorAll('.input-password')[index];
-
-            if (inputPassword.getAttribute('type') == 'password') {
-                icon.classList.remove('icon-password');
-                icon.classList.add('icon-password-hidden');
-                inputPassword.setAttribute('type', 'text');
-            } else {
-                icon.classList.remove('icon-password-hidden');
-                icon.classList.add('icon-password');
-                inputPassword.setAttribute('type', 'password');
+        inputs = inputs.filter(e => e.type !== "submit");
+        
+        inputs.forEach(e => {
+            if(e.value === '') {
+                e.classList.add('valid');
             }
+        
+            e.addEventListener('input', () => {
+                e.classList.remove('valid');
+            });
         });
-    });
-}
-
-if(document.querySelectorAll('input').length > 0) {
-    let inputs = []; 
-
-    document.querySelectorAll('input').forEach(e => {
-        inputs.push(e);
-    });
-    
-    inputs = inputs.filter(e => e.type !== "submit");
-    
-    inputs.forEach(e => {
-        if(e.value === '') {
-            e.classList.add('valid');
-        }
-    
-        e.addEventListener('input', () => {
-            e.classList.remove('valid');
-        });
-    });
-    
+        
+    }
 }
 
 //Выбор поля
@@ -319,31 +321,31 @@ if(document.querySelector('.filter')) {
     });
 }
 
-//Фиксирование данных строки таблицы
-if(document.querySelector('.table-permission__row')) {
-    let rowsTable = document.querySelectorAll('.table-permission__row');
-    let colsTable = document.querySelectorAll('.table-permission__col');
-    let activeRowTable = 'table-content__row_active';
+// //Фиксирование данных строки таблицы
+// if(document.querySelector('.table-permission__row')) {
+//     let rowsTable = document.querySelectorAll('.table-permission__row');
+//     let colsTable = document.querySelectorAll('.table-permission__col');
+//     let activeRowTable = 'table-content__row_active';
 
-    colsTable.forEach((e) => {
-        e.addEventListener('click', () => {
-            let idPermission = e.parentElement.lastElementChild.value;
-            let inputsProcess = document.querySelectorAll('.row-id-process');
+//     colsTable.forEach((e) => {
+//         e.addEventListener('click', () => {
+//             let idPermission = e.parentElement.lastElementChild.value;
+//             let inputsProcess = document.querySelectorAll('.row-id-process');
 
-            if(document.querySelector('.table-content__row_active')) {
-                rowsTable.forEach((e) => {
-                    e.classList.remove(activeRowTable);
-                });
-            }
+//             if(document.querySelector('.table-content__row_active')) {
+//                 rowsTable.forEach((e) => {
+//                     e.classList.remove(activeRowTable);
+//                 });
+//             }
 
-            inputsProcess.forEach((e) => {
-                e.value = idPermission;
-            });
+//             inputsProcess.forEach((e) => {
+//                 e.value = idPermission;
+//             });
 
-            e.parentElement.classList.add(activeRowTable);
-        });
-    });
-}
+//             e.parentElement.classList.add(activeRowTable);
+//         });
+//     });
+// }
 
 //Отправка типов работ 
 if(document.querySelector('.button-send-types-work')) {
@@ -355,118 +357,210 @@ if(document.querySelector('.button-send-types-work')) {
     });
 }
 
-//Вставка новой строки в таблицу
-if(document.querySelector('.button-add-row')) {
-    let buttonAdd = document.querySelector('.button-add-row');
-    let table = document.querySelector('.table-content');
-    let countCols = document.querySelector('.table-content__row_head').children.length;
-    let heads = document.querySelectorAll('.table-content__head');
-    let names = getAttributeName(heads);
+// //Вставка новой строки в таблицу
+// if(document.querySelector('.button-add-row')) {
+//     let buttonAdd = document.querySelector('.button-add-row');
+//     let table = document.querySelector('.table-content');
+//     let countCols = document.querySelector('.table-content__row_head').children.length;
+//     let heads = document.querySelectorAll('.table-content__head');
+//     let names = getAttributeName(heads);
 
-    buttonAdd.addEventListener('click', () => {
-        let countRows = document.querySelectorAll('.table-content__row').length;
+//     buttonAdd.addEventListener('click', () => {
+//         let countRows = document.querySelectorAll('.table-content__row').length;
 
-        addRow(countRows);   
-    })
+//         addRow(countRows);   
+//     })
 
-    function getAttributeName(tags) {
-        let result = [];
+//     function getAttributeName(tags) {
+//         let result = [];
 
-        tags.forEach(e => {
-            result.push(e.getAttribute('name')); 
-        });
+//         tags.forEach(e => {
+//             result.push(e.getAttribute('name')); 
+//         });
 
-        return result;
-    }
+//         return result;
+//     }
 
-    function getRow() {
-        let row = document.createElement('div');
-        row.classList.add('table-content__row');
-        row.classList.add('table-row');
+//     function getRow() {
+//         let row = document.createElement('div');
+//         row.classList.add('table-content__row');
+//         row.classList.add('table-row');
 
-        return row;
-    }
+//         return row;
+//     }
 
-    function getCols() {
-        let result = [];
+//     function getCols() {
+//         let result = [];
 
-        for(let i = 0; i < countCols; i++) {
-            let col = document.createElement('div');
-            col.classList.add('table-content__col');
-            col.classList.add('table-col');
-            result.push(col)
-        }
+//         for(let i = 0; i < countCols; i++) {
+//             let col = document.createElement('div');
+//             col.classList.add('table-content__col');
+//             col.classList.add('table-col');
+//             result.push(col)
+//         }
 
-        return result
-    }
+//         return result
+//     }
 
-    function getInputs(countRows) {
-        let result = [];
+//     function setMask(input, names, i) {
+//         if(names[i] === 'date') {
+//             input.classList.add('date-mask');
+//         }
 
-        for(let i = 0; i < countCols; i++) {
-            let input = document.createElement('input');
-            let name = names[i] + '-' + countRows;
-            input.classList.add('table-col__input');
-            input.setAttribute('name', name);
-            result.push(input)
-        }
+//         if(names[i] === 'time-from') {
+//             input.classList.add('time-mask');
+//         }
 
-        return result
-    }
+//         if(names[i] === 'time-to') {
+//             input.classList.add('time-mask');
+//         }
+//     }
 
-    function addColsIntoRow(row, cols) {
-        for(let i = 0; i < cols.length; i++) {
-            row.appendChild(cols[i]);
-        }
-    }
+//     function getInputs(countRows) {
+//         let result = [];
 
-    function addInputsIntoCols(cols, inputs) {
-        for(let i = 0; i < cols.length; i++) {
-            cols[i].appendChild(inputs[i]);
-        }
-    }
+//         for(let i = 0; i < countCols; i++) {
+//             let input = document.createElement('input');
+//             let name = names[i] + '-' + countRows;
+//             input.classList.add('table-col__input');
+//             input.setAttribute('name', name);
 
-    function addRow(countRows) {
-        let row = getRow();
-        let cols = getCols();
-        let inputs = getInputs(countRows);
+//             setMask(input, names, i);
+
+//             result.push(input);
+//         }
+
+//         return result
+//     }
+
+//     function addColsIntoRow(row, cols) {
+//         for(let i = 0; i < cols.length; i++) {
+//             row.appendChild(cols[i]);
+//         }
+//     }
+
+//     function addInputsIntoCols(cols, inputs) {
+//         for(let i = 0; i < cols.length; i++) {
+//             cols[i].appendChild(inputs[i]);
+//         }
+//     }
+
+//     function addRow(countRows) {
+//         let row = getRow();
+//         let cols = getCols();
+//         let inputs = getInputs(countRows);
        
-        addColsIntoRow(row, cols);
-        addInputsIntoCols(cols, inputs);
+//         addColsIntoRow(row, cols);
+//         addInputsIntoCols(cols, inputs);
 
-        table.appendChild(row);
-        fixRow();
-    }
+//         table.appendChild(row);
+//         fixRow();
 
-//Фиксирование строки 
-let delRow;
-fixRow();
+//         if(document.querySelector('.date-mask')) {
+//             setMaskDate();
+//         }
 
-function fixRow() {
-    let rowsTable = document.querySelectorAll('.table-row');
-    let activeRowTable = 'table-content__row_active';
+//         if(document.querySelector('.time-mask')) {
+//             setMaskTime();
+//         }
+//     }
+
+// //Фиксирование строки 
+// let delRow;
+// fixRow();
+
+// function fixRow() {
+//     let rowsTable = document.querySelectorAll('.table-row');
+//     let activeRowTable = 'table-content__row_active';
     
-    rowsTable.forEach((e) => {
-        e.addEventListener('click', () => {
-            rowsTable.forEach((e) => {
-                e.classList.remove(activeRowTable);  
-            });
+//     rowsTable.forEach((e) => {
+//         e.addEventListener('click', () => {
+//             rowsTable.forEach((e) => {
+//                 e.classList.remove(activeRowTable);  
+//             });
 
-            e.classList.add(activeRowTable);  
-            delRow = e;   
-       });
-    });
+//             e.classList.add(activeRowTable);  
+//             delRow = e;   
+//        });
+//     });
 
-}
+// }
 
-//Удаление строки
-let delButton = document.querySelector('.button-del-row');
+// //Удаление строки
+// let delButton = document.querySelector('.button-del-row');
 
-delButton.addEventListener('click', () => {
-    if(delRow) {
-        delRow.remove();
-    }
-});
-}
+// delButton.addEventListener('click', () => {
+//     if(delRow) {
+//         delRow.remove();
+//     }
+// });
+
+// //Сохранение дат
+// let saveButton = document.querySelector('.save-dates');
+// let submitSaveDates = document.querySelector('.submit-save-dates');
+
+// saveButton.addEventListener('click', () => {
+//     let timeFrom = document.querySelectorAll('.time-mask')[0];
+//     let timeTo = document.querySelectorAll('.time-mask')[1];
+
+//     if(checkTimes(timeFrom, timeTo)) {
+//         submitSaveDates.click();
+//     }
+// });
+
+// function checkTimes(timeFrom, timeTo) {
+//     let reg = '^([0-1][0-9]|2[0-4]):[0-5][0-9]$';
+
+//     if(timeFrom.value.search(reg) + 1 && timeTo.value.search(reg) + 1) {
+//         let objDateFrom = new Date();
+//         let objDateTo = new Date();
+
+//         objDateFrom.setHours(timeFrom.value.slice(0,2));
+//         objDateFrom.setMinutes(timeFrom.value.slice(3,5));
+//         objDateTo.setHours(timeTo.value.slice(0,2));
+//         objDateTo.setMinutes(timeTo.value.slice(3,5));
+
+//         if(objDateFrom < objDateTo) {
+//             return true;
+//         }
+//     }
+
+//     return false;
+// }
+
+// //Маска даты
+// if(document.querySelector('.date-mask')) {
+//     setMaskDate();
+// }
+
+// function setMaskDate() {
+//     let dates = document.querySelectorAll('.date-mask');
+//     let dateOptions = {
+//         mask: '00.00.0000',
+//         lazy: false
+//     };
+
+//     dates.forEach(e => {
+//         new IMask(e, dateOptions);
+//     });
+// }
+
+// //Маска даты
+// if(document.querySelector('.time-mask')) {
+//     setMaskTime();
+// }
+
+// function setMaskTime() {
+//     let dates = document.querySelectorAll('.time-mask');
+//     let dateOptions = {
+//         mask: '00:00',
+//         lazy: false
+//     };
+
+//     dates.forEach(e => {
+//         new IMask(e, dateOptions);
+//     });
+// }
+// }
 
 

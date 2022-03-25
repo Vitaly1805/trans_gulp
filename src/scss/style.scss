@@ -25,6 +25,16 @@ body {
 	}
 }
 
+@keyframes error {
+	from {
+	  background: blue;
+	}
+  
+	to {
+		background: red;
+	}
+  }
+
 .input {
 	width: 100%;
 	font-size: 18px;
@@ -48,6 +58,11 @@ body {
 
 .valid {
 	border: 2px solid #D8D8D8 !important;
+}
+
+.error-animation{
+	animation-duration: 1s;
+    animation-name: error;
 }
 
 .wrap {
@@ -504,7 +519,9 @@ body {
     }
 }
 
-
+.test:invalid {
+	background: red;
+}
 .error {
 	font-size: 16px;
 	margin: 0 auto;

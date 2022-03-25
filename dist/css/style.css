@@ -974,6 +974,14 @@ body span {
   font-size: 30px;
 }
 
+@keyframes error {
+  from {
+    background: blue;
+  }
+  to {
+    background: red;
+  }
+}
 .input {
   width: 100%;
   font-size: 18px;
@@ -994,6 +1002,11 @@ body span {
 
 .valid {
   border: 2px solid #D8D8D8 !important;
+}
+
+.error-animation {
+  animation-duration: 1s;
+  animation-name: error;
 }
 
 .wrap {
@@ -1386,6 +1399,10 @@ body span {
 }
 .table-content__row_active input {
   background: #A9BCF5;
+}
+
+.test:invalid {
+  background: red;
 }
 
 .error {
