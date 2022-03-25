@@ -1,5 +1,5 @@
 import IMask from 'imask';
-   
+
 //Фиксирование данных строки таблицы
 if(document.querySelector('.table-permission__row')) {
     let rowsTable = document.querySelectorAll('.table-permission__row');
@@ -26,17 +26,15 @@ if(document.querySelector('.table-permission__row')) {
     });
 }
 
-
 //Вставка новой строки в таблицу
 if(document.querySelector('.button-add-row')) {
     let buttonAdd = document.querySelector('.button-add-row');
     let table = document.querySelector('.table-content');
     let countCols = document.querySelector('.table-content__row_head').children.length;
     let heads = document.querySelectorAll('.table-content__head');
+    let tableRow = document.querySelector('.table-row');
     let names = getAttributeName(heads);
-    let timePattern = '^([0-1][0-9]|2[0-4]):[0-5][0-9]$';
-    let datePattern = '^(?:(?:31(\.)(?:0?[13578]|1[02]))\\1|(?:(?:29|30)(\.)(?:0?[1,3-9]|1[0-2])\\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\.)0?2\\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\.)(?:(?:0?[1-9])|(?:1[0-2]))\\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$';
-
+    
     buttonAdd.addEventListener('click', () => {
         let countRows = document.querySelectorAll('.table-content__row').length;
 
@@ -51,27 +49,6 @@ if(document.querySelector('.button-add-row')) {
         });
 
         return result;
-    }
-
-    function getRow() {
-        let row = document.createElement('div');
-        row.classList.add('table-content__row');
-        row.classList.add('table-row');
-
-        return row;
-    }
-
-    function getCols() {
-        let result = [];
-
-        for(let i = 0; i < countCols; i++) {
-            let col = document.createElement('div');
-            col.classList.add('table-content__col');
-            col.classList.add('table-col');
-            result.push(col)
-        }
-
-        return result
     }
 
     function setMask(input, names, i) {
@@ -94,54 +71,12 @@ if(document.querySelector('.button-add-row')) {
         }
     }
 
-    function getInputs(countRows) {
-        let result = [];
-
-        for(let i = 0; i < countCols; i++) {
-            let input = document.createElement('input');
-            let name = names[i] + '-' + countRows;
-            input.classList.add('table-col__input');
-            input.setAttribute('name', name);
-            input.setAttribute('required', 'required');
-
-            setMask(input, names, i);
-
-            result.push(input);
-        }
-
-        return result
-    }
-
-    function addColsIntoRow(row, cols) {
-        for(let i = 0; i < cols.length; i++) {
-            row.appendChild(cols[i]);
-        }
-    }
-
-    function addInputsIntoCols(cols, inputs) {
-        for(let i = 0; i < cols.length; i++) {
-            cols[i].appendChild(inputs[i]);
-        }
-    }
-
     function addRow(countRows) {
-        let row = getRow();
-        let cols = getCols();
-        let inputs = getInputs(countRows);
-       
-        addColsIntoRow(row, cols);
-        addInputsIntoCols(cols, inputs);
+        let addRow = tableRow.cloneNode(true);
+        table.appendChild(addRow);
 
-        table.appendChild(row);
         fixRow();
-
-        if(document.querySelector('.date-mask')) {
-            setMaskDate();
-        }
-
-        if(document.querySelector('.time-mask')) {
-            setMaskTime();
-        }
+        setMasks();
     }
 
 //Фиксирование строки 
@@ -169,10 +104,21 @@ function fixRow() {
 let delButton = document.querySelector('.button-del-row');
 
 delButton.addEventListener('click', () => {
-    if(delRow) {
+    let countRows = document.querySelectorAll('.table-row').length;
+
+    if(countRows === 1 && delRow) {
+        cleanRow();
+        setMasks();
+    } else if(delRow) {
         delRow.remove();
     }
 });
+
+function cleanRow() {
+    for (let children of delRow.children) {
+        children.firstElementChild.value = '';
+    }
+}
 
 //Сохранение дат
 let saveButton = document.querySelector('.save-dates');
@@ -182,24 +128,10 @@ saveButton.addEventListener('click', () => {
     let timesFrom = document.querySelectorAll('.time-from');
     let timesTo = document.querySelectorAll('.time-to');
     let dates = document.querySelectorAll('.date');
-    //  !checkDate(dates)
     if(checkTimes(timesFrom, timesTo) ) {
         submitSaveDates.click();
     }
 });
-
-function checkDate(dates) {
-    let fl = true;
-    let reg = '^([0-1][0-9]|2[0-4]):[0-5][0-9]$';
-    console.log(dates.length)
-    dates.forEach(e => {
-        if(e.value.search(reg)) {
-            fl = false;
-        }
-    });
-
-    return fl;
-}
 
 //Проверка времени начала и окончания работ (нужно, чтобы время окончания было больше, чем время начала)
 function checkTimes(timesFrom, timesTo) {
@@ -222,7 +154,8 @@ function checkTimes(timesFrom, timesTo) {
                 timesFrom[i].classList.add('error-animation');
                 timesTo[i].classList.add('error-animation');
             }
-        } else {
+        } 
+        else {
             timesFrom[i].classList.add('error-animation');
             timesTo[i].classList.add('error-animation');
         }
@@ -241,11 +174,24 @@ function checkTimes(timesFrom, timesTo) {
     return fl;
 }
 
-//Маска даты
+//Функция установки масок
+function setMasks() {
+    if(document.querySelector('.date-mask')) {
+        setMaskDate();
+    }
+
+    if(document.querySelector('.time-mask')) {
+        setMaskTime();
+    }
+}
+}
+
+//Вызов функции установки маски даты
 if(document.querySelector('.date-mask')) {
     setMaskDate();
 }
 
+//Функция установки маски даты
 function setMaskDate() {
     let dates = document.querySelectorAll('.date-mask');
     let dateOptions = {
@@ -258,11 +204,13 @@ function setMaskDate() {
     });
 }
 
-//Маска даты
+
+//Вызов функции установки маски времени
 if(document.querySelector('.time-mask')) {
     setMaskTime();
 }
 
+//Функция установки маски времени
 function setMaskTime() {
     let dates = document.querySelectorAll('.time-mask');
     let dateOptions = {
@@ -274,6 +222,3 @@ function setMaskTime() {
         new IMask(e, dateOptions);
     });
 }
-}
-
-
