@@ -30,54 +30,69 @@ if(document.querySelector('.table-permission__row')) {
 if(document.querySelector('.button-add-row')) {
     let buttonAdd = document.querySelector('.button-add-row');
     let table = document.querySelector('.table-content');
-    let countCols = document.querySelector('.table-content__row_head').children.length;
-    let heads = document.querySelectorAll('.table-content__head');
-    let tableRow = document.querySelector('.table-row');
-    let names = getAttributeName(heads);
+    let namesCols = getNamesCols();
     
     buttonAdd.addEventListener('click', () => {
-        let countRows = document.querySelectorAll('.table-content__row').length;
-
-        addRow(countRows);   
+        addRow();   
     })
 
-    function getAttributeName(tags) {
-        let result = [];
+    //Функция добавления строки
+    function addRow() {
+        let tableRow = document.querySelector('.table-row');
+        let addRow = tableRow.cloneNode(true);
 
-        tags.forEach(e => {
-            result.push(e.getAttribute('name')); 
-        });
+        processRow(addRow);
+        fixRow();
+        setMasks();
+    }
+
+    function getNamesCols() {
+        let inputs = getInputs();
+        let result = [];
+        
+        for (let input of inputs) {
+            result.push(input.name.slice(0, -1));
+        }
 
         return result;
     }
 
-    function setMask(input, names, i) {
-        if(names[i] === 'date') {
-            input.classList.add('date-mask');
-            input.setAttribute('pattern', datePattern);
-            input.classList.add('date');
+    function getInputs() {
+        let row = document.querySelector('.table-row');
+        let result = [];
+
+        for (let child of row.children) {
+            result.push(child.firstElementChild);
         }
 
-        if(names[i] === 'time-from') {
-            input.classList.add('time-mask');
-            input.classList.add('time-from');
-            input.setAttribute('pattern', timePattern);
-        }
-
-        if(names[i] === 'time-to') {
-            input.classList.add('time-mask');
-            input.classList.add('time-to');
-            input.setAttribute('pattern', timePattern);
-        }
+        return result;
     }
 
-    function addRow(countRows) {
-        let addRow = tableRow.cloneNode(true);
-        table.appendChild(addRow);
+//Функция обработки добавляемой строки
+function processRow(addRow) {
+    let activeRowTable = 'table-content__row_active';
 
-        fixRow();
-        setMasks();
-    }
+    table.appendChild(addRow);
+    
+    if(addRow.classList.contains(activeRowTable)) {
+        addRow.classList.remove(activeRowTable); 
+    } 
+
+    setNamesRows(addRow);
+}
+
+function setNamesRows() {
+    let rows = document.querySelectorAll('.table-row');
+    let id = 1;
+
+    rows.forEach(e => {
+        for (let i = 0; i < e.children.length; i++) {
+            let name = namesCols[i] + id;
+            e.children[i].firstElementChild.name = name; 
+        }
+        id++;
+    });
+}
 
 //Фиксирование строки 
 let delRow;
@@ -111,7 +126,11 @@ delButton.addEventListener('click', () => {
         setMasks();
     } else if(delRow) {
         delRow.remove();
+    } else {
+        return;
     }
+
+    setNamesRows();
 });
 
 function cleanRow() {
@@ -127,7 +146,7 @@ let submitSaveDates = document.querySelector('.submit-save-dates');
 saveButton.addEventListener('click', () => {
     let timesFrom = document.querySelectorAll('.time-from');
     let timesTo = document.querySelectorAll('.time-to');
-    let dates = document.querySelectorAll('.date');
+
     if(checkTimes(timesFrom, timesTo) ) {
         submitSaveDates.click();
     }
@@ -136,7 +155,7 @@ saveButton.addEventListener('click', () => {
 //Проверка времени начала и окончания работ (нужно, чтобы время окончания было больше, чем время начала)
 function checkTimes(timesFrom, timesTo) {
     let reg = '^([0-1][0-9]|2[0-4]):[0-5][0-9]$';
-    let fl = false;
+    let fl = true;
 
     timesFrom.forEach((e,i) => {
         if(timesFrom[i].value.search(reg) + 1 && timesTo[i].value.search(reg) + 1) {
@@ -148,9 +167,8 @@ function checkTimes(timesFrom, timesTo) {
             objDateTo.setHours(timesTo[i].value.slice(0,2));
             objDateTo.setMinutes(timesTo[i].value.slice(3,5));
     
-            if(objDateFrom < objDateTo) {
-                fl = true;
-            } else {
+            if(objDateFrom >= objDateTo) {
+                fl = false;
                 timesFrom[i].classList.add('error-animation');
                 timesTo[i].classList.add('error-animation');
             }
@@ -158,6 +176,7 @@ function checkTimes(timesFrom, timesTo) {
         else {
             timesFrom[i].classList.add('error-animation');
             timesTo[i].classList.add('error-animation');
+            fl = false;
         }
 
         setTimeout(() => {
