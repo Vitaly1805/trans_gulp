@@ -163,6 +163,10 @@ body {
 		display: flex;
 		justify-content: space-between;
 	}
+
+	&__responsible {
+		margin: 20px 0;
+	}
 }
 
 .sticky {
@@ -173,10 +177,7 @@ body {
 .func-content {
 	&__block {
 		display: flex;
-		flex-direction: column;
-		margin: 65px 0 0 0;
-		position: sticky;
-		top: 20px;
+		justify-content: space-between;
 	}
 }
 
@@ -184,61 +185,6 @@ body {
 	width: 200px;
 	min-width: 200px;
 	text-align: center;
-}
-
-.filter-content {
-	display: flex;
-	flex-direction: column;
-
-	&__block {
-		display: flex;
-	}
-
-	&__search {
-		position: relative;
-		margin: 0 0 0 20px;
-		height: 46px;
-		width: 700px;
-	}
-
-	&__list {
-		background: #fff;
-		border-radius: 5px;
-		margin: 0 0 20px 0;
-		width: 100%;
-		padding: 20px 100px;
-	}
-
-	&__date {
-		display: flex;
-		justify-content: space-between;
-	}
-
-	&__item {
-		input {
-			outline: none;
-			color: $mainColor;
-		}
-	}
-
-	&__span {
-		display: inline-block;
-		padding: 10px 0;
-		width: 150px;
-		font-size: 18px;
-	}
-
-	&__buttons {
-		display: flex;
-		justify-content: end;
-		margin: 20px 0;
-	}
-
-	&__button {
-		width: 200px;
-		color: #fff !important;
-		margin: 0 0 0 40px;
-	}
 }
 
 .filter-block {
@@ -266,6 +212,11 @@ body {
 	margin: 0 auto;
 	padding: 0 15px;
 }
+
+._container-main {
+	padding: 0 15px;
+}
+
 
 .hidden {
 	opacity: 0;
@@ -480,8 +431,8 @@ body {
     font-size: 18px;
 
     &__col {
+		width: 100%;
         text-align: center;
-        width: 100%;
 
         input { 
             transition: background-color 1s ease;
@@ -493,6 +444,11 @@ body {
             border: 1px solid $mainColor;
         }
     }
+
+	&__head {
+		width: 100%;
+		padding: 10px 0;
+	}
 
     &__row {
         display: flex;
@@ -506,7 +462,6 @@ body {
         }
 
         &_head {
-            padding: 10px 0;
             background: $mainColor;
             color: #fff;
         }
@@ -519,12 +474,17 @@ body {
     }
 }
 
-.test:invalid {
-	background: red;
+
+.date-disabled {
+	pointer-events: none;
 }
 .error {
 	font-size: 16px;
 	margin: 0 auto;
+}
+
+.hierarchy-content {
+	display: none;
 }
 
 @import "base/null";
@@ -533,5 +493,6 @@ body {
 @import "permission_add";
 @import "type_work";
 @import "dates_add";
+@import "responsibles_add";
 @import "header";
 @import "footer";

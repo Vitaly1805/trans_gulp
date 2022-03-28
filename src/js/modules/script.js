@@ -131,12 +131,17 @@ if(document.querySelector('.window-authorization__icon')) {
 }
 
 //Выбор поля
-
 if(document.querySelector(".custom-select")) {
     let x, i, j, l, ll, selElmnt, a, b, c;
     x = document.getElementsByClassName("custom-select");
     l = x.length;
     for (i = 0; i < l; i++) {
+
+    //Блокировка селектов
+    if(document.querySelector('.responsible-content__submit') && i > 0) {
+        x[i].classList.add("date-disabled");
+    }
+
     selElmnt = x[i].getElementsByTagName("select")[0];
     ll = selElmnt.length;
     a = document.createElement("DIV");
@@ -148,11 +153,14 @@ if(document.querySelector(".custom-select")) {
     for (j = 1; j < ll; j++) {
         c = document.createElement("DIV");
         c.innerHTML = selElmnt.options[j].innerHTML;
+        c.setAttribute('idDivWithChild', selElmnt.options[j].getAttribute('idDivWithChild'));
+
         c.addEventListener("click", function(e) {
             let y, i, k, s, h, sl, yl, input;
             s = this.parentNode.parentNode.getElementsByTagName("select")[0];
             sl = s.length;
             h = this.parentNode.previousSibling;
+
             for (i = 0; i < sl; i++) {
             if (s.options[i].innerHTML == this.innerHTML) {
                 s.selectedIndex = i;
@@ -163,8 +171,7 @@ if(document.querySelector(".custom-select")) {
                 } else {
                     input = document.querySelector('.input-subdivision');
                 }
-
-                input.value = h.innerHTML;
+                // input.value = h.innerHTML;
 
                 y = this.parentNode.getElementsByClassName("same-as-selected");
                 yl = y.length;
@@ -175,10 +182,23 @@ if(document.querySelector(".custom-select")) {
                 break;
             }
             }
+
             h.click();
         });
+
         b.appendChild(c);
     }
+    
+    //Перетекание дочерних элементов иерархии
+    let bChildren = b.children;
+
+    for (let bChild of bChildren) {
+        bChild.addEventListener('click', () => {
+            console.log(bChild)
+        })
+    }
+
+
     x[i].appendChild(b);
     a.addEventListener("click", function(e) {
         e.stopPropagation();
