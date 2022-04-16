@@ -241,3 +241,15 @@ function setMaskTime() {
         new IMask(e, dateOptions);
     });
 }
+
+//Установка маски поиска
+if(document.querySelector('.input-search')) {
+    let search = document.querySelector('.input-search');
+    let dateOptions = {
+        mask: /^[а-яА-Я ]*$/,
+        lazy: false
+    };
+
+    new IMask(search, dateOptions);
+
+}

@@ -171,7 +171,7 @@ if(document.querySelector(".custom-select")) {
                 } else {
                     input = document.querySelector('.input-subdivision');
                 }
-                // input.value = h.innerHTML;
+                input.value = h.innerHTML;
 
                 y = this.parentNode.getElementsByClassName("same-as-selected");
                 yl = y.length;
@@ -187,15 +187,6 @@ if(document.querySelector(".custom-select")) {
         });
 
         b.appendChild(c);
-    }
-    
-    //Перетекание дочерних элементов иерархии
-    let bChildren = b.children;
-
-    for (let bChild of bChildren) {
-        bChild.addEventListener('click', () => {
-            console.log(bChild)
-        })
     }
 
 
@@ -319,7 +310,7 @@ if(document.querySelector('.content__ad')) {
 //Отправка формы при нажатии на иконку поиска
 if(document.querySelector('.icon-search')) {
     let iconSearch = document.querySelector('.icon-search');
-    let formSearch = document.querySelector('.filter-content__search');
+    let formSearch = document.querySelector('.content-search');
 
     iconSearch.addEventListener('click', () => {
         formSearch.submit();
@@ -329,258 +320,96 @@ if(document.querySelector('.icon-search')) {
 //Открытие формы фильтрации при нажатии на соответсвующую кнопку
 if(document.querySelector('.filter')) {
     let submitFilter = document.querySelector('.filter');
-    let blockFilter = document.querySelector('.filter-block');
+    let blockFilter = document.querySelector('.filter-content');
     let closeFilter = document.querySelector('.close-filter');
 
     submitFilter.addEventListener('click', () => {
-        blockFilter.classList.toggle('filter-block_active');
+        blockFilter.classList.toggle('filter-content_active');
     });
 
     closeFilter.addEventListener('click', () => {
-        blockFilter.classList.toggle('filter-block_active');
+        blockFilter.classList.toggle('filter-content_active');
     });
 }
 
-// //Фиксирование данных строки таблицы
-// if(document.querySelector('.table-permission__row')) {
-//     let rowsTable = document.querySelectorAll('.table-permission__row');
-//     let colsTable = document.querySelectorAll('.table-permission__col');
-//     let activeRowTable = 'table-content__row_active';
 
-//     colsTable.forEach((e) => {
-//         e.addEventListener('click', () => {
-//             let idPermission = e.parentElement.lastElementChild.value;
-//             let inputsProcess = document.querySelectorAll('.row-id-process');
+if(document.querySelector('.responsible__filter')) {
+    let responseFilter = document.querySelector('.responsible__filter');
+    let buttonOpenFilter = document.querySelector('.responsible__button-filter');
+    let buttonCloseFilter = document.querySelector('.responsible__button-close');
+    
+    buttonOpenFilter.addEventListener('click', () => {
+        responseFilter.classList.toggle('responsible__filter_active');
+    });
 
-//             if(document.querySelector('.table-content__row_active')) {
-//                 rowsTable.forEach((e) => {
-//                     e.classList.remove(activeRowTable);
-//                 });
-//             }
+    buttonCloseFilter.addEventListener('click', () => {
+        responseFilter.classList.toggle('responsible__filter_active');
+    });
+}
 
-//             inputsProcess.forEach((e) => {
-//                 e.value = idPermission;
-//             });
+//Выбор подразделения для поиска ответственного
 
-//             e.parentElement.classList.add(activeRowTable);
-//         });
-//     });
-// }
+if(document.querySelector('.responsible__filter')) {
+    let choices = document.querySelectorAll('.responsible__text');
+    let inputResponsible = document.querySelector('.responsible-choice');
+    let formResponsible = document.querySelector('.responsible__subdivisions');
 
-//Отправка типов работ 
-if(document.querySelector('.button-send-types-work')) {
+    choices.forEach( e => {
+        e.addEventListener('click', () => {
+            inputResponsible.value = e.innerHTML.trim();
+            formResponsible.submit();
+        });
+    });
+}
+
+//Выбор ответственного
+
+if(document.querySelector('.table-responsibles')) {
+    let rowsResponsibles = document.querySelectorAll('.table-responsibles');
+    let inputResponsible = document.querySelector('.responsible');
+    let formResponsible = document.querySelector('.choice-responsible');
+
+    rowsResponsibles.forEach(e => {
+        e.addEventListener('click', () => {
+            inputResponsible.value = e.firstElementChild.value;
+            formResponsible.submit();
+        });
+    })
+}
+
+//Подготовка массива типовых разрешений к отправке формы
+
+if(document.querySelector('.typical-work__checkbox')) {
+    let checkboxes = document.querySelectorAll('.typical-work__checkbox');
+    let inputTypesWorks = document.querySelector('.array_types_works');
+    let arrTypesWorks = [];
+
+    checkboxes.forEach(e => {
+       e.addEventListener('change', () => {
+            let id = e.getAttribute('id').slice(10);
+            let index = arrTypesWorks.indexOf(id);
+
+            if(index + 1) {
+                arrTypesWorks.splice(index, 1);
+            } else {
+                arrTypesWorks.push(id);
+            }
+       });
+    });
+
+    //Отправка типов работ 
     let buttonSendTypesWork = document.querySelector('.button-send-types-work');
     let formTypesWork = document.querySelector('.content__types-work');
 
     buttonSendTypesWork.addEventListener('click', () => {
+        arrTypesWorks.forEach(e => {
+            if(!inputTypesWorks.value) {
+                inputTypesWorks.value = inputTypesWorks.value + e;
+            } else {
+                inputTypesWorks.value = inputTypesWorks.value + " " + e;
+            }
+        });
+
         formTypesWork.submit();
     });
 }
-
-// //Вставка новой строки в таблицу
-// if(document.querySelector('.button-add-row')) {
-//     let buttonAdd = document.querySelector('.button-add-row');
-//     let table = document.querySelector('.table-content');
-//     let countCols = document.querySelector('.table-content__row_head').children.length;
-//     let heads = document.querySelectorAll('.table-content__head');
-//     let names = getAttributeName(heads);
-
-//     buttonAdd.addEventListener('click', () => {
-//         let countRows = document.querySelectorAll('.table-content__row').length;
-
-//         addRow(countRows);   
-//     })
-
-//     function getAttributeName(tags) {
-//         let result = [];
-
-//         tags.forEach(e => {
-//             result.push(e.getAttribute('name')); 
-//         });
-
-//         return result;
-//     }
-
-//     function getRow() {
-//         let row = document.createElement('div');
-//         row.classList.add('table-content__row');
-//         row.classList.add('table-row');
-
-//         return row;
-//     }
-
-//     function getCols() {
-//         let result = [];
-
-//         for(let i = 0; i < countCols; i++) {
-//             let col = document.createElement('div');
-//             col.classList.add('table-content__col');
-//             col.classList.add('table-col');
-//             result.push(col)
-//         }
-
-//         return result
-//     }
-
-//     function setMask(input, names, i) {
-//         if(names[i] === 'date') {
-//             input.classList.add('date-mask');
-//         }
-
-//         if(names[i] === 'time-from') {
-//             input.classList.add('time-mask');
-//         }
-
-//         if(names[i] === 'time-to') {
-//             input.classList.add('time-mask');
-//         }
-//     }
-
-//     function getInputs(countRows) {
-//         let result = [];
-
-//         for(let i = 0; i < countCols; i++) {
-//             let input = document.createElement('input');
-//             let name = names[i] + '-' + countRows;
-//             input.classList.add('table-col__input');
-//             input.setAttribute('name', name);
-
-//             setMask(input, names, i);
-
-//             result.push(input);
-//         }
-
-//         return result
-//     }
-
-//     function addColsIntoRow(row, cols) {
-//         for(let i = 0; i < cols.length; i++) {
-//             row.appendChild(cols[i]);
-//         }
-//     }
-
-//     function addInputsIntoCols(cols, inputs) {
-//         for(let i = 0; i < cols.length; i++) {
-//             cols[i].appendChild(inputs[i]);
-//         }
-//     }
-
-//     function addRow(countRows) {
-//         let row = getRow();
-//         let cols = getCols();
-//         let inputs = getInputs(countRows);
-       
-//         addColsIntoRow(row, cols);
-//         addInputsIntoCols(cols, inputs);
-
-//         table.appendChild(row);
-//         fixRow();
-
-//         if(document.querySelector('.date-mask')) {
-//             setMaskDate();
-//         }
-
-//         if(document.querySelector('.time-mask')) {
-//             setMaskTime();
-//         }
-//     }
-
-// //Фиксирование строки 
-// let delRow;
-// fixRow();
-
-// function fixRow() {
-//     let rowsTable = document.querySelectorAll('.table-row');
-//     let activeRowTable = 'table-content__row_active';
-    
-//     rowsTable.forEach((e) => {
-//         e.addEventListener('click', () => {
-//             rowsTable.forEach((e) => {
-//                 e.classList.remove(activeRowTable);  
-//             });
-
-//             e.classList.add(activeRowTable);  
-//             delRow = e;   
-//        });
-//     });
-
-// }
-
-// //Удаление строки
-// let delButton = document.querySelector('.button-del-row');
-
-// delButton.addEventListener('click', () => {
-//     if(delRow) {
-//         delRow.remove();
-//     }
-// });
-
-// //Сохранение дат
-// let saveButton = document.querySelector('.save-dates');
-// let submitSaveDates = document.querySelector('.submit-save-dates');
-
-// saveButton.addEventListener('click', () => {
-//     let timeFrom = document.querySelectorAll('.time-mask')[0];
-//     let timeTo = document.querySelectorAll('.time-mask')[1];
-
-//     if(checkTimes(timeFrom, timeTo)) {
-//         submitSaveDates.click();
-//     }
-// });
-
-// function checkTimes(timeFrom, timeTo) {
-//     let reg = '^([0-1][0-9]|2[0-4]):[0-5][0-9]$';
-
-//     if(timeFrom.value.search(reg) + 1 && timeTo.value.search(reg) + 1) {
-//         let objDateFrom = new Date();
-//         let objDateTo = new Date();
-
-//         objDateFrom.setHours(timeFrom.value.slice(0,2));
-//         objDateFrom.setMinutes(timeFrom.value.slice(3,5));
-//         objDateTo.setHours(timeTo.value.slice(0,2));
-//         objDateTo.setMinutes(timeTo.value.slice(3,5));
-
-//         if(objDateFrom < objDateTo) {
-//             return true;
-//         }
-//     }
-
-//     return false;
-// }
-
-// //Маска даты
-// if(document.querySelector('.date-mask')) {
-//     setMaskDate();
-// }
-
-// function setMaskDate() {
-//     let dates = document.querySelectorAll('.date-mask');
-//     let dateOptions = {
-//         mask: '00.00.0000',
-//         lazy: false
-//     };
-
-//     dates.forEach(e => {
-//         new IMask(e, dateOptions);
-//     });
-// }
-
-// //Маска даты
-// if(document.querySelector('.time-mask')) {
-//     setMaskTime();
-// }
-
-// function setMaskTime() {
-//     let dates = document.querySelectorAll('.time-mask');
-//     let dateOptions = {
-//         mask: '00:00',
-//         lazy: false
-//     };
-
-//     dates.forEach(e => {
-//         new IMask(e, dateOptions);
-//     });
-// }
-// }
-
-

@@ -45,10 +45,10 @@
 						<input type="submit" class="input button" value="Войти">
 					</form>
 						<form method="post" class="window-authorization__form window-authorization__form-reg">
-						<input type="text" pattern="[А-Яа-я]{2,100}" class="input" required placeholder="Имя"  title="Имя пользователя должно содержать только кириллические символы. Длина ввода от 2 до 100 символов">
+						<!-- <input type="text" pattern="[А-Яа-я]{2,100}" class="input" required placeholder="Имя"  title="Имя пользователя должно содержать только кириллические символы. Длина ввода от 2 до 100 символов">
 						<input type="text" pattern="[А-Яа-я]{2,100}" class="input" required placeholder="Фамилия"  title="Фамилия пользователя должно содержать только кириллические символы. Длина ввода от 2 до 100 символов">
-						<input type="text" pattern="^[А-Яа-я]{2,100}$" class="input" required placeholder="Отчество" title="Отчество пользователя должно содержать только кириллические символы. Длина ввода от 2 до 100 символов">
-						<input type="text" hidden class="input input-department">
+						<input type="text" pattern="^[А-Яа-я]{2,100}$" class="input" required placeholder="Отчество" title="Отчество пользователя должно содержать только кириллические символы. Длина ввода от 2 до 100 символов"> -->
+						<input type="text" hidden class="input input-department"> 
 						<div class="custom-select">
 							<select class="select-department">
 							  <option value="0">Отдел</option>
@@ -57,7 +57,7 @@
 							  <option value="3">В</option>
 							</select>
 						  </div>
-						<input type="text" value="ываыва" hidden class="input input-subdivision">
+						<input type="text" hidden class="input input-subdivision">
 						<div class="custom-select">
 							<select class="select-subdivision">
 							  <option value="0">Подразделение</option>
@@ -66,7 +66,7 @@
 							  <option value="3">РНУ Усинское</option>
 							</select>
 						</div>
-						<input type="text" pattern="[А-Яа-я]{5,100}" class="input" placeholder="Должность" title="Должность должна содержать только кириллические символы и (или) пробелы. Длина ввода от 5 до 100 символов">
+						<!-- <input type="text" pattern="[А-Яа-я]{5,100}" class="input" placeholder="Должность" title="Должность должна содержать только кириллические символы и (или) пробелы. Длина ввода от 5 до 100 символов">
 						<input type="email" pattern="(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*)@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])" class="input" required placeholder="Email">
 						<div class="window-authorization__password">
 							<input type="password" pattern="(?=.*[A-ZА-Я])(?=.*[a-zа-я])(?=.*[0-9])(?=.*[!@#$%^&*])[А-Яа-яa-zA-Z0-9!@#$%^&*]{8,100}"  title="Пароль должен содержать буквы и хотя бы одну цифру,специальный символ и букву в верхнем регистре. Длина ввода от 8 до 100 символов" class="input input-password password" required placeholder="Пароль">
@@ -75,7 +75,7 @@
 						<div class="window-authorization__password">
 							<input type="password" pattern="(?=.*[A-ZА-Я])(?=.*[a-zа-я])(?=.*[0-9])(?=.*[!@#$%^&*])[А-Яа-яa-zA-Z0-9!@#$%^&*]{8,100}" class="input input-password" required placeholder="Подтвердите пароль">
 							<span class="window-authorization__icon icon-password"></span>
-						</div>
+						</div> -->
 						<input type="submit" class="input button" value="Регистрация">
 						<div class="error">Данный логин уже существует!</div>
 					</form>
