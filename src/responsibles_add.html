@@ -94,7 +94,16 @@
                     <form method="post" class="choice-responsible">
                         <input type="text" hidden class="responsible">
                     </form>
-                </div>
+                    <form action="" class="table-responsibles-choice">
+                        <div class="content__subtitle">Результаты выборки</div>
+                        <div class="table-content__row table-content__row_head responsible-table-head">
+                            <div class="table-content__col table-content__head">Фамилия</div>
+                            <div class="table-content__col table-content__head">Имя</div>
+                            <div class="table-content__col table-content__head">Отчество</div>
+                            <div class="table-content__col table-content__head">Подразделение</div>
+                        </div>
+                    </form>
+                    <input type="submit" value="Сохранить" id="save-responsibles-choice" class="permission-add__button input button">
 			</div>
 		</main>
 		@@include('html/footer.html',{})

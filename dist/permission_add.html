@@ -76,7 +76,7 @@
                 <input type="submit" class="permission-add__button input button" value="Добавить">
               </form>
               <div class="permission-add__block">
-                <textarea class="permission-add__textarea" name="" id="" cols="30" rows="10" placeholder="Введите нетиповые работы..."></textarea>
+                <textarea class="permission-add__textarea" name="" id="untypical_works" cols="30" rows="10" placeholder="Введите нетиповые работы...">wdw</textarea>
               </div>
             </div>
             <div class="permission-add__item">
@@ -146,7 +146,7 @@
               <div class="permission-add__subtitle">
                 3. Описание:
               </div>
-              <textarea class="permission-add__textarea" name="" id="" cols="30" rows="10" placeholder="Введите описание..."></textarea>
+              <textarea class="permission-add__textarea" name="" id="description" cols="30" rows="10" placeholder="Введите описание..."></textarea>
             </div>
             <div class="permission-add__item">
               <div class="permission-add__subtitle">
@@ -218,14 +218,17 @@
               <div class="permission-add__subtitle">
                 7. Дополнительно:
               </div>
-              <textarea class="permission-add__textarea" name="" id="" cols="30" rows="10" placeholder="Введите дополнительную информацию..."></textarea>
+              <textarea class="permission-add__textarea" name="" id="addition" cols="30" rows="10" placeholder="Введите дополнительную информацию...">sdsd</textarea>
             </div>
           </div>
-          <div class="permission-add__bottom">
+          <form method="post" class="permission-add__bottom">
+            <textarea class="permission-add__textarea" name="" hidden id="untypical_works_form" cols="30" rows="10" placeholder="Введите нетиповые работы..."></textarea>
+            <textarea class="permission-add__textarea" name="" hidden id="description_form" cols="30" rows="10" placeholder="Введите описание..."></textarea>
+            <textarea class="permission-add__textarea" name=""  id="addition_form" cols="30" rows="10" placeholder="Введите дополнительную информацию..."></textarea>
             <input type="submit" value="Сохранить" class="permission-add__button input button">
             <input type="submit" value="Выгрузить в PDF" class="permission-add__button input button">
-          </div>
-        </form>
+          </form>
+        </div>
 			</div>
 		</main>
 		<footer class="footer">

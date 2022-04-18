@@ -1839,6 +1839,25 @@ h6 {
   grid-template-columns: repeat(3, 1fr) 2fr;
 }
 
+.table-responsibles-choice {
+  display: none;
+  margin: 50px 0 30px 0;
+}
+.table-responsibles-choice_active {
+  display: block;
+}
+.table-responsibles-choice .content__subtitle {
+  margin: 0 0 20px 0;
+}
+
+#save-responsibles-choice {
+  display: none;
+}
+#save-responsibles-choice_active {
+  display: block;
+  margin: 0 0 50px 0;
+}
+
 .header {
   background: #fff;
 }

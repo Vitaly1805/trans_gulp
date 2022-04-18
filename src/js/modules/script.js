@@ -366,15 +366,74 @@ if(document.querySelector('.responsible__filter')) {
 
 if(document.querySelector('.table-responsibles')) {
     let rowsResponsibles = document.querySelectorAll('.table-responsibles');
-    let inputResponsible = document.querySelector('.responsible');
-    let formResponsible = document.querySelector('.choice-responsible');
+    let table = document.querySelector('.table-responsibles-choice');
+    let save = document.querySelector('#save-responsibles-choice');
 
     rowsResponsibles.forEach(e => {
         e.addEventListener('click', () => {
-            inputResponsible.value = e.firstElementChild.value;
-            formResponsible.submit();
-        });
-    })
+            let count = 0;
+            let addRow = e.cloneNode(true);
+            table.appendChild(addRow);
+            table.classList.add('table-responsibles-choice_active');
+            save.setAttribute('id', 'save-responsibles-choice_active');
+
+            Array.from(table.children).forEach(e => {
+                if(e.getAttribute('class').indexOf('table-responsibles') + 1) {
+                    count++;
+                    e.firstElementChild.setAttribute('value', count);
+                    console.log(e.firstElementChild.getAttribute('value'))
+                }
+            });
+        })
+    });
+
+    // rowsResponsibles.forEach(e => {
+    //     e.addEventListener('click', () => {
+    //         inputResponsible.value = e.firstElementChild.value;
+    //         formResponsible.submit();
+    //     });
+    // })
+}
+
+//Перетекание данных из textarea для отправки данных на сервер
+
+if(document.getElementById('untypical_works')) {
+    let textareaUntypicalWorks = document.getElementById('untypical_works');
+    let textareaUntypicalWorksForm = document.getElementById('untypical_works_form');
+
+    if(textareaUntypicalWorks.value !== '') {
+        textareaUntypicalWorksForm.value = textareaUntypicalWorks.value;
+    }
+
+    textareaUntypicalWorks.addEventListener('change', () => {
+        textareaUntypicalWorksForm.value = textareaUntypicalWorks.value;
+    });
+}
+
+if(document.getElementById('description')) {
+    let textareaDescription = document.getElementById('description');
+    let textareaDescriptionFrom = document.getElementById('description_form');
+
+    if(textareaDescription.value !== '') {
+        textareaDescriptionFrom.value = textareaDescription.value;
+    }
+
+    textareaDescription.addEventListener('change', () => {
+        textareaDescriptionFrom.value = textareaDescription.value;
+    });
+}
+
+if(document.getElementById('addition')) {
+    let textareaAddition = document.getElementById('addition');
+    let textareaAdditionForm = document.getElementById('addition_form');
+
+    if(textareaAddition.value !== '') {
+        textareaAdditionForm.value = textareaAddition.value;
+    }
+
+    textareaAddition.addEventListener('change', () => {
+        textareaAdditionForm.value = textareaAddition.value;
+    });
 }
 
 //Подготовка массива типовых разрешений к отправке формы
@@ -385,17 +444,25 @@ if(document.querySelector('.typical-work__checkbox')) {
     let arrTypesWorks = [];
 
     checkboxes.forEach(e => {
-       e.addEventListener('change', () => {
-            let id = e.getAttribute('id').slice(10);
-            let index = arrTypesWorks.indexOf(id);
+        if(e.getAttribute('checked')) {
+            toggleIdOfTypeWorkToArray(e);
+        }
 
-            if(index + 1) {
-                arrTypesWorks.splice(index, 1);
-            } else {
-                arrTypesWorks.push(id);
-            }
+       e.addEventListener('change', () => {
+            toggleIdOfTypeWorkToArray(e);
        });
     });
+
+    function toggleIdOfTypeWorkToArray(e) {
+        let id = e.getAttribute('id').slice(10);
+        let index = arrTypesWorks.indexOf(id);
+
+        if(index + 1) {
+            arrTypesWorks.splice(index, 1);
+        } else {
+            arrTypesWorks.push(id);
+        }
+    }
 
     //Отправка типов работ 
     let buttonSendTypesWork = document.querySelector('.button-send-types-work');
