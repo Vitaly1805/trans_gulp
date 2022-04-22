@@ -2,7 +2,7 @@
 @import "base/iconsfont";
 @import "base/swiper-bundle";
 
-$widthContainer: 1170px;
+$widthContainer: 90vw;
 $fontFamily: "Times New Roman", Georgia, Serif;
 $fontSize: 14px;
 $mainColor: #00599b;
@@ -490,6 +490,15 @@ body {
 
 .hierarchy-content {
 	display: none;
+}
+
+.textarea {
+	outline: none;
+	resize: vertical;
+	min-height: 200px;
+	width: 100%;
+	padding: 10px;
+	font-size: 16px;
 }
 
 @import "base/null";

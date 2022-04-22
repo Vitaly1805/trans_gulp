@@ -333,20 +333,6 @@ if(document.querySelector('.filter')) {
 }
 
 
-if(document.querySelector('.responsible__filter')) {
-    let responseFilter = document.querySelector('.responsible__filter');
-    let buttonOpenFilter = document.querySelector('.responsible__button-filter');
-    let buttonCloseFilter = document.querySelector('.responsible__button-close');
-    
-    buttonOpenFilter.addEventListener('click', () => {
-        responseFilter.classList.toggle('responsible__filter_active');
-    });
-
-    buttonCloseFilter.addEventListener('click', () => {
-        responseFilter.classList.toggle('responsible__filter_active');
-    });
-}
-
 //Выбор подразделения для поиска ответственного
 
 if(document.querySelector('.responsible__filter')) {
@@ -397,7 +383,7 @@ if(document.querySelector('.table-responsibles')) {
 
 //Перетекание данных из textarea для отправки данных на сервер
 
-if(document.getElementById('untypical_works')) {
+if(document.getElementById('untypical_works_form')) {
     let textareaUntypicalWorks = document.getElementById('untypical_works');
     let textareaUntypicalWorksForm = document.getElementById('untypical_works_form');
 
@@ -410,7 +396,7 @@ if(document.getElementById('untypical_works')) {
     });
 }
 
-if(document.getElementById('description')) {
+if(document.getElementById('description_form')) {
     let textareaDescription = document.getElementById('description');
     let textareaDescriptionFrom = document.getElementById('description_form');
 
@@ -423,7 +409,7 @@ if(document.getElementById('description')) {
     });
 }
 
-if(document.getElementById('addition')) {
+if(document.getElementById('addition_form')) {
     let textareaAddition = document.getElementById('addition');
     let textareaAdditionForm = document.getElementById('addition_form');
 
@@ -478,5 +464,21 @@ if(document.querySelector('.typical-work__checkbox')) {
         });
 
         formTypesWork.submit();
+    });
+}
+
+if(document.querySelector('.typical-work__checkbox')) {
+    let checkboxTypicalWork = document.querySelectorAll('.typical-work__checkbox');
+
+    checkboxTypicalWork.forEach(e => {
+        e.addEventListener('click', () => {
+           let textarea = e.parentElement.parentElement.querySelector('.typical-work__textarea');
+
+           if(e.checked) {
+               textarea.classList.add('typical-work__textarea_active');
+           } else {
+            textarea.classList.remove('typical-work__textarea_active');
+           }
+        });
     });
 }

@@ -1,6 +1,7 @@
 .table-permission {
     overflow:auto;
     max-height: 80vh;
+	font-size: 14px;
 
     &__head,
     &__col {
@@ -41,7 +42,6 @@
 
 	&__cell {
 		resize: none;
-		padding: 10px 0;
 		width: 100%;
 		outline: none;
 		border: 1px solid $mainColor;
@@ -58,7 +58,7 @@
 	}
 
 	&__subname {
-		margin: 10px 0;
+		line-height: 120%;
 	}
 
     &__head {
@@ -70,6 +70,11 @@
         input { 
             cursor: pointer;
         }
+
+		&_head {
+			position: sticky;
+			top: 0;
+		}
 
         &:hover {
             input {

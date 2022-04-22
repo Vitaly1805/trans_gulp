@@ -1,26 +1,18 @@
 .responsible {
+    &__main {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+    }
+
+    &__search {
+        width: 100%;
+        margin: 0;
+    }
+
     &__top {
         display: grid;
         grid-template-columns: 3fr 1fr;
         grid-column-gap: 20px;
-    }
-
-    &__filter {
-        display: none;
-        background: #fff;
-        border-radius: 5px;
-        padding: 10px 5px;
-        margin: 0 auto 20px auto;
-        width: 80%;
-
-        .responsible__button { 
-            margin: 20px 0 0 0;
-            width: 200px;
-        }
-
-        &_active {
-            display: block;
-        }
     }
 
     &__block {

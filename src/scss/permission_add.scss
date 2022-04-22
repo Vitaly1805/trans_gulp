@@ -22,6 +22,10 @@
     &__button {
         width: 200px;
         margin: 0;
+
+        &_margin {
+            margin: 20px 0 0 0;
+        }
     }
 
     &__dates {
@@ -59,15 +63,6 @@
     &__subtitle {
         font-size: 18px;
         margin: 0 0 10px -20px;
-    }
-
-    &__textarea {
-        outline: none;
-        resize: vertical;
-        min-height: 200px;
-        width: 100%;
-        padding: 10px;
-        font-size: 16px;
     }
 
     &__responsibles {

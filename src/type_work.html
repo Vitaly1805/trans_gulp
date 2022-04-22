@@ -8,58 +8,84 @@
 		@@include('html/header.html',{})
 		<main class="content">
 			<div class="content__body _container">
-                <div class="navigation-chain">
-                    <div class="navigation-chain__item"><a href="permission.html">Разрешения / </a></div>
-                    <div class="navigation-chain__item"><a href="permission_add.html">Добавление разрешения /</a></div>
-                    <div class="navigation-chain__item navigation-chain__item_active">Тип работы</div>
-                </div>
-                <div class="type-work-title">
-                    Типовые виды работ
-                </div>
-                <form method="post" class="content__types-work">
-                    <div class="content__typical-work typical-work">
-                        <div class="typical-work__item">
-                            <label for="type_work_1" class="typical-work__name">
-                                Первый тип работы
-                            </label>
-                            <input id="type_work_1" class="typical-work__checkbox" type="checkbox">
+                <form method="post" action="" id="form-type-work">
+                    <div class="navigation-chain">
+                        <div class="navigation-chain__item"><a href="permission.html">Разрешения / </a></div>
+                        <div class="navigation-chain__item"><a href="permission_add.html">Добавление разрешения /</a></div>
+                        <div class="navigation-chain__item navigation-chain__item_active">Тип работ</div>
+                    </div>
+                    <div class="type-work-title">
+                        Нетиповые работы
+                    </div>
+                    <div class="permission-add__block">
+                        <textarea class="permission-add__textarea textarea" id="untypical_works" name="untypical_works" cols="30" rows="10" placeholder="Введите нетиповые работы...">wdw</textarea>
+                      </div>
+                    <div class="type-work-title">
+                        Типовые работы
+                    </div>
+                    <div class="content__types-work">
+                        <div  class="content__typical-work typical-work">
+                            <div class="typical-work__item">
+                                <label for="type_work_1" class="typical-work__main">
+                                    <div class="typical-work__name">
+                                        Первый тип работы qwjbfjewfb kjwbe fwej fbwje bwjke bjkw bjkw bjwe bjwkeb jkfbwj kebfjk wbjkbwejkf jwefkjwefbjbkjj fb wjebfkj
+                                    </div>
+                                    <input id="type_work_1" class="typical-work__checkbox" type="checkbox">
+                                </label>
+                                <textarea class="typical-work__textarea textarea" name="typical-work__textarea" id=""></textarea>
+                            </div>
+                            <div class="typical-work__item">
+                                <label for="type_work_2" class="typical-work__main">
+                                    <div class="typical-work__name">
+                                        Второй тип работы
+                                    </div>
+                                    <input id="type_work_2" class="typical-work__checkbox" type="checkbox">
+                                </label>
+                                <textarea class="typical-work__textarea textarea" name="typical-work__textarea" id=""></textarea>
+                            </div>
+                            <div class="typical-work__item">
+                                <label for="type_work_3" class="typical-work__main">
+                                    <div class="typical-work__name">
+                                        Третий тип работы
+                                    </div>
+                                    <input id="type_work_3" class="typical-work__checkbox" type="checkbox">
+                                </label>
+                                <textarea class="typical-work__textarea textarea" name="typical-work__textarea" id=""></textarea>
+                            </div>
+                            <div class="typical-work__item">
+                                <label for="type_work_4" class="typical-work__main">
+                                    <div class="typical-work__name">
+                                        Четвертый тип работы
+                                    </div>
+                                    <input id="type_work_4" class="typical-work__checkbox" type="checkbox">
+                                </label>
+                                <textarea class="typical-work__textarea textarea" name="typical-work__textarea" id=""></textarea>
+                            </div>
+                            <div class="typical-work__item">
+                                <label for="type_work_5" class="typical-work__main">
+                                    <div class="typical-work__name">
+                                        Пятый тип работы
+                                    </div>
+                                    <input id="type_work_5" class="typical-work__checkbox" type="checkbox">
+                                </label>
+                                <textarea class="typical-work__textarea textarea" name="typical-work__textarea" id=""></textarea>
+                            </div>
+                            <div class="typical-work__item">
+                                <label for="type_work_6" class="typical-work__main">
+                                    <div class="typical-work__name">
+                                        Шестой тип работы
+                                    </div>
+                                    <input id="type_work_6" class="typical-work__checkbox" type="checkbox">
+                                </label>
+                                <textarea class="typical-work__textarea textarea" name="typical-work__textarea" id=""></textarea>
+                            </div>
+                            <input type="text" hidden class="array_types_works" name="" id="">
                         </div>
-                        <div class="typical-work__item">
-                            <label for="type_work_2" class="typical-work__name">
-                                Второй тип работы
-                            </label>
-                            <input id="type_work_2" class="typical-work__checkbox" type="checkbox">
-                        </div>
-                        <div class="typical-work__item">
-                            <label for="type_work_3" class="typical-work__name">
-                                Третий тип работы
-                            </label>
-                            <input id="type_work_3" class="typical-work__checkbox" type="checkbox">
-                        </div>
-                        <div class="typical-work__item">
-                            <label for="type_work_4" class="typical-work__name">
-                                Четвертый тип работы
-                            </label>
-                            <input id="type_work_4" class="typical-work__checkbox" type="checkbox">
-                        </div>
-                        <div class="typical-work__item">
-                            <label for="type_work_5" class="typical-work__name">
-                                Пятый тип работы
-                            </label>
-                            <input id="type_work_5" class="typical-work__checkbox" type="checkbox">
-                        </div>
-                        <div class="typical-work__item">
-                            <label for="type_work_6" class="typical-work__name">
-                                Шестой тип работы
-                            </label>
-                            <input id="type_work_6" class="typical-work__checkbox" type="checkbox" checked="checked">
-                        </div>
-                        <input type="text" hidden class="array_types_works" name="" id="">
+                    </div>
+                    <div class="type-work-button">
+                        <input type="submit" class="input button button-send-types-work" value="Сохранить">
                     </div>
                 </form>
-                <div class="type-work-button">
-                    <div class="input button button-send-types-work">Сохранить</div>
-                </div>
 			</div>
 		</main>
 		@@include('html/footer.html',{})

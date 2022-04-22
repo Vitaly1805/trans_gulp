@@ -1,24 +1,37 @@
 .typical-work {
    width: 100%;
-   display: grid;
-   grid-template-columns: repeat(2, 1fr);
-   grid-column-gap: 100px;
 
-   &__item {
-       display: flex;
-       justify-content: space-between;
+   &__textarea {
+       display: none;
+
+       &_active {
+           display: inline-block;
+       }
+   }
+
+   &__main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    line-height: 170%;
+    cursor: pointer;
+
+    &:hover {
+        background: #9ACEEB;
+    }
    }
 
    &__name {
+        cursor: pointer;
        width: 100%;
        font-size: 18px;
        display: inline-block;
-       margin: 0 0 20px 0;
-       cursor: pointer;
+       padding: 10px 0;
    }
 
    &__checkbox {
        cursor: pointer;
+       margin:  0 0 0 10px;
    }
 }
 
