@@ -355,23 +355,7 @@ if(document.querySelector('.table-responsibles')) {
     let table = document.querySelector('.table-responsibles-choice');
     let save = document.querySelector('#save-responsibles-choice');
 
-    rowsResponsibles.forEach(e => {
-        e.addEventListener('click', () => {
-            let count = 0;
-            let addRow = e.cloneNode(true);
-            table.appendChild(addRow);
-            table.classList.add('table-responsibles-choice_active');
-            save.setAttribute('id', 'save-responsibles-choice_active');
-
-            Array.from(table.children).forEach(e => {
-                if(e.getAttribute('class').indexOf('table-responsibles') + 1) {
-                    count++;
-                    e.firstElementChild.setAttribute('value', count);
-                    console.log(e.firstElementChild.getAttribute('value'))
-                }
-            });
-        })
-    });
+    
 
     // rowsResponsibles.forEach(e => {
     //     e.addEventListener('click', () => {
@@ -481,4 +465,46 @@ if(document.querySelector('.typical-work__checkbox')) {
            }
         });
     });
+}
+
+//Динамический вывод дерева
+
+if(document.querySelector('.tree')) {
+    let tree = document.querySelector('.tree');
+    let treeContent = document.querySelector('.tree__content');
+    let itemsTree = document.querySelectorAll('.tree__item');
+    let input = document.querySelector('.tree-send__input');
+
+    itemsTree.forEach(e => {
+        e.addEventListener('click', (event) => {
+            input.value = e.querySelector('.tree__input').value;
+            console.log(e)
+            createListTree(e)
+            event.stopPropagation();
+        });
+    });
+}
+
+function createListTree(elem) {
+    let list = document.createElement('div');
+    let item = document.createElement('div');
+    let block = document.createElement('div');
+    let input = document.createElement('input');
+    let span = document.createElement('span');
+    let text = document.createElement('div');
+
+    list.setAttribute('class', 'tree__list');
+    item.setAttribute('class', 'tree__item');
+    block.setAttribute('class', 'tree__item-block');
+    input.setAttribute('class', 'tree__input');
+    input.setAttribute('hidden', 'hidden');
+    span.setAttribute('class', 'icon-square-plus-solid tree__plus');
+    text.setAttribute('class', 'tree__text');
+
+    elem.appendChild(list);
+    list.appendChild(item);
+    item.appendChild(block);
+    block.appendChild(input);
+    block.appendChild(span);
+    block.appendChild(text);
 }

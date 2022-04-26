@@ -13,68 +13,108 @@
                     <div class="navigation-chain__item"><a href="permission_add.html">Добавление разрешения /</a></div>
                     <div class="navigation-chain__item navigation-chain__item_active">Ответственные</div>
                 </div>
-                <div class="responsible__main">
+                <div class="responsible__main _container">
                     <div class="responsible__sidebar">
-                        ewfem
+                        <div class="tree">
+                            <div class="tree__content">
+                                <div class="tree__list">
+                                    <div class="tree__item tree__item_top">
+                                        <input type="text" hidden value="1" class="tree__input">
+                                        <div class="tree__item-block">
+                                            <span class="icon-square-plus-solid tree__plus tree__plus_active"></span>
+                                            <div class="tree__text">
+                                                Уровень1
+                                            </div>  
+                                        </div>
+                                        <div class="tree__list">
+                                            <div class="tree__item">
+                                                <div class="tree__item-block">
+                                                    <input type="text" hidden value="4" class="tree__input">
+                                                    <span class="icon-square-plus-solid tree__plus"></span>
+                                                    <div class="tree__text">
+                                                        Уровень2
+                                                    </div>  
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tree__item tree__item_top">
+                                        <input type="text" hidden value="2" class="tree__input">
+                                        <div class="tree__item-block">
+                                            <span class="icon-square-plus-solid tree__plus"></span>
+                                            <div class="tree__text">
+                                                Уровень1
+                                            </div>  
+                                        </div>
+                                    </div>
+                                    <div class="tree__item tree__item_top">
+                                        <input type="text" hidden value="3" class="tree__input">
+                                        <div class="tree__item-block">
+                                            <span class="icon-square-plus-solid tree__plus tree__plus_active"></span>
+                                            <div class="tree__text">
+                                                Уровень1
+                                            </div>  
+                                        </div>
+                                        <div class="tree__list">
+                                            <div class="tree__item">
+                                                <div class="tree__item-block">
+                                                    <input type="text" hidden value="5" class="tree__input">
+                                                    <span class="icon-square-plus-solid tree__plus"></span>
+                                                    <div class="tree__text">
+                                                        Уровень2
+                                                    </div>  
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    <form action="" method="post" class="tree-send">
+                        <input type="text" name="tree" class="tree-send__input">
+                    </form>
                     <div class="responsible__content">
-                        <div class="responsible__top _container">
+                        <div class="responsible__top">
                             <form method="post" class="content-search responsible__search">
                                 <input type="text" class="input" placeholder="Поиск ответственного по ФИО...">
                                 <span class="icon-search"></span>
-                                <input type="submit" hidden name="search__permission" class="responsible-search">
+                                <input type="submit" hidden name="search__responsible">
                             </form>
                         </div>
                         <div class="content__table table-content">
                             <div class="table-content__row table-content__row_head responsible-table-head">
-                                <div class="table-content__col table-content__head">Фамилия</div>
-                                <div class="table-content__col table-content__head">Имя</div>
-                                <div class="table-content__col table-content__head">Отчество</div>
+                                <div class="table-content__col table-content__head">ФИО</div>
+                                <div class="table-content__col table-content__head">Контактные данные</div>
                                 <div class="table-content__col table-content__head">Подразделение</div>
                             </div>
                             <div class="table-content__row table-row table-responsibles">
                                 <input type="text" hidden class="responsible-id" value="1">
                                 <div class="table-content__col table-col">
-                                    <input type="text" value="Иванов" name="date-1" readonly class="table-col__input">
+                                    <input type="text" value="Иванов Иван Иванович" name="date-1" readonly class="table-col__input">
                                 </div>
                                 <div class="table-content__col table-col">
-                                    <input type="text" value="Иван" name="time-from-1" readonly class="table-col__input">
+                                    <input type="text" value="89241423423" name="time-from-1" readonly class="table-col__input">
                                 </div>
                                 <div class="table-content__col table-col">
-                                    <input type="text" value="Иванович" name="time-to-1" readonly class="table-col__input">
-                                </div>
-                                <div class="table-content__col table-col">
-                                    <input type="text" value="Подразделени1.Подразделени2.Подразделение3" name="time-to-1" readonly class="table-col__input">
+                                    <input type="text" value="Подразделени1" name="time-to-1" readonly class="table-col__input">
                                 </div>
                             </div>
                             <div class="table-content__row table-row table-responsibles">
-                                <input type="text" hidden class="responsible-id" value="2">
+                                <input type="text" hidden class="responsible-id" value="1">
                                 <div class="table-content__col table-col">
-                                    <input type="text" value="Умалатов" name="date-1" readonly class="table-col__input">
+                                    <input type="text" value="Иванов Иван Иванович" name="date-1" readonly class="table-col__input">
                                 </div>
                                 <div class="table-content__col table-col">
-                                    <input type="text" value="Умалат" name="time-from-1" readonly class="table-col__input">
+                                    <input type="text" value="89241423423" name="time-from-1" readonly class="table-col__input">
                                 </div>
                                 <div class="table-content__col table-col">
-                                    <input type="text" value="Умалатович" name="time-to-1" readonly class="table-col__input">
-                                </div>
-                                <div class="table-content__col table-col">
-                                    <input type="text" value="Подразделени1.Подразделени2.Подразделение3" name="time-to-1" readonly class="table-col__input">
+                                    <input type="text" value="Подразделени1" name="time-to-1" readonly class="table-col__input">
                                 </div>
                             </div>
                             <form method="post" class="choice-responsible">
                                 <input type="text" hidden class="responsible">
                             </form>
-                            <form action="" class="table-responsibles-choice">
-                                <div class="content__subtitle">Результаты выборки</div>
-                                <div class="table-content__row table-content__row_head responsible-table-head">
-                                    <div class="table-content__col table-content__head">Фамилия</div>
-                                    <div class="table-content__col table-content__head">Имя</div>
-                                    <div class="table-content__col table-content__head">Отчество</div>
-                                    <div class="table-content__col table-content__head">Подразделение</div>
-                                </div>
-                            </form>
-                            <input type="submit" value="Сохранить" id="save-responsibles-choice" class="permission-add__button input button">
                         </div>
                     </div>
                 </div>
