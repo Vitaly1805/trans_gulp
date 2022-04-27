@@ -246,7 +246,7 @@ function setMaskTime() {
 if(document.querySelector('.input-search')) {
     let search = document.querySelector('.input-search');
     let dateOptions = {
-        mask: /^[а-яА-Я ]*$/,
+        mask: /^[а-яА-Я0-9 ]*$/,
         lazy: false
     };
 
