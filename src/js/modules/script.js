@@ -355,23 +355,7 @@ if(document.querySelector('.table-responsibles')) {
     let table = document.querySelector('.table-responsibles-choice');
     let save = document.querySelector('#save-responsibles-choice');
 
-    rowsResponsibles.forEach(e => {
-        e.addEventListener('click', () => {
-            let count = 0;
-            let addRow = e.cloneNode(true);
-            table.appendChild(addRow);
-            table.classList.add('table-responsibles-choice_active');
-            save.setAttribute('id', 'save-responsibles-choice_active');
-
-            Array.from(table.children).forEach(e => {
-                if(e.getAttribute('class').indexOf('table-responsibles') + 1) {
-                    count++;
-                    e.firstElementChild.setAttribute('value', count);
-                    console.log(e.firstElementChild.getAttribute('value'))
-                }
-            });
-        })
-    });
+    
 
     // rowsResponsibles.forEach(e => {
     //     e.addEventListener('click', () => {
@@ -479,6 +463,46 @@ if(document.querySelector('.typical-work__checkbox')) {
            } else {
             textarea.classList.remove('typical-work__textarea_active');
            }
+        });
+    });
+}
+
+//Динамический вывод дерева
+
+if(document.querySelector('.tree')) {
+    let tree = document.querySelector('.tree');
+    let treeContent = document.querySelector('.tree__content');
+    let itemsTree = document.querySelectorAll('.tree__item');
+    let input = document.querySelector('.tree-send__input');
+
+    itemsTree.forEach(e => {
+        e.addEventListener('click', (event) => {
+            input.value = e.querySelector('.tree__input').value;
+            console.log(e)
+            createListTree(e)
+            event.stopPropagation();
+        });
+    });
+}
+
+//Отправка данных ответственного
+
+if(document.querySelector('.responsible__table')) {
+    let rows = document.querySelectorAll('.responsible__row');
+
+    rows.forEach(e => {
+        e.addEventListener('click', () => {
+            let id = e.querySelector('.responsible-id').value;
+            let fio = e.querySelector('.responsible__fio').querySelector('.table-col__input').value;
+            let position = e.querySelector('.responsible__position').querySelector('.table-col__input').value;
+            let email = e.querySelector('.responsible__email').querySelector('.table-col__input').value;
+
+            e.classList.toggle('responsible__row_active');
+
+            document.getElementById('responsible-id').value = id;
+            document.getElementById('responsible-fio').value = fio;
+            document.getElementById('responsible-position').value = position;
+            document.getElementById('responsible-email').value = email;
         });
     });
 }
