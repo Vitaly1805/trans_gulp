@@ -40,6 +40,9 @@
     }
 
     &__row {
+        display: flex;
+        
+
         input {
             cursor: pointer;
         }
@@ -51,11 +54,6 @@
             }
         }
     }
-}
-
-.responsible-table-head {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
 }
 
 .table-responsibles-choice {

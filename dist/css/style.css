@@ -1340,8 +1340,16 @@ body span {
   font-size: 18px;
 }
 .table-content__col {
+  cursor: pointer;
   width: 100%;
   text-align: center;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+}
+.table-content__col:first-child {
+  width: 100px;
+  border: 1px solid #00599b;
 }
 .table-content__col input {
   transition: background-color 1s ease;
@@ -1353,6 +1361,9 @@ body span {
   border: 1px solid #00599b;
 }
 .table-content__head {
+  background-color: #00599b;
+  display: flex;
+  justify-content: space-around;
   width: 100%;
   padding: 10px 0;
 }
@@ -1392,6 +1403,10 @@ body span {
   width: 100%;
   padding: 10px;
   font-size: 16px;
+}
+
+.message {
+  font-size: 18px;
 }
 
 * {
@@ -1840,17 +1855,15 @@ h6 {
 .responsible__table_active {
   display: block;
 }
+.responsible__row {
+  display: flex;
+}
 .responsible__row input {
   cursor: pointer;
 }
 .responsible__row_active input {
   background: #A9BCF5;
   transition: background-color 1s ease;
-}
-
-.responsible-table-head {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
 }
 
 .table-responsibles-choice {

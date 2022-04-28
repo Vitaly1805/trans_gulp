@@ -79,17 +79,20 @@
                             <form method="post" class="content-search responsible__search">
                                 <input type="text" class="input" placeholder="Поиск ответственного по ФИО...">
                                 <span class="icon-search"></span>
-                                <input type="submit" hidden name="search__responsible">
                             </form>
                         </div>
                         <div class="content__table table-content responsible__table responsible__table_active">
                             <div class="table-content__row table-content__row_head responsible-table-head">
+                                <div class="table-content__col table-content__head"></div>
                                 <div class="table-content__col table-content__head">ФИО</div>
                                 <div class="table-content__col table-content__head">Должность</div>
                                 <div class="table-content__col table-content__head">Номер телефона</div>
                                 <div class="table-content__col table-content__head">Почта</div>
                             </div>
                             <div class="table-content__row table-row responsible__row">
+                                <div class="table-content__col table-col">
+                                    <input type="checkbox" readonly class="responsible-preparation__checkbox">
+                                </div>
                                 <div class="table-content__col table-col responsible__fio">
                                     <input type="text" value="Иванов Иван Иванович" name="date-1" readonly class="table-col__input">
                                 </div>
@@ -102,15 +105,34 @@
                                 <div class="table-content__col table-col responsible__email">
                                     <input type="text" value="89241423423" name="time-from-1" readonly class="table-col__input">
                                 </div>
-                                <input type="text" hidden class="responsible-id" value="1">
                             </div>  
-                            <form method="post" class="choice-responsible">
-                                <input type="text" hidden id="responsible-id">
-                                <input type="text" hidden id="responsible-fio">
-                                <input type="text" hidden id="responsible-position">
-                                <input type="text" hidden id="responsible-phone">
-                                <input type="text" hidden id="responsible-email">
-                            </form>
+                            <div class="table-content__row table-row responsible__row">
+                                <div class="table-content__col table-col">
+                                    <input type="checkbox" readonly class="responsible-preparation__checkbox">
+                                </div>
+                                <div class="table-content__col table-col responsible__fio">
+                                    <input type="text" value="Иванов Иван Иванович" name="date-1" readonly class="table-col__input">
+                                </div>
+                                <div class="table-content__col table-col responsible__position">
+                                    <input type="text" value="89241423423" name="time-1" readonly class="table-col__input">
+                                </div>
+                                <div class="table-content__col table-col responsible__phone">
+                                    <input type="text" value="Иванов Иван Иванович" name="date-1" readonly class="table-col__input">
+                                </div>
+                                <div class="table-content__col table-col responsible__email">
+                                    <input type="text" value="89241423423" name="time-from-1" readonly class="table-col__input">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="message">Совпадений не найдено</div>
+                        <div class="content__table table-content responsible__table responsible__table_choice responsible__table_active">
+                            <div class="table-content__row table-content__row_head responsible-table-head">
+                                <div class="table-content__col table-content__head"></div>
+                                <div class="table-content__col table-content__head">ФИО</div>
+                                <div class="table-content__col table-content__head">Должность</div>
+                                <div class="table-content__col table-content__head">Номер телефона</div>
+                                <div class="table-content__col table-content__head">Почта</div>
+                            </div>
                         </div>
                     </div>
                 </div>

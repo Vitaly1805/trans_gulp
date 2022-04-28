@@ -436,8 +436,17 @@ body {
     font-size: 18px;
 
     &__col {
+		cursor: pointer;
 		width: 100%;
         text-align: center;
+		background-color: #fff;
+		display: flex;
+		align-items: center;
+
+		&:first-child {
+			width: 100px;
+			border: 1px solid $mainColor;
+		}
 
         input { 
             transition: background-color 1s ease;
@@ -451,6 +460,9 @@ body {
     }
 
 	&__head {
+		background-color: $mainColor;
+		display: flex;
+		justify-content: space-around;
 		width: 100%;
 		padding: 10px 0;
 	}
@@ -499,6 +511,10 @@ body {
 	width: 100%;
 	padding: 10px;
 	font-size: 16px;
+}
+
+.message {
+	font-size: 18px;
 }
 
 @import "base/null";

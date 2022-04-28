@@ -307,16 +307,6 @@ if(document.querySelector('.content__ad')) {
     }
 }
 
-//Отправка формы при нажатии на иконку поиска
-if(document.querySelector('.icon-search')) {
-    let iconSearch = document.querySelector('.icon-search');
-    let formSearch = document.querySelector('.content-search');
-
-    iconSearch.addEventListener('click', () => {
-        formSearch.submit();
-    });
-}
-
 //Открытие формы фильтрации при нажатии на соответсвующую кнопку
 if(document.querySelector('.filter')) {
     let submitFilter = document.querySelector('.filter');
@@ -467,42 +457,30 @@ if(document.querySelector('.typical-work__checkbox')) {
     });
 }
 
-//Динамический вывод дерева
-
-if(document.querySelector('.tree')) {
-    let tree = document.querySelector('.tree');
-    let treeContent = document.querySelector('.tree__content');
-    let itemsTree = document.querySelectorAll('.tree__item');
-    let input = document.querySelector('.tree-send__input');
-
-    itemsTree.forEach(e => {
-        e.addEventListener('click', (event) => {
-            input.value = e.querySelector('.tree__input').value;
-            console.log(e)
-            createListTree(e)
-            event.stopPropagation();
-        });
-    });
-}
-
-//Отправка данных ответственного
 
 if(document.querySelector('.responsible__table')) {
-    let rows = document.querySelectorAll('.responsible__row');
+    let checkboxes = document.querySelectorAll('.responsible-preparation__checkbox');
 
-    rows.forEach(e => {
-        e.addEventListener('click', () => {
-            let id = e.querySelector('.responsible-id').value;
-            let fio = e.querySelector('.responsible__fio').querySelector('.table-col__input').value;
-            let position = e.querySelector('.responsible__position').querySelector('.table-col__input').value;
-            let email = e.querySelector('.responsible__email').querySelector('.table-col__input').value;
+    checkboxes.forEach(e => {
+        e.parentElement.addEventListener('click', (event) => {
+            if(event.target.classList.contains('table-content__col')) {
+                if(e.checked) {
+                    e.checked = false;
+                } else {
+                    e.checked = true;
+                }
+            } 
 
-            e.classList.toggle('responsible__row_active');
-
-            document.getElementById('responsible-id').value = id;
-            document.getElementById('responsible-fio').value = fio;
-            document.getElementById('responsible-position').value = position;
-            document.getElementById('responsible-email').value = email;
+            if(e.checked) {
+                addRowToChiceTable(e);
+            }
         });
     });
+
+    function addRowToChiceTable(elem) {
+        let choiceTable = document.querySelector('.responsible__table_choice');
+        let col = document.createElement('div');
+        col.innerHTML = 'sdfdsf';
+        choiceTable.appendChild(col);
+    }
 }
