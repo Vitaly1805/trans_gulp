@@ -1855,6 +1855,12 @@ h6 {
 .responsible__table_active {
   display: block;
 }
+.responsible__choice {
+  display: none;
+}
+.responsible__choice_active {
+  display: block;
+}
 .responsible__row {
   display: flex;
 }

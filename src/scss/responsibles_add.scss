@@ -39,9 +39,16 @@
         }
     }
 
+    &__choice {
+        display: none;
+
+        &_active {
+            display: block;
+        }
+    }
+
     &__row {
-        display: flex;
-        
+        display: flex;   
 
         input {
             cursor: pointer;

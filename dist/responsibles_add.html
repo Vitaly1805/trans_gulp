@@ -114,6 +114,7 @@
                                 <div class="table-content__col table-content__head">Почта</div>
                             </div>
                             <div class="table-content__row table-row responsible__row">
+                                <input type="text" hidden readonly value="1" class="input">
                                 <div class="table-content__col table-col">
                                     <input type="checkbox" readonly class="responsible-preparation__checkbox">
                                 </div>
@@ -131,11 +132,12 @@
                                 </div>
                             </div>  
                             <div class="table-content__row table-row responsible__row">
+                                <input type="text" hidden readonly value="2" class="input">
                                 <div class="table-content__col table-col">
                                     <input type="checkbox" readonly class="responsible-preparation__checkbox">
                                 </div>
                                 <div class="table-content__col table-col responsible__fio">
-                                    <input type="text" value="Иванов Иван Иванович" name="date-1" readonly class="table-col__input">
+                                    <input type="text" value="Ивановd Иван Иванович" name="date-1" readonly class="table-col__input">
                                 </div>
                                 <div class="table-content__col table-col responsible__position">
                                     <input type="text" value="89241423423" name="time-1" readonly class="table-col__input">
@@ -149,14 +151,20 @@
                             </div>
                         </div>
                         <div class="message">Совпадений не найдено</div>
-                        <div class="content__table table-content responsible__table responsible__table_choice responsible__table_active">
-                            <div class="table-content__row table-content__row_head responsible-table-head">
-                                <div class="table-content__col table-content__head"></div>
-                                <div class="table-content__col table-content__head">ФИО</div>
-                                <div class="table-content__col table-content__head">Должность</div>
-                                <div class="table-content__col table-content__head">Номер телефона</div>
-                                <div class="table-content__col table-content__head">Почта</div>
+                        <div class="responsible__choice">
+                            <div class="content__table table-content responsible__table responsible__table_active responsible__table_choice">
+                                <div class="table-content__row table-content__row_head responsible-table-head">
+                                    <div class="table-content__col table-content__head"></div>
+                                    <div class="table-content__col table-content__head">ФИО</div>
+                                    <div class="table-content__col table-content__head">Должность</div>
+                                    <div class="table-content__col table-content__head">Номер телефона</div>
+                                    <div class="table-content__col table-content__head">Почта</div>
+                                </div>
                             </div>
+                            <form action="" method="post">
+                                <input type="text" readonly hidden id="keys-responsibles" name="keys-responsibles">
+                                <input type="submit" class="input button button-content" id="save-responsibles" value="Сохранить">
+                            </form>
                         </div>
                     </div>
                 </div>
