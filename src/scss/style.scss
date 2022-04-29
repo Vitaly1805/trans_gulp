@@ -443,7 +443,7 @@ body {
 		display: flex;
 		align-items: center;
 
-		&:first-child {
+		._check {
 			width: 100px;
 			border: 1px solid $mainColor;
 		}

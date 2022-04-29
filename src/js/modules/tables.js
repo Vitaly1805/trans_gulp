@@ -2,26 +2,26 @@ import IMask from 'imask';
 
 //Фиксирование данных строки таблицы
 if(document.querySelector('.table-permission__row')) {
-    let rowsTable = document.querySelectorAll('.table-permission__row');
-    let colsTable = document.querySelectorAll('.table-permission__col');
-    let activeRowTable = 'table-content__row_active';
+    let checkboxes = document.querySelectorAll('.input-choice-permission');
 
-    colsTable.forEach((e) => {
+    checkboxes.forEach((e) => {
         e.addEventListener('click', () => {
-            let idPermission = e.parentElement.lastElementChild.value;
-            let inputsProcess = document.querySelectorAll('.row-id-process');
-
-            if(document.querySelector('.table-content__row_active')) {
-                rowsTable.forEach((e) => {
-                    e.classList.remove(activeRowTable);
-                });
-            }
-
-            inputsProcess.forEach((e) => {
-                e.value = idPermission;
+            checkboxes.forEach(elem => {
+                if(elem.checked && elem !== e) {
+                    elem.checked = false;
+                }
             });
 
-            e.parentElement.classList.add(activeRowTable);
+            let idPermission = e.parentElement.parentElement.parentElement.querySelector('.row-id').value;
+            let inputsProcess = document.querySelectorAll('.row-id-process');
+            
+            inputsProcess.forEach((input) => {
+                if(e.checked) {
+                    input.value = idPermission;
+                } else {
+                    input.value = '';
+                }
+            });
         });
     });
 }

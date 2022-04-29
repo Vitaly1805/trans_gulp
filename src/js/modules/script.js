@@ -1,4 +1,5 @@
 import { isMobile } from "./functions.js";
+import IMask from 'imask';
 
 //Модальное окно регистрации о сайте
 if(document.querySelector('.window')) {
@@ -475,18 +476,23 @@ if(document.querySelector('.responsible__table')) {
     });
 
     checkboxes.forEach(e => {
-        e.parentElement.addEventListener('click', (event) => {
+        addListenerForCheckbox(e);
+    });
+
+    
+    function addListenerForCheckbox(checkbox) {
+        checkbox.parentElement.addEventListener('click', (event) => {
             if(event.target.classList.contains('table-content__col')) {
-                if(e.checked) {
-                    e.checked = false;
+                if(checkbox.checked) {
+                    checkbox.checked = false;
                 } else {
-                    e.checked = true;
+                    checkbox.checked = true;
                 }
             } 
 
-            toggleRowToChiceTable(e);
+            toggleRowToChiceTable(checkbox);
         });
-    });
+    }
 
     function toggleRowToChiceTable(elem) {
         let mainTableRow = elem.parentElement.parentElement;
@@ -510,9 +516,29 @@ if(document.querySelector('.responsible__table')) {
         if(fl) {
             arrResponsiblesId.push(id);
             choiceTable.appendChild(col);
+            addListenerForCheckbox(col.querySelector('.input'));
             choiceBlock.classList.add('responsible__choice_active');
         } else if(!choiceTable.querySelector('.responsible__row')) {
             choiceBlock.classList.remove('responsible__choice_active');
         }
     }
+}
+
+//Установка маски номерам разрешений
+if(document.querySelector('.permission__number')) {
+    let firstNumber = document.querySelector('.permission__number_first');
+    let secondNumber = document.querySelector('.permission__number_second');
+
+    let dateOptionsFirst = {
+        mask: /^[0-9/-]*$/,
+        lazy: false
+    };
+
+    let dateOptionsSecond = {
+        mask: /^[0-9]*$/,
+        lazy: false
+    };
+
+    new IMask(firstNumber, dateOptionsFirst);
+    new IMask(secondNumber, dateOptionsSecond);
 }

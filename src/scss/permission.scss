@@ -1,3 +1,14 @@
+.permission {
+	&__number {
+		width: 150px;
+		margin: 0;
+	}
+
+	&__slash {
+		margin: 0 10px;
+	}
+}
+
 .table-permission {
     overflow:auto;
     max-height: 80vh;
@@ -36,6 +47,9 @@
 			min-width: 500px;
 		}
 		&:nth-child(11){
+			min-width: 500px;
+		}
+		&:nth-child(12){
 			min-width: 500px;
 		}
     }

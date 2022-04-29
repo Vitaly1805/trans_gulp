@@ -3,14 +3,27 @@
 
     &__top {
         display: flex;
-        justify-content: center;
         align-items: center;
-        margin: 0 0 30px 0;
+        justify-content: center;
+        margin: 0 auto 30px auto;
+
+        .permission-add__button {
+            margin: 0 0 0 20px;
+        }
     }
 
     &__title {
         font-size: 20px;
         font-weight: 600;
+        margin: 0 20px 0 0;
+        
+        span {
+            font-size: 20px;
+        }
+
+        .permission__gap {
+            margin: 0 10px;
+        }
     }
 
     &__input {
