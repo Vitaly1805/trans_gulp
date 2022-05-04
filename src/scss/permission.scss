@@ -16,59 +16,40 @@
 
     &__head,
     &__col {
+		padding: 0 10px;
+		max-width: 300px;
+		width: auto;
         &:first-child {
 			min-width: 100px;
 		}
-		&:nth-child(2){
-			min-width: 200px;
-		}
-		&:nth-child(3){
-			min-width: 200px;
-		}
-		&:nth-child(4){
-			min-width: 200px;
 	}
-		&:nth-child(5){
-			min-width: 400px;
-		}
-		&:nth-child(6){
-			min-width: 400px;
-		}
-		&:nth-child(7){
-			min-width: 400px;
-		}
-		&:nth-child(8){
-			min-width: 300px;
-		}
-		&:nth-child(9){
-			min-width: 500px;
-		}
-		&:nth-child(10){
-			min-width: 500px;
-		}
-		&:nth-child(11){
-			min-width: 500px;
-		}
-		&:nth-child(12){
-			min-width: 500px;
-		}
-    }
 
-	&__cell {
-		resize: none;
-		width: 100%;
-		outline: none;
-		border: 1px solid $mainColor;
-		height: 100%;
-		cursor: pointer;
-		background-color: #fff;
-		display: flex;
-		align-items: center;
-		justify-content: center;
+	&__period {
+		min-width: 160px;
+	}
 
-		&_several {
-			flex-direction: column;
-		}
+	&__text {
+		min-width: 500px;
+	}
+
+	&__person {
+		min-width: 300px;
+	}
+
+	&__subdivision {
+		min-width: 200px;
+	}
+
+	&__number {
+		min-width: 150px;
+	}
+
+	&__date {
+		min-width: 100px;
+	}
+
+	&__status {
+		min-width: 100px;
 	}
 
 	&__subname {
@@ -79,6 +60,12 @@
         background: $mainColor;
         padding: 10px 0;
     }
+
+	&__col {
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+	}
 
     &__row {
         input { 
@@ -95,11 +82,6 @@
                 background: #A9BCF5;
                 transition: background-color 1s ease;
             }
-
-			.table-permission__cell {
-				background: #A9BCF5;
-				transition: background-color 1s ease;
-			}
         }
     }
 }

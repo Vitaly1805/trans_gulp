@@ -12,7 +12,7 @@
         }
     }
 
-    &__title {
+    &__number {
         font-size: 20px;
         font-weight: 600;
         margin: 0 20px 0 0;
@@ -73,9 +73,14 @@
         display: flex;
     }
 
-    &__subtitle {
+    &__title {
         font-size: 18px;
         margin: 0 0 10px -20px;
+    }
+
+    &__subtitle {
+        font-size: 18px;
+        margin: 0 0 10px 0;
     }
 
     &__responsibles {
@@ -114,7 +119,10 @@
     &__type {
         font-size: 18px;
         margin: 0 0 20px 0;
-        display: flex;
+    }
+
+    &__typical {
+         display: flex;
         align-items: center;
     }
 

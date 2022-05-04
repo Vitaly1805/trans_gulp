@@ -14,7 +14,7 @@
                 </div>
 				<div class="content__add-permission permission-add">
             <form method="post" class="permission-add__top">
-              <div class="permission-add__title">
+              <div class="permission-add__number">
                 Разрешение №
               </div>
               <input type="text" class="permission__number permission__number_first input" placeholder="Номер" value="04-34">
@@ -24,42 +24,57 @@
             </form>
           <div class="permission-add__list">
             <div class="permission-add__item">
-              <div class="permission-add__subtitle">
+              <div class="permission-add__title">
                 1. Выдал начальнику Иванов Иван Иванович для выполнения следующих работ:
               </div>
               <form class="permission-add__types">
-                <div class="permission-add__type">
-                  <div class="permission-add__type-name">
-                    - Типовая работа 1
-                  </div>
-                  <span class="icon-clear permission-add__clear"></span>
+                <div class="permission-add__subtitle">
+                  1.1 Типовые работы: 
                 </div>
                 <div class="permission-add__type">
-                  <div class="permission-add__type-name">
-                    - Типовая работа 1
+                  <div class="permission-add__typical">
+                    <div class="permission-add__type-name">
+                      - Типовая работа 1
+                    </div>
+                    <span class="icon-clear permission-add__clear"></span>
                   </div>
-                  <span class="icon-clear permission-add__clear"></span>
+                  <div class="permission-add__description">
+                    <textarea readonly class="permission-add__textarea textarea" name="untypical_works" id="untypical_works" cols="30" rows="10" placeholder="Введите нетиповые работы...">{{current_typical_work.description}}</textarea>
+                  </div>
                 </div>
                 <div class="permission-add__type">
-                  <div class="permission-add__type-name">
-                    - Типовая работа 1
+                  <div class="permission-add__typical">
+                    <div class="permission-add__type-name">
+                      - Типовая работа 1
+                    </div>
+                    <span class="icon-clear permission-add__clear"></span>
                   </div>
-                  <span class="icon-clear permission-add__clear"></span>
+                  <div class="permission-add__description">
+                    <textarea readonly class="permission-add__textarea textarea" name="untypical_works" id="untypical_works" cols="30" rows="10" placeholder="Введите нетиповые работы...">{{current_typical_work.description}}</textarea>
+                  </div>
                 </div>
                 <div class="permission-add__type">
-                  <div class="permission-add__type-name">
-                    - Типовая работа 1
+                  <div class="permission-add__typical">
+                    <div class="permission-add__type-name">
+                      - Типовая работа 1
+                    </div>
+                    <span class="icon-clear permission-add__clear"></span>
                   </div>
-                      <span class="icon-clear permission-add__clear"></span>
+                  <div class="permission-add__description">
+                    <textarea readonly class="permission-add__textarea textarea" name="untypical_works" id="untypical_works" cols="30" rows="10" placeholder="Введите нетиповые работы...">{{current_typical_work.description}}</textarea>
+                  </div>
                 </div>
               </form>
+              <div class="permission-add__subtitle">
+                  1.2 Нетиповые работы:
+                </div>
               <div class="permission-add__block">
                 <textarea class="permission-add__textarea textarea" readonly name="" id="untypical_works" cols="30" rows="10" placeholder="Введите нетиповые работы...">wdw</textarea>
               </div>
               <input type="submit" class="permission-add__button permission-add__button_margin input button" value="Добавить">
             </div>
             <div class="permission-add__item">
-              <div class="permission-add__subtitle">
+              <div class="permission-add__title">
                 2. В период:
               </div>
               <form method="post" class="permission-add__block">
@@ -122,13 +137,13 @@
               </form>
             </div>
             <div class="permission-add__item">
-              <div class="permission-add__subtitle">
+              <div class="permission-add__title">
                 3. Описание:
               </div>
               <textarea class="permission-add__textarea textarea" name="" id="description" cols="30" rows="10" placeholder="Введите описание..."></textarea>
             </div>
             <div class="permission-add__item">
-              <div class="permission-add__subtitle">
+              <div class="permission-add__title">
                 5. Ответственные за подготовку работ:
               </div>
               <div class="permission-add__responsibles">
@@ -159,7 +174,7 @@
               </div>
             </div>
             <div class="permission-add__item">
-              <div class="permission-add__subtitle">
+              <div class="permission-add__title">
                 6. Ответственные за выполнение работ:
               </div>
               <div class="permission-add__responsibles">
@@ -194,7 +209,7 @@
             </div>
             </div>
             <div class="permission-add__item">
-              <div class="permission-add__subtitle">
+              <div class="permission-add__title">
                 7. Дополнительно:
               </div>
               <textarea class="permission-add__textarea textarea" name="" id="addition" cols="30" rows="10" placeholder="Введите дополнительную информацию...">sdsd</textarea>

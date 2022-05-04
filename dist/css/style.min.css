@@ -1346,10 +1346,20 @@ body span {
   background-color: #fff;
   display: flex;
   align-items: center;
+  border-bottom: 1px solid #00599b;
+  border-right: 1px solid #00599b;
+}
+.table-content__col:first-child {
+  border-left: 1px solid #00599b;
+  min-width: 100px;
+  max-width: 100px;
+  cursor: pointer;
+}
+.table-content__col:first-child input {
+  cursor: pointer;
 }
 .table-content__col ._check {
   width: 100px;
-  border: 1px solid #00599b;
 }
 .table-content__col input {
   transition: background-color 1s ease;
@@ -1358,7 +1368,6 @@ body span {
   text-align: center;
   width: 100%;
   outline: none;
-  border: 1px solid #00599b;
 }
 .table-content__head {
   background-color: #00599b;
@@ -1369,7 +1378,6 @@ body span {
 }
 .table-content__row {
   display: flex;
-  justify-content: space-between;
 }
 .table-content__row:hover input {
   background: #A9BCF5;
@@ -1407,6 +1415,7 @@ body span {
 
 .message {
   font-size: 18px;
+  margin: 0 0 20px 0;
 }
 
 * {
@@ -1565,56 +1574,34 @@ h6 {
   max-height: 80vh;
   font-size: 14px;
 }
+.table-permission__head, .table-permission__col {
+  padding: 0 10px;
+  max-width: 300px;
+  width: auto;
+}
 .table-permission__head:first-child, .table-permission__col:first-child {
   min-width: 100px;
 }
-.table-permission__head:nth-child(2), .table-permission__col:nth-child(2) {
-  min-width: 200px;
+.table-permission__period {
+  min-width: 160px;
 }
-.table-permission__head:nth-child(3), .table-permission__col:nth-child(3) {
-  min-width: 200px;
+.table-permission__text {
+  min-width: 500px;
 }
-.table-permission__head:nth-child(4), .table-permission__col:nth-child(4) {
-  min-width: 200px;
-}
-.table-permission__head:nth-child(5), .table-permission__col:nth-child(5) {
-  min-width: 400px;
-}
-.table-permission__head:nth-child(6), .table-permission__col:nth-child(6) {
-  min-width: 400px;
-}
-.table-permission__head:nth-child(7), .table-permission__col:nth-child(7) {
-  min-width: 400px;
-}
-.table-permission__head:nth-child(8), .table-permission__col:nth-child(8) {
+.table-permission__person {
   min-width: 300px;
 }
-.table-permission__head:nth-child(9), .table-permission__col:nth-child(9) {
-  min-width: 500px;
+.table-permission__subdivision {
+  min-width: 200px;
 }
-.table-permission__head:nth-child(10), .table-permission__col:nth-child(10) {
-  min-width: 500px;
+.table-permission__number {
+  min-width: 150px;
 }
-.table-permission__head:nth-child(11), .table-permission__col:nth-child(11) {
-  min-width: 500px;
+.table-permission__date {
+  min-width: 100px;
 }
-.table-permission__head:nth-child(12), .table-permission__col:nth-child(12) {
-  min-width: 500px;
-}
-.table-permission__cell {
-  resize: none;
-  width: 100%;
-  outline: none;
-  border: 1px solid #00599b;
-  height: 100%;
-  cursor: pointer;
-  background-color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.table-permission__cell_several {
-  flex-direction: column;
+.table-permission__status {
+  min-width: 100px;
 }
 .table-permission__subname {
   line-height: 120%;
@@ -1622,6 +1609,11 @@ h6 {
 .table-permission__head {
   background: #00599b;
   padding: 10px 0;
+}
+.table-permission__col {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 .table-permission__row input {
   cursor: pointer;
@@ -1631,10 +1623,6 @@ h6 {
   top: 0;
 }
 .table-permission__row:hover input {
-  background: #A9BCF5;
-  transition: background-color 1s ease;
-}
-.table-permission__row:hover .table-permission__cell {
   background: #A9BCF5;
   transition: background-color 1s ease;
 }
@@ -1704,15 +1692,15 @@ h6 {
 .permission-add__top .permission-add__button {
   margin: 0 0 0 20px;
 }
-.permission-add__title {
+.permission-add__number {
   font-size: 20px;
   font-weight: 600;
   margin: 0 20px 0 0;
 }
-.permission-add__title span {
+.permission-add__number span {
   font-size: 20px;
 }
-.permission-add__title .permission__gap {
+.permission-add__number .permission__gap {
   margin: 0 10px;
 }
 .permission-add__input {
@@ -1753,9 +1741,13 @@ h6 {
 .permission-add__block {
   display: flex;
 }
-.permission-add__subtitle {
+.permission-add__title {
   font-size: 18px;
   margin: 0 0 10px -20px;
+}
+.permission-add__subtitle {
+  font-size: 18px;
+  margin: 0 0 10px 0;
 }
 .permission-add__responsibles {
   display: flex;
@@ -1786,6 +1778,8 @@ h6 {
 .permission-add__type {
   font-size: 18px;
   margin: 0 0 20px 0;
+}
+.permission-add__typical {
   display: flex;
   align-items: center;
 }

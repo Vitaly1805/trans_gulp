@@ -1,36 +1,29 @@
-import IMask from 'imask';
-
-//Фиксирование данных строки таблицы
-if(document.querySelector('.table-permission__row')) {
-    let checkboxes = document.querySelectorAll('.input-choice-permission');
-
-    checkboxes.forEach((e) => {
-        e.addEventListener('click', () => {
-            checkboxes.forEach(elem => {
-                if(elem.checked && elem !== e) {
-                    elem.checked = false;
-                }
-            });
-
-            let idPermission = e.parentElement.parentElement.parentElement.querySelector('.row-id').value;
-            let inputsProcess = document.querySelectorAll('.row-id-process');
-            
-            inputsProcess.forEach((input) => {
-                if(e.checked) {
-                    input.value = idPermission;
-                } else {
-                    input.value = '';
-                }
-            });
-        });
-    });
-}
-
 //Вставка новой строки в таблицу
 if(document.querySelector('.button-add-row')) {
     let buttonAdd = document.querySelector('.button-add-row');
     let table = document.querySelector('.table-content');
     let namesCols = getNamesCols();
+    let nameInputChoice = '.input-choice';
+
+    //Функция добавления слушателя на нажатие на ячейку чекбокса
+    function addListenerForColChoice(checkbox) {
+        let colChoice = checkbox.closest('.table-content__col');
+        colChoice.addEventListener('click', (event) => {
+            document.querySelectorAll(nameInputChoice).forEach(e => {
+                if(e !== checkbox) {
+                    e.checked = false;
+                }
+            });
+
+            if(event.target.classList.contains('table-content__col')) {
+                if(checkbox.checked) {
+                    checkbox.checked = false;
+                } else {
+                    checkbox.checked = true;
+                }
+            } 
+        });
+    }
     
     buttonAdd.addEventListener('click', () => {
         addRow();   
@@ -38,12 +31,29 @@ if(document.querySelector('.button-add-row')) {
 
     //Функция добавления строки
     function addRow() {
-        let tableRow = document.querySelector('.table-row');
-        let addRow = tableRow.cloneNode(true);
+        let addRow;
 
-        processRow(addRow);
-        fixRow();
-        setMasks();
+        document.querySelectorAll('.table-row').forEach(e => {
+            if(e.querySelector(nameInputChoice).checked) {
+                addRow = e.cloneNode(true);
+            }
+        });
+
+        //Добавление на основе выделенной строки 
+        if(addRow) {
+            processRow(addRow);
+            addListenerForColChoice(addRow.querySelector(nameInputChoice))
+            setMasks();
+        } 
+        //Обычное добавление пустой строки
+        else {
+            let tableRow = document.querySelector('.table-row');
+            addRow = tableRow.cloneNode(true);
+            cleanRow(addRow);
+            processRow(addRow);
+            addListenerForColChoice(addRow.querySelector(nameInputChoice))
+            setMasks();
+        }
     }
 
     function getNamesCols() {
@@ -68,76 +78,65 @@ if(document.querySelector('.button-add-row')) {
         return result;
     }
 
-//Функция обработки добавляемой строки
-function processRow(addRow) {
-    let activeRowTable = 'table-content__row_active';
+    //Функция обработки добавляемой строки
+    function processRow(addRow) {
+        addRow.querySelector(nameInputChoice).checked = false;
+        table.appendChild(addRow);
+        setNamesRows(addRow);
+    }
 
-    table.appendChild(addRow);
-    
-    if(addRow.classList.contains(activeRowTable)) {
-        addRow.classList.remove(activeRowTable); 
-    } 
+    function setNamesRows() {
+        let rows = document.querySelectorAll('.table-row');
+        let id = 1;
 
-    setNamesRows(addRow);
-}
+        rows.forEach(e => {
+            for (let i = 0; i < e.children.length; i++) {
+                let name = namesCols[i] + id;
+                e.children[i].firstElementChild.name = name; 
+            }
+            id++;
+        });
+    }
 
-function setNamesRows() {
-    let rows = document.querySelectorAll('.table-row');
-    let id = 1;
+    document.querySelectorAll('.table-row').forEach(e => {
+        addListenerForColChoice(e.querySelector(nameInputChoice))
+    })
 
-    rows.forEach(e => {
-        for (let i = 0; i < e.children.length; i++) {
-            let name = namesCols[i] + id;
-            e.children[i].firstElementChild.name = name; 
+    //Удаление строки
+    let delButton = document.querySelector('.button-del-row');
+
+    delButton.addEventListener('click', () => {
+        let countRows = document.querySelectorAll(nameInputChoice).length;
+        let delRow = getDelRow();
+            
+        if(countRows === 1) {
+            cleanRow(delRow);
+            setMasks();
+        } else if(delRow) {
+            delRow.remove();
+        } else {
+            return;
         }
-        id++;
-    });
-}
 
-//Фиксирование строки 
-let delRow;
-fixRow();
-
-function fixRow() {
-    let rowsTable = document.querySelectorAll('.table-row');
-    let activeRowTable = 'table-content__row_active';
-    
-    rowsTable.forEach((e) => {
-        e.addEventListener('click', () => {
-            rowsTable.forEach((e) => {
-                e.classList.remove(activeRowTable);  
-            });
-
-            e.classList.add(activeRowTable);  
-            delRow = e;   
-       });
+        setNamesRows();
     });
 
-}
+    function getDelRow() {
+        let result;
+        document.querySelectorAll(nameInputChoice).forEach(e => {
+            if(e.checked) {
+                result =  e.closest('.table-content__row');
+            }
+        });
 
-//Удаление строки
-let delButton = document.querySelector('.button-del-row');
-
-delButton.addEventListener('click', () => {
-    let countRows = document.querySelectorAll('.table-row').length;
-
-    if(countRows === 1 && delRow) {
-        cleanRow();
-        setMasks();
-    } else if(delRow) {
-        delRow.remove();
-    } else {
-        return;
+        return result;
     }
 
-    setNamesRows();
-});
-
-function cleanRow() {
-    for (let children of delRow.children) {
-        children.firstElementChild.value = '';
+    function cleanRow(delRow) {
+        for (let children of delRow.children) {
+            children.firstElementChild.value = '';
+        }
     }
-}
 
 //Сохранение дат
 let saveButton = document.querySelector('.save-dates');
@@ -240,16 +239,4 @@ function setMaskTime() {
     dates.forEach(e => {
         new IMask(e, dateOptions);
     });
-}
-
-//Установка маски поиска
-if(document.querySelector('.input-search')) {
-    let search = document.querySelector('.input-search');
-    let dateOptions = {
-        mask: /^[а-яА-Я0-9 ]*$/,
-        lazy: false
-    };
-
-    new IMask(search, dateOptions);
-
 }

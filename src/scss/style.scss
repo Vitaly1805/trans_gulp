@@ -442,10 +442,23 @@ body {
 		background-color: #fff;
 		display: flex;
 		align-items: center;
+		border-bottom: 1px solid $mainColor;
+		border-right: 1px solid $mainColor;
+
+		&:first-child {
+			border-left: 1px solid $mainColor;
+			min-width: 100px;
+			max-width: 100px;
+			cursor: pointer;
+
+			input {
+				cursor: pointer;
+			}
+		}
 
 		._check {
 			width: 100px;
-			border: 1px solid $mainColor;
+			// border: 1px solid $mainColor;
 		}
 
         input { 
@@ -455,7 +468,6 @@ body {
             text-align: center;
             width: 100%;
             outline: none;
-            border: 1px solid $mainColor;
         }
     }
 
@@ -469,7 +481,6 @@ body {
 
     &__row {
         display: flex;
-        justify-content: space-between;
 
 		&:hover {
             input {
@@ -515,6 +526,7 @@ body {
 
 .message {
 	font-size: 18px;
+	margin : 0 0 20px 0;
 }
 
 @import "base/null";
