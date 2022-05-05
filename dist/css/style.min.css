@@ -1059,11 +1059,8 @@ body span {
   font-weight: 600;
   line-height: 120%;
 }
-.content__purpose {
-  text-align: center;
-  padding: 100px 0;
-}
 .content__auth-reg {
+  padding: 100px 0 50px 0;
   width: 800px;
   margin: 0 auto;
   display: flex;
@@ -1391,6 +1388,66 @@ body span {
   background: #A9BCF5;
 }
 
+.authorization {
+  width: 600px;
+}
+.authorization__body {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.authorization,
+.registration {
+  background: #fff;
+  padding: 30px 0;
+  width: 600px;
+  margin: 0 auto;
+  box-shadow: 0px 0px 14px 7px rgba(69, 161, 229, 0.2);
+}
+
+.registration {
+  width: 1100px;
+}
+.registration__body {
+  width: 1000px;
+  margin: 0 auto;
+}
+.registration__block {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+}
+.registration__subtitle {
+  font-size: 18px;
+  margin: 30px 0 10px 0;
+}
+.registration__subdivision {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.registration__subdivision input {
+  width: 400px;
+}
+.registration .button {
+  width: 400px;
+  margin: 30px auto;
+}
+.registration .tree {
+  margin: 0 0 20px 0;
+}
+
+.reg-auth-title {
+  font-size: 26px;
+  font-weight: 600;
+  padding: 0 0 30px 0;
+  text-align: center;
+}
+
+.block-margin {
+  height: 50px;
+}
+
 .date-disabled {
   pointer-events: none;
 }
@@ -1398,6 +1455,7 @@ body span {
 .error {
   font-size: 16px;
   margin: 0 auto;
+  text-align: center;
 }
 
 .hierarchy-content {
@@ -1580,6 +1638,9 @@ h6 {
   width: auto;
 }
 .table-permission__head:first-child, .table-permission__col:first-child {
+  min-width: 100px;
+}
+.table-permission__id {
   min-width: 100px;
 }
 .table-permission__period {

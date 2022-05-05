@@ -117,16 +117,8 @@ body {
 		line-height: 120%;
 	}
 
-	&__purpose {
-		text-align: center;
-		padding: 100px 0;
-
-		// @media (max-width: $mobileSmall) {
-		// 	padding: 80px 0;
-		// }
-	}
-
 	&__auth-reg {
+		padding: 100px 0 50px 0;
 		width: 800px;
 		margin: 0 auto;
 		display: flex;
@@ -502,6 +494,73 @@ body {
     }
 }
 
+.authorization {
+	width: 600px;
+
+	&__body {
+		width: 400px;
+		margin: 0 auto;
+	}
+}
+
+.authorization,
+.registration {
+	background: #fff;
+	padding: 30px 0;
+	width: 600px;
+	margin: 0 auto;
+	box-shadow: 0px 0px 14px 7px rgba(69, 161, 229, 0.2);
+}
+
+.registration {
+	width: 1100px;
+
+	&__body {
+		width: 1000px;
+		margin: 0 auto;
+	}
+
+	&__block {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-gap: 10px;
+	}
+
+	&__subtitle{
+		font-size: 18px;
+		margin: 30px 0 10px 0;
+	}
+
+	&__subdivision {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		input {
+			width: 400px;
+		}
+	}
+	
+	.button {
+		width: 400px;
+		margin:  30px auto;
+	}
+	
+	.tree {
+		margin: 0 0 20px 0;
+	}
+}
+
+.reg-auth-title {
+	font-size: 26px;
+	font-weight: 600;
+	padding: 0 0 30px 0;
+	text-align: center;
+}
+
+.block-margin {
+	height: 50px;
+}
 
 .date-disabled {
 	pointer-events: none;
@@ -509,6 +568,7 @@ body {
 .error {
 	font-size: 16px;
 	margin: 0 auto;
+	text-align: center;
 }
 
 .hierarchy-content {

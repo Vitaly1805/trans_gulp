@@ -1,86 +1,87 @@
+import IMask from 'imask';
 //Модальное окно регистрации о сайте
-if(document.querySelector('.window')) {
-    const SPEED_ANIMATE = 500;
-    const modal = document.querySelector('.window-authorization');
-    const closeModal = document.querySelector('.window-authorization__clear');
+// if(document.querySelector('.window')) {
+//     const SPEED_ANIMATE = 500;
+//     const modal = document.querySelector('.window-authorization');
+//     const closeModal = document.querySelector('.window-authorization__clear');
 
-    closeModal.addEventListener('click', () => {
-        modal.classList.remove('open');
-        modal.classList.add('hide');
+//     closeModal.addEventListener('click', () => {
+//         modal.classList.remove('open');
+//         modal.classList.add('hide');
 
-        setTimeout(() => {
-            modal.classList.remove('hide');
-        }, SPEED_ANIMATE);
-    });
+//         setTimeout(() => {
+//             modal.classList.remove('hide');
+//         }, SPEED_ANIMATE);
+//     });
 
-    addEventListener('keydown', (e) => {
-        if(e.key === 'Escape') {
-            if(modal.classList.contains('open')) {
-                modal.classList.remove('open'); 
-                modal.classList.add('hide');
-            }
+//     addEventListener('keydown', (e) => {
+//         if(e.key === 'Escape') {
+//             if(modal.classList.contains('open')) {
+//                 modal.classList.remove('open'); 
+//                 modal.classList.add('hide');
+//             }
 
-            setTimeout(() => {
-                modal.classList.remove('hide');
-            }, SPEED_ANIMATE);
-        }
-    });
+//             setTimeout(() => {
+//                 modal.classList.remove('hide');
+//             }, SPEED_ANIMATE);
+//         }
+//     });
 
-    if(document.querySelector('.window-authorization__form-in')) {
-        const auth = document.querySelector('.window-authorization__title-in');
-        const reg = document.querySelector('.window-authorization__title-reg');
-        const authForm = document.querySelector('.window-authorization__form-in');
-        const regForm = document.querySelector('.window-authorization__form-reg');
-        const buttonAuth = document.querySelector('.content__button-auth');
-        const buttonReg = document.querySelector('.content__button-reg');
-        const windowauthorization = document.querySelector('.window-authorization');
-        const authorizationButton = document.querySelector('.icon_reg_auth');
+//     if(document.querySelector('.window-authorization__form-in')) {
+//         const auth = document.querySelector('.window-authorization__title-in');
+//         const reg = document.querySelector('.window-authorization__title-reg');
+//         const authForm = document.querySelector('.window-authorization__form-in');
+//         const regForm = document.querySelector('.window-authorization__form-reg');
+//         const buttonAuth = document.querySelector('.content__button-auth');
+//         const buttonReg = document.querySelector('.content__button-reg');
+//         const windowauthorization = document.querySelector('.window-authorization');
+//         const authorizationButton = document.querySelector('.icon_reg_auth');
     
-        function toogleForms(form1, form2, title1, title2) {
-            form1.classList.add('window-authorization__form_active');
-            form2.classList.remove('window-authorization__form_active');
-            title1.classList.add('window-authorization__title_active');
-            title2.classList.remove('window-authorization__title_active');
-        }
+//         function toogleForms(form1, form2, title1, title2) {
+//             form1.classList.add('window-authorization__form_active');
+//             form2.classList.remove('window-authorization__form_active');
+//             title1.classList.add('window-authorization__title_active');
+//             title2.classList.remove('window-authorization__title_active');
+//         }
 
-        authorizationButton.addEventListener('click', () => {
-            modal.classList.add('open');
-        });
+//         authorizationButton.addEventListener('click', () => {
+//             modal.classList.add('open');
+//         });
 
-        windowauthorization.addEventListener('click', (e) => {
-            if(e.target.classList[0] === 'window') {
-                modal.classList.remove('open');
-                modal.classList.add('hide');
+//         windowauthorization.addEventListener('click', (e) => {
+//             if(e.target.classList[0] === 'window') {
+//                 modal.classList.remove('open');
+//                 modal.classList.add('hide');
         
-                setTimeout(() => {
-                    modal.classList.remove('hide');
-                }, SPEED_ANIMATE);
-            }
-        });
+//                 setTimeout(() => {
+//                     modal.classList.remove('hide');
+//                 }, SPEED_ANIMATE);
+//             }
+//         });
     
-        buttonAuth.addEventListener('click', () => {
-            toogleForms(authForm, regForm, auth, reg);
+//         buttonAuth.addEventListener('click', () => {
+//             toogleForms(authForm, regForm, auth, reg);
 
-            modal.classList.add('open');
-            modal.classList.remove('hide');
-        });
+//             modal.classList.add('open');
+//             modal.classList.remove('hide');
+//         });
 
-        buttonReg.addEventListener('click', () => {
-            toogleForms(regForm, authForm, reg, auth);
+//         buttonReg.addEventListener('click', () => {
+//             toogleForms(regForm, authForm, reg, auth);
 
-            modal.classList.add('open');
-            modal.classList.remove('hide');
-        });
+//             modal.classList.add('open');
+//             modal.classList.remove('hide');
+//         });
 
-        reg.addEventListener('click', () => {
-            toogleForms(regForm, authForm, reg, auth);
-        });
+//         reg.addEventListener('click', () => {
+//             toogleForms(regForm, authForm, reg, auth);
+//         });
     
-        auth.addEventListener('click', () => {
-            toogleForms(authForm, regForm, auth, reg);
-        });
-    }
-}
+//         auth.addEventListener('click', () => {
+//             toogleForms(authForm, regForm, auth, reg);
+//         });
+//     }
+// }
 
 //Скрытие пароля
 if(document.querySelector('.window-authorization__icon')) {
@@ -303,4 +304,16 @@ if(document.querySelector('.content__ad')) {
             }
         });
     }
+}
+
+//Установка маски мобильному нмоеру телефона
+if(document.getElementById('mobile-phone')) {
+    let phone = document.getElementById('mobile-phone');
+
+    let dateOptions = {
+        mask: '+7 (000) 000-00-00',
+        lazy: false
+    };
+
+    new IMask(phone, dateOptions);
 }
