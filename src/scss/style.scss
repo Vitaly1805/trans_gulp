@@ -103,6 +103,10 @@ body {
 		justify-content: space-between;
 		width: 400px;
 		padding: 40px 0;
+
+		&_center {
+			margin: 0 auto;
+		}
 	}
 
 	&__title {
@@ -334,78 +338,6 @@ body {
 .window-ad {
 }
 
-.window-authorization {
-	&__remember {
-		display: flex;
-		align-items: center;
-		margin: 0 0 20px 10px;
-		cursor: pointer;
-
-		input {
-			 margin: 0 15px 0 0;
-			 cursor: pointer;
-		}
-
-		label {
-			cursor: pointer;
-			font-size: 16px;
-		}
-	}
-
-	&__password {
-		position: relative;
-	}
-	
-	&__icon {
-		position: absolute;
-		right: 15px;
-		top: 8px;
-		cursor: pointer;
-		font-size: 28px;
-	}
-
-	&__titles {
-        display: flex;
-		justify-content: space-between;
-		width: 250px;
-		margin: 0 auto;
-    }
-
-	&__title {
-		margin: 0;
-
-		&_active {
-			border-bottom: 2px solid $mainColor;
-		}
-    }
-
-    &__rating {
-        padding: 20px 0 20px 0;
-    }
-
-	&__form {
-		display: flex;
-		flex-direction: column;
-		width: 350px;
-		margin: 30px auto 0 auto;
-		display: none;
-
-		&_active {
-			display: flex;
-		}
-
-		@media (max-width: $mobileSmall) {
-			width: 100%;
-		}
-	}
-
-	&__question {
-		font-size: 16px;
-		margin: 0 0 20px 0;
-		cursor: pointer;
-	}
-}
-
 .navigation-chain {
 	padding: 20px 0;
 	display: flex;
@@ -497,6 +429,35 @@ body {
 .authorization {
 	width: 600px;
 
+	&__remember {
+		display: flex;
+		align-items: center;
+		margin: 0 0 20px 10px;
+		cursor: pointer;
+
+		input {
+			 margin: 0 15px 0 0;
+			 cursor: pointer;
+		}
+
+		label {
+			cursor: pointer;
+			font-size: 16px;
+		}
+	}
+
+	&__password {
+		position: relative;
+	}
+	
+	&__icon {
+		position: absolute;
+		right: 15px;
+		top: 8px;
+		cursor: pointer;
+		font-size: 28px;
+	}
+
 	&__body {
 		width: 400px;
 		margin: 0 auto;
@@ -510,6 +471,11 @@ body {
 	width: 600px;
 	margin: 0 auto;
 	box-shadow: 0px 0px 14px 7px rgba(69, 161, 229, 0.2);
+	display: none;
+
+	&_active {
+		display: block;
+	}
 }
 
 .registration {
@@ -587,6 +553,32 @@ body {
 .message {
 	font-size: 18px;
 	margin : 0 0 20px 0;
+}
+
+.input-block {
+	display: flex;
+	flex-direction: column;
+	
+	label{
+		font-size: 16px;
+		margin: 0 0 6px 0;
+		display: inline-block;
+	}
+}
+
+#password-different {
+	font-size: 18px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: red;
+}
+
+#textarea-subdivision {
+	width: 400px;
+	// height: 45px;
+	resize: none;
+	overflow: hidden;
 }
 
 @import "base/null";

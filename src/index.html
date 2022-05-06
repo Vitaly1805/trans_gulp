@@ -8,30 +8,40 @@
 		@@include('html/header.html',{})
 		<main class="content">
 			<div class="content__body _container">
-				<div class="content__form content__auth-reg">
-					<div class="input button block-button content__button-auth">Вход</div>
-					<div class="input button block-button content__button-reg">Регистрация</div>
+				<div class="content__buttons content__buttons_center">
+					<div class="content__form">
+						<input type="submit" class="content__button-checkout content__button-checkout_active" value="Вход"  name="operative-permissions">
+					</div>
+					<div class="content__form">
+						<input type="submit" class="content__button-checkout" value="Регистрация" name="archive-permissions">
+					</div>
 				</div>
 			</div>
-			<!-- <div class="authorization">
+			<div class="authorization authorization_active">
 				<div class="authorization__body">
-					<div class="authorization__content">
+					<form method="post" class="authorization__content">
 						<div class="reg-auth-title">
 							Войти
 						</div>
-						<input type="email" pattern="(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*)@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])" class="input" required placeholder="Email">
-						<div class="window-authorization__password">
-							<input type="password" pattern="(?=.*[A-ZА-Я])(?=.*[a-zа-я])(?=.*[0-9])(?=.*[!@#$%^&*])[А-Яа-яa-zA-Z0-9!@#$%^&*]{8,100}"  title="Пароль должен содержать буквы и хотя бы одну цифру,специальный символ и букву в верхнем регистре. Длина ввода от 8 до 100 символов" class="input input-password password" required class="input input-password" placeholder="Пароль">
-							<span class="window-authorization__icon icon-password"></span>
+						<div class="input-block">	
+							<label for="name">Email</label>
+							<input type="email" pattern="(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*)@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])" class="input" required placeholder="Введите Ваш email">
 						</div>
-						<div class="window-authorization__remember">
+						<div class="input-block">	
+							<label for="name">Пароль</label>
+							<div class="authorization__password">
+								<input type="password" pattern="(?=.*[A-ZА-Я])(?=.*[a-zа-я])(?=.*[0-9])(?=.*[!@#$%^&*])[А-Яа-яa-zA-Z0-9!@#$%^&*]{8,100}"  title="Пароль должен содержать буквы и хотя бы одну цифру,специальный символ и букву в верхнем регистре. Длина ввода от 8 до 100 символов" class="input input-password password" required class="input input-password" placeholder="Введите Ваш пароль">
+								<span class="authorization__icon icon-password"></span>
+							</div>
+						</div>
+						<div class="authorization__remember">
 							<input type="checkbox" id="remember" name="remember_me">
 							<label for="remember">Запомнить меня</label>
 						</div>
 						<input type="submit" class="input button" value="Войти">
-					</div>
+					</form>
 				</div>
-			</div> -->
+			</div>
 			<form method="post" class="registration">
 				<div class="registration__body">
 					<div class="registration__content">
@@ -42,34 +52,61 @@
 							Введите ФИО:
 						</div>
 						<div class="registration__block">
-							<input type="text" pattern="[А-Яа-я]{2,100}" class="input" required placeholder="Имя"  title="Имя пользователя должно содержать только кириллические символы. Длина ввода от 2 до 100 символов">
-							<input type="text" pattern="[А-Яа-я]{2,100}" class="input" required placeholder="Фамилия"  title="Фамилия пользователя должно содержать только кириллические символы. Длина ввода от 2 до 100 символов">
-							<input type="text" pattern="^[А-Яа-я]{2,100}$" class="input" required placeholder="Отчество" title="Отчество пользователя должно содержать только кириллические символы. Длина ввода от 2 до 100 символов">
+							<div class="input-block">	
+								<label for="name">Имя*</label>
+								<input type="text" value="ААААа" pattern="[А-Яа-я]{2,100}" placeholder="Введите Ваше имя" class="input text-input" id="name" required title="Имя пользователя должно содержать только кириллические символы. Длина ввода от 2 до 100 символов">
+							</div>
+							<div class="input-block">	
+								<label for="name">Фамилия*</label>
+								<input type="text" value="ААААа" pattern="[А-Яа-я]{2,100}" placeholder="Введите Вашу фамилию" class="input text-input" required title="Фамилия пользователя должно содержать только кириллические символы. Длина ввода от 2 до 100 символов">
+							</div>
+							<div class="input-block">	
+								<label for="name">Отчество*</label>
+								<input type="text" value="ААААа" pattern="^[А-Яа-я]{2,100}$" placeholder="Введите Ваше отчество" class="input text-input" required title="Отчество пользователя должно содержать только кириллические символы. Длина ввода от 2 до 100 символов">
+							</div>
 						</div>
 						<div class="registration__subtitle">
 							Введите контактные данные:
 						</div>
 						<div class="registration__block">
-							<input type="email" pattern="(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*)@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])" class="input" required placeholder="Email">
-							<input type="text" pattern="[А-Яа-я]{2,100}" id="mobile-phone" class="input" required placeholder="Мобильный телефон"  title="Имя пользователя должно содержать только кириллические символы. Длина ввода от 2 до 100 символов">
-							<input type="text" pattern="[А-Яа-я]{2,100}" class="input" required placeholder="МАТС"  title="Фамилия пользователя должно содержать только кириллические символы. Длина ввода от 2 до 100 символов">
+							<div class="input-block">	
+								<label for="name">Email*</label>
+								<input type="email" value="asdad@sdf.dsf" placeholder="Введите Ваш email" pattern="(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*)@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])" class="input" required>
+							</div>
+							<div class="input-block">	
+								<label for="name">Мобильный телефон*</label>
+								<input type="text" value="+7 (111) 111-11-11" pattern="\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}" id="mobile-phone" class="input" required placeholder="Введите Ваш мобильный номер">
+							</div>
+							<div class="input-block">	
+								<label for="name">МАТС</label>
+								<input type="text" value="(1111) 1111" pattern="\(\d{4}\) \d{4}" id="mats" class="input" required placeholder="Введите Ваш МАТС номер">
+							</div>
 						</div>
 						<div class="registration__block">
-							<input type="text" pattern="^[А-Яа-я]{2,100}$" class="input" required placeholder="ГАТС" title="Отчество пользователя должно содержать только кириллические символы. Длина ввода от 2 до 100 символов">
-							<input type="text" pattern="[А-Яа-я]{2,100}" class="input" required placeholder="DECT"  title="Имя пользователя должно содержать только кириллические символы. Длина ввода от 2 до 100 символов">
+							<div class="input-block">	
+								<label for="name">ГАТС</label>
+								<input type="text" pattern="\d{6}" value="111111" id="gats" class="input" required placeholder="Введите Ваш ГАТС номер">
+							</div>
+							<div class="input-block">	
+								<label for="name">DECT</label>
+								<input type="text"value="(1111) 1111" pattern="\(\d{4}\) \d{4}" id="dect" class="input" required placeholder="Введите Ваш DECT номер">
+							</div>
 						</div>
 						<div class="registration__subtitle">
 							Выберите должность:
 						</div>
 						<div class="registration__block">
-						<input type="text" hidden class="input input-subdivision">
-						<div class="custom-select">
-							<select class="select-subdivision">
-								<option value="0">Должность</option>
-								<option value="1">Начальник</option>
-								<option value="2">Инженер</option>
-							</select>
-						</div> 
+							<div class="input-block">	
+								<label for="name">Должность</label>
+								<input type="text" hidden class="input input-position">
+								<div class="custom-select">
+									<select class="select-position">
+										<option value="0">Начальник</option>
+										<option value="1">Начальник</option>
+										<option value="2">Инженер</option>
+									</select>
+								</div> 
+							</div>
 						</div>
 						<div class="registration__subtitle">
 							Выберите подразделение:
@@ -90,20 +127,30 @@
 																	</div>
 								</div>
 							</div>
-							<input type="text" pattern="[А-Яа-я]{2,100}" readonly class="input" required placeholder="Подразделение"  title="Имя пользователя должно содержать только кириллические символы. Длина ввода от 2 до 100 символов">
+							<div class="input-block">	
+								<label for="name">Подразделение</label>
+								<textarea pattern="[А-Яа-я]{2,100}" id="textarea-subdivision" readonly class="input valid" title="Выбранное Вами подразделение отобразиться в данном поле" required placeholder="Выберите подразделение" >Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab, fugit? Consequatur repellendus eius suscipit qui totam sequi ad corporis debitis animi. Ratione expedita facilis aliquid quaerat earum porro, harum neque?</textarea>
+							</div>
 						</div>
 						<div class="registration__subtitle">
 							Введите пароли:
 						</div>
 						<div class="registration__block">
-							<div class="window-authorization__password">
-								<input type="password" pattern="(?=.*[A-ZА-Я])(?=.*[a-zа-я])(?=.*[0-9])(?=.*[!@#$%^&*])[А-Яа-яa-zA-Z0-9!@#$%^&*]{8,100}"  title="Пароль должен содержать буквы и хотя бы одну цифру,специальный символ и букву в верхнем регистре. Длина ввода от 8 до 100 символов" class="input input-password password" required placeholder="Пароль">
-								<span class="window-authorization__icon icon-password"></span>
+							<div class="input-block">	
+								<label for="name">Пароль</label>
+								<div class="authorization__password">
+									<input type="password" value="Casd!111" pattern="(?=.*[A-ZА-Я])(?=.*[a-zа-я])(?=.*[0-9])(?=.*[!@#$%^&*])[А-Яа-яa-zA-Z0-9!@#$%^&*]{8,100}"  title="Пароль должен содержать буквы и хотя бы одну цифру,специальный символ и букву в верхнем регистре. Длина ввода от 8 до 100 символов" class="input input-password password reg-pass-first" required placeholder="Введите новый пароль">
+									<span class="authorization__icon icon-password"></span>
+								</div>
 							</div>
-							<div class="window-authorization__password">
-								<input type="password" pattern="(?=.*[A-ZА-Я])(?=.*[a-zа-я])(?=.*[0-9])(?=.*[!@#$%^&*])[А-Яа-яa-zA-Z0-9!@#$%^&*]{8,100}" class="input input-password" required placeholder="Подтвердите пароль">
-								<span class="window-authorization__icon icon-password"></span>
-							</div> 
+							<div class="input-block">	
+								<label for="name">Пароль</label>
+								<div class="authorization__password">
+									<input type="password" value="Casd!112" pattern="(?=.*[A-ZА-Я])(?=.*[a-zа-я])(?=.*[0-9])(?=.*[!@#$%^&*])[А-Яа-яa-zA-Z0-9!@#$%^&*]{8,100}" title="Пароль должен содержать буквы и хотя бы одну цифру,специальный символ и букву в верхнем регистре. Длина ввода от 8 до 100 символов" class="input input-password reg-pass-second" required placeholder="Подтвердите новый пароль">
+									<span class="authorization__icon icon-password"></span>
+								</div> 
+							</div>
+							<div id="password-different"></div>
 						</div>
 						<input type="submit" class="input button" value="Регистрация">
 						<div class="error">Данный логин уже существует!</div>
@@ -111,58 +158,6 @@
 				</div>
 			</form>
 			<div class="block-margin"></div>
-			<!-- <div class="window window-authorization">
-				<div class="window__body window-authorization__body">
-					<form method="post" class="window-authorization__form window-authorization__form-in window-authorization__form_active">
-						<input type="email" pattern="(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*)@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])" class="input" required placeholder="Email">
-						<div class="window-authorization__password">
-							<input type="password" pattern="(?=.*[A-ZА-Я])(?=.*[a-zа-я])(?=.*[0-9])(?=.*[!@#$%^&*])[А-Яа-яa-zA-Z0-9!@#$%^&*]{8,100}"  title="Пароль должен содержать буквы и хотя бы одну цифру,специальный символ и букву в верхнем регистре. Длина ввода от 8 до 100 символов" class="input input-password password" required class="input input-password" placeholder="Пароль">
-							<span class="window-authorization__icon icon-password"></span>
-						</div>
-						<div class="window-authorization__question">Забыли пароль?</div>
-						<div class="window-authorization__remember">
-							<input type="checkbox" id="remember" name="remember_me">
-							<label for="remember">Запомнить меня</label>
-						</div>
-						<input type="submit" class="input button" value="Войти">
-					</form>
-						<form method="post" class="window-authorization__form window-authorization__form-reg">
-						<input type="text" pattern="[А-Яа-я]{2,100}" class="input" required placeholder="Имя"  title="Имя пользователя должно содержать только кириллические символы. Длина ввода от 2 до 100 символов">
-						<input type="text" pattern="[А-Яа-я]{2,100}" class="input" required placeholder="Фамилия"  title="Фамилия пользователя должно содержать только кириллические символы. Длина ввода от 2 до 100 символов">
-						<input type="text" pattern="^[А-Яа-я]{2,100}$" class="input" required placeholder="Отчество" title="Отчество пользователя должно содержать только кириллические символы. Длина ввода от 2 до 100 символов">
-						<input type="text" hidden class="input input-department"> 
-						<div class="custom-select">
-							<select class="select-department">
-							  <option value="0">Отдел</option>
-							  <option value="1">А</option>
-							  <option value="2">Б</option>
-							  <option value="3">В</option>
-							</select>
-						  </div>
-						<input type="text" hidden class="input input-subdivision">
-						<div class="custom-select">
-							<select class="select-subdivision">
-							  <option value="0">Подразделение</option>
-							  <option value="1">АО "Транснефть - Север"</option>
-							  <option value="2">АУП</option>
-							  <option value="3">РНУ Усинское</option>
-							</select>
-						</div> -->
-						<!-- <input type="text" pattern="[А-Яа-я]{5,100}" class="input" placeholder="Должность" title="Должность должна содержать только кириллические символы и (или) пробелы. Длина ввода от 5 до 100 символов">
-						<input type="email" pattern="(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*)@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])" class="input" required placeholder="Email">
-						<div class="window-authorization__password">
-							<input type="password" pattern="(?=.*[A-ZА-Я])(?=.*[a-zа-я])(?=.*[0-9])(?=.*[!@#$%^&*])[А-Яа-яa-zA-Z0-9!@#$%^&*]{8,100}"  title="Пароль должен содержать буквы и хотя бы одну цифру,специальный символ и букву в верхнем регистре. Длина ввода от 8 до 100 символов" class="input input-password password" required placeholder="Пароль">
-							<span class="window-authorization__icon icon-password"></span>
-						</div>
-						<div class="window-authorization__password">
-							<input type="password" pattern="(?=.*[A-ZА-Я])(?=.*[a-zа-я])(?=.*[0-9])(?=.*[!@#$%^&*])[А-Яа-яa-zA-Z0-9!@#$%^&*]{8,100}" class="input input-password" required placeholder="Подтвердите пароль">
-							<span class="window-authorization__icon icon-password"></span>
-						</div> -->
-						<!-- <input type="submit" class="input button" value="Регистрация">
-						<div class="error">Данный логин уже существует!</div>
-					</form>
-				</div>
-			</div> -->
 			<input type="text" hidden class="content__ad" value="">
 			<div class="window window-ad">
 				<div class="window__body window__body">

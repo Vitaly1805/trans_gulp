@@ -1,132 +1,76 @@
 import IMask from 'imask';
-//Модальное окно регистрации о сайте
-// if(document.querySelector('.window')) {
-//     const SPEED_ANIMATE = 500;
-//     const modal = document.querySelector('.window-authorization');
-//     const closeModal = document.querySelector('.window-authorization__clear');
+// Модальное окно регистрации о сайте
+if(document.querySelector('.window')) {
+    const SPEED_ANIMATE = 500;
+    const modal = document.querySelector('.window');
+    const closeModal = document.querySelector('.window__clear');
 
-//     closeModal.addEventListener('click', () => {
-//         modal.classList.remove('open');
-//         modal.classList.add('hide');
+    closeModal.addEventListener('click', () => {
+        modal.classList.remove('open');
+        modal.classList.add('hide');
 
-//         setTimeout(() => {
-//             modal.classList.remove('hide');
-//         }, SPEED_ANIMATE);
-//     });
+        setTimeout(() => {
+            modal.classList.remove('hide');
+        }, SPEED_ANIMATE);
+    });
 
-//     addEventListener('keydown', (e) => {
-//         if(e.key === 'Escape') {
-//             if(modal.classList.contains('open')) {
-//                 modal.classList.remove('open'); 
-//                 modal.classList.add('hide');
-//             }
+    addEventListener('keydown', (e) => {
+        if(e.key === 'Escape') {
+            if(modal.classList.contains('open')) {
+                modal.classList.remove('open'); 
+                modal.classList.add('hide');
+            }
 
-//             setTimeout(() => {
-//                 modal.classList.remove('hide');
-//             }, SPEED_ANIMATE);
-//         }
-//     });
-
-//     if(document.querySelector('.window-authorization__form-in')) {
-//         const auth = document.querySelector('.window-authorization__title-in');
-//         const reg = document.querySelector('.window-authorization__title-reg');
-//         const authForm = document.querySelector('.window-authorization__form-in');
-//         const regForm = document.querySelector('.window-authorization__form-reg');
-//         const buttonAuth = document.querySelector('.content__button-auth');
-//         const buttonReg = document.querySelector('.content__button-reg');
-//         const windowauthorization = document.querySelector('.window-authorization');
-//         const authorizationButton = document.querySelector('.icon_reg_auth');
-    
-//         function toogleForms(form1, form2, title1, title2) {
-//             form1.classList.add('window-authorization__form_active');
-//             form2.classList.remove('window-authorization__form_active');
-//             title1.classList.add('window-authorization__title_active');
-//             title2.classList.remove('window-authorization__title_active');
-//         }
-
-//         authorizationButton.addEventListener('click', () => {
-//             modal.classList.add('open');
-//         });
-
-//         windowauthorization.addEventListener('click', (e) => {
-//             if(e.target.classList[0] === 'window') {
-//                 modal.classList.remove('open');
-//                 modal.classList.add('hide');
-        
-//                 setTimeout(() => {
-//                     modal.classList.remove('hide');
-//                 }, SPEED_ANIMATE);
-//             }
-//         });
-    
-//         buttonAuth.addEventListener('click', () => {
-//             toogleForms(authForm, regForm, auth, reg);
-
-//             modal.classList.add('open');
-//             modal.classList.remove('hide');
-//         });
-
-//         buttonReg.addEventListener('click', () => {
-//             toogleForms(regForm, authForm, reg, auth);
-
-//             modal.classList.add('open');
-//             modal.classList.remove('hide');
-//         });
-
-//         reg.addEventListener('click', () => {
-//             toogleForms(regForm, authForm, reg, auth);
-//         });
-    
-//         auth.addEventListener('click', () => {
-//             toogleForms(authForm, regForm, auth, reg);
-//         });
-//     }
-// }
+            setTimeout(() => {
+                modal.classList.remove('hide');
+            }, SPEED_ANIMATE);
+        }
+    });
+}
 
 //Скрытие пароля
-if(document.querySelector('.window-authorization__icon')) {
-    if(document.querySelector('.window-authorization__icon')) {
-        let blockPass = document.querySelectorAll('.window-authorization__password');
-    
-        blockPass.forEach( (pass, index) =>  {
-            let icon = pass.lastElementChild;
-            
-            icon.addEventListener('click', () => {
-                let inputPassword = document.querySelectorAll('.input-password')[index];
-    
-                if (inputPassword.getAttribute('type') == 'password') {
-                    icon.classList.remove('icon-password');
-                    icon.classList.add('icon-password-hidden');
-                    inputPassword.setAttribute('type', 'text');
-                } else {
-                    icon.classList.remove('icon-password-hidden');
-                    icon.classList.add('icon-password');
-                    inputPassword.setAttribute('type', 'password');
-                }
-            });
-        });
-    }
-    
-    if(document.querySelectorAll('input').length > 0) {
-        let inputs = []; 
-    
-        document.querySelectorAll('input').forEach(e => {
-            inputs.push(e);
-        });
+if(document.querySelector('.authorization__icon')) {
+    toggleShowPassword(document.querySelectorAll('.authorization__password'))
+}
+
+function toggleShowPassword(blockPass) {    
+    blockPass.forEach( (pass, index) =>  {
+        let icon = pass.lastElementChild;
         
-        inputs = inputs.filter(e => e.type !== "submit");
-        
-        inputs.forEach(e => {
-            if(e.value === '') {
-                e.classList.add('valid');
+        icon.addEventListener('click', () => {
+            let inputPassword = document.querySelectorAll('.input-password')[index];
+
+            if (inputPassword.getAttribute('type') == 'password') {
+                icon.classList.remove('icon-password');
+                icon.classList.add('icon-password-hidden');
+                inputPassword.setAttribute('type', 'text');
+            } else {
+                icon.classList.remove('icon-password-hidden');
+                icon.classList.add('icon-password');
+                inputPassword.setAttribute('type', 'password');
             }
-        
-            e.addEventListener('input', () => {
-                e.classList.remove('valid');
-            });
         });
-        
-    }
+    });
+}
+
+if(document.querySelectorAll('input').length > 0) {
+    let inputs = []; 
+
+    document.querySelectorAll('input').forEach(e => {
+        inputs.push(e);
+    });
+    
+    inputs = inputs.filter(e => e.type !== "submit");
+    
+    inputs.forEach(e => {
+        if(e.value === '') {
+            e.classList.add('valid');
+        }
+    
+        e.addEventListener('input', () => {
+            e.classList.remove('valid');
+        });
+    });
 }
 
 //Выбор поля
@@ -165,11 +109,7 @@ if(document.querySelector(".custom-select")) {
                 s.selectedIndex = i;
                 h.innerHTML = this.innerHTML;
 
-                if(s.className === 'select-department') {
-                    input = document.querySelector('.input-department');
-                } else {
-                    input = document.querySelector('.input-subdivision');
-                }
+                input = document.querySelector('.input-position');  
                 input.value = h.innerHTML;
 
                 y = this.parentNode.getElementsByClassName("same-as-selected");
@@ -222,42 +162,68 @@ if(document.querySelector(".custom-select")) {
 }
 
 
-//Запрет отправки формы без выбранных select
+if(document.querySelector('.registration')) {
+    let form = document.querySelector('.registration');
+    let firstInputPassword = document.querySelector('.reg-pass-first');
+    let secondInputPassword = document.querySelector('.reg-pass-second');
+    let messageError = document.getElementById('password-different');
 
-if(document.querySelector('.window-authorization__form-reg')) {
-    let form = document.querySelector('.window-authorization__form-reg');
-
+    //Запрет отправки формы если пароли не совпадают
     form.addEventListener('submit', function(event) {
-        let inputDepartment = document.querySelector('.input-department');
-        let inputSubdivision = document.querySelector('.input-subdivision');
-        let selects = document.querySelectorAll('.select-selected')
-        
-        if(!inputDepartment.value || !inputSubdivision.value) {
-            if(!inputDepartment.value && !inputSubdivision.value) {
-                selects.forEach(e => {
-                    e.classList.add('select-selected_active');
+        let firstPassword  = firstInputPassword.value;
+        let secondPassword  = secondInputPassword.value;
+        let subdivision = document.getElementById('input-subdivision').value;
 
-                    setTimeout(() => {
-                        e.classList.remove('select-selected_active');
-                    }, 1000);
-                });           
-            } else if (!inputDepartment.value) {
-                selects[0].classList.add('select-selected_active');
+        //Проверка выбрана ли должность
+        // let inputPosition = document.querySelector('.input-position');
+        // let selects = document.querySelectorAll('.select-selected');
+        // if(!inputPosition.value) {
+        //     selects[0].classList.add('select-selected_active');
 
-                setTimeout(() => {
-                    selects[0].classList.remove('select-selected_active');
-                }, 1000);
-            } else {
-                selects[1].classList.add('select-selected_active');
+        //     setTimeout(() => {
+        //         selects[0].classList.remove('select-selected_active');
+        //     }, 1000);
 
-                setTimeout(() => {
-                    selects[1].classList.remove('select-selected_active');
-                }, 1000);
-            }  
+        //     event.preventDefault(); 
+        // }
 
+        //Проверка совпадают ли пароли
+        if(firstPassword !== secondPassword) {
+            event.preventDefault(); 
+        }
+
+        //Проверка выбрано ли подразделение
+        if(subdivision === '') {
             event.preventDefault();  
-        } 
+        }
     });
+
+    // Вывод подсказки в случае, если пароли не совпадают
+    firstInputPassword.addEventListener('blur', () => {
+        if(!checkPasswords(firstInputPassword, secondInputPassword)) {
+            messageError.innerHTML = 'Пароли не сопадают!';
+        } else {
+            messageError.innerHTML = '';
+        }
+    });
+    secondInputPassword.addEventListener('blur', () => {
+        if(!checkPasswords(firstInputPassword, secondInputPassword)) {
+            messageError.innerHTML = 'Пароли не сопадают!';
+        } else {
+            messageError.innerHTML = '';
+        }
+    });
+
+    function checkPasswords(firstInputPassword, secondInputPassword) {
+        let firstPassword  = firstInputPassword.value;
+        let secondPassword  = secondInputPassword.value;
+
+        if(firstPassword !== secondPassword) {
+            return false;
+        }
+
+        return true;
+    }
 }
 
 
@@ -306,7 +272,7 @@ if(document.querySelector('.content__ad')) {
     }
 }
 
-//Установка маски мобильному нмоеру телефона
+//Установка масок элементам формы регистрации
 if(document.getElementById('mobile-phone')) {
     let phone = document.getElementById('mobile-phone');
 
@@ -316,4 +282,67 @@ if(document.getElementById('mobile-phone')) {
     };
 
     new IMask(phone, dateOptions);
+}
+
+if(document.querySelector('.text-input')) {
+    let textInputs = document.querySelectorAll('.text-input');
+
+    textInputs.forEach(e => {
+        let dateOptions = {
+            mask: /^[а-яА-Я]{0,100}$/,
+            lazy: false
+        };
+    
+        new IMask(e, dateOptions);
+    });
+}
+
+if(document.getElementById('mats')) {
+    let phone = document.getElementById('mats');
+
+    let dateOptions = {
+        mask: '(0000) 0000',
+        lazy: false
+    };
+
+    new IMask(phone, dateOptions);
+}
+
+if(document.getElementById('dect')) {
+    let phone = document.getElementById('dect');
+
+    let dateOptions = {
+        mask: '(0000) 0000',
+        lazy: false
+    };
+
+    new IMask(phone, dateOptions);
+}
+
+if(document.getElementById('gats')) {
+    let phone = document.getElementById('gats');
+
+    let dateOptions = {
+        mask: '000000',
+        lazy: false
+    };
+
+    new IMask(phone, dateOptions);
+}
+
+//Переключение между формами 
+if(document.querySelector('.content__button-checkout')) {
+    let buttonsCheckout = document.querySelectorAll('.content__button-checkout');
+    let authorization = document.querySelector('.authorization');
+    let registration = document.querySelector('.registration');
+
+    buttonsCheckout.forEach(e => {
+        e.addEventListener('click' , () => {
+            buttonsCheckout.forEach(e => {
+                e.classList.toggle('content__button-checkout_active')
+            })
+            authorization.classList.toggle('authorization_active');
+            registration.classList.toggle('registration_active');
+        })
+    });
 }
