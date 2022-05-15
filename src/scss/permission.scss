@@ -1,3 +1,9 @@
+$violet: #ECCEF5;
+$beige: #CEF6F5;
+$blue: #CED8F6;
+$green: #E0F8E0;
+$yellow: #F5F6CE;
+
 .permission {
 	&__number {
 		width: 150px;
@@ -6,6 +12,66 @@
 
 	&__slash {
 		margin: 0 10px;
+	}
+
+	&__top {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__block-button {
+		position: relative;
+	}
+}
+
+.pallete {
+	background-color: #fff;
+	margin: 20px 0;
+
+	&__body {
+		padding: 10px;
+	}
+
+	&__list {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+
+	&__item {
+		display: flex;
+		align-items: center;
+		margin: 5px 0;
+	}
+
+	&__color {
+		width: 20px;
+		height: 20px;
+		margin: 0 5px 0 0;
+
+		&_violet {
+			background: $violet;
+		}
+
+		&_beige {
+			background: $beige;
+		}
+
+		&_blue {
+			background: $blue;
+		}
+
+		&_green {
+			background: $green;
+		}
+
+		&_yellow {
+			background: $yellow;
+		}
+	}
+
+	&__title {
+		font-size: 16px;
+		margin: 0 0 5px 0;
 	}
 }
 
@@ -22,6 +88,11 @@
         &:first-child {
 			min-width: 100px;
 		}
+	}
+
+	
+	&__id {
+		min-width: 100px;
 	}
 
 	&__period {
@@ -65,6 +136,26 @@
 		display: flex;
 		justify-content: center;
 		flex-direction: column;
+
+		&_violet {
+			background: $violet;
+		}
+
+		&_beige {
+			background: $beige;
+		}
+
+		&_blue {
+			background: $blue;
+		}
+
+		&_green {
+			background: $green;
+		}
+
+		&_yellow {
+			background: $yellow;
+		}
 	}
 
     &__row {
@@ -90,28 +181,46 @@
 	display: none;
 	flex-direction: column;
 
-	&__block {
-		display: flex;
-		width: 60%;
+	&__subtitle {
+		font-size: 20px;
+		margin: 0 0 10px 0;
 	}
 
 	&__list {
+		display: flex;
 		background: #fff;
 		border-radius: 5px;
 		margin: 0 0 20px 0;
-		width: 100%;
-		padding: 20px 100px;
-	}
-
-	&__date {
-		display: flex;
-		justify-content: space-between;
+		padding: 20px;
 	}
 
 	&__item {
+		margin: 0 40px 0 0;
 		input {
 			outline: none;
 			color: $mainColor;
+		}
+	}
+
+	&__status-list {
+		margin: 15px 0 0 0;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 10px;
+	}
+
+	&__status-item {
+		font-size: 16px;
+		display: flex;
+		align-items: center;
+		
+		label,
+		input {
+			cursor: pointer;
+		}
+
+		input {
+			margin: 0 5px 0 0;
 		}
 	}
 
@@ -125,7 +234,10 @@
 	&__buttons {
 		display: flex;
 		justify-content: end;
+		align-items: flex-end;
+		height: 100%;
 		margin: 20px 0;
+		padding:  0 0 20px 0;
 	}
 
 	&__button {
@@ -136,8 +248,13 @@
 
     &__funcs {
         display: grid;
-        grid-template-columns: 200px 1fr repeat(4, 200px);
+        grid-template-columns: 1fr 2fr repeat(5, 1fr);
         grid-gap: 10px;
+
+		.button-content {
+			width: 100%;
+			min-width: auto;
+		}
 
         @media (max-width: 1400px) {
             grid-template-columns: 200px 1fr repeat(3, 200px);
@@ -145,6 +262,35 @@
     }
 
 	&_active {
-		display: flex;
+		display: block;
+	}
+}
+
+.permission-status {
+	position: absolute;
+	z-index: 100;
+	top: 50px;
+	right: 0;
+	display: none;
+
+	&_active {
+		display: block;
+	}
+
+	&__body {
+		border: 3px solid $mainColor;
+		border-radius: 5px;
+		background : #fff;
+		padding: 10px;
+		width: 350px;
+	}
+
+	&__subtitle {
+		font-size: 16px;
+		margin: 10px 0;
+	}
+
+	&__comment {
+		border: 1px solid red;
 	}
 }

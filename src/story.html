@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	@@include('html/head.html',{
+	"title":"Главная"
+	})
+	<body>
+		<div class="wrap">
+		@@include('html/header.html',{})
+		<main class="content">
+			<div class="content__body _container">
+				<div class="navigation-chain">
+                    <div class="navigation-chain__item"><a href="permission.html">Разрешения / </a></div>
+                    <div class="navigation-chain__item navigation-chain__item_active">История разрешения</div>
+                </div>
+				<div class="content__table table-content story-table">
+					<div class="table-content__row table-content__row_head story-table__row">
+						<div class="table-content__col table-content__head">№</div>
+						<div class="table-content__col table-content__head">Дата и время</div>
+						<div class="table-content__col table-content__head">Фактические дата и время</div>
+						<div class="table-content__col table-content__head">Автор</div>
+						<div class="table-content__col table-content__head">Статус</div>
+						<div class="table-content__col table-content__head">Подразделение</div>
+						<div class="table-content__col table-content__head">Комментарий</div>
+					</div>
+					<div class="table-content__row story-table__row">
+						<div class="table-content__col table-col table-permission__col">
+							1
+						</div>
+						<div class="table-content__col table-col table-permission__col">
+							08.04.2022
+						</div>
+						<div class="table-content__col table-col table-permission__col">
+							08.04.2022
+						</div>
+						<div class="table-content__col table-col table-permission__col">
+							Утвержден
+						</div>
+						<div class="table-content__col table-col table-permission__col">
+							РНУ Ухтинское
+						</div>
+						<div class="table-content__col table-col table-permission__col">
+							Мурзабеков Умалат Ахметович
+						</div>
+						<div class="table-content__col table-col table-permission__col">
+							Мурзабеков Умалат Ахметович
+						</div>
+					</div>
+				</div>
+            </div>
+		</main>
+		@@include('html/footer.html',{})
+		</div>
+		<script src="js/app.min.js"></script>
+	</body>
+</html>

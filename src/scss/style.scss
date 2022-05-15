@@ -103,6 +103,10 @@ body {
 		justify-content: space-between;
 		width: 400px;
 		padding: 40px 0;
+
+		&_center {
+			margin: 0 auto;
+		}
 	}
 
 	&__title {
@@ -117,16 +121,8 @@ body {
 		line-height: 120%;
 	}
 
-	&__purpose {
-		text-align: center;
-		padding: 100px 0;
-
-		// @media (max-width: $mobileSmall) {
-		// 	padding: 80px 0;
-		// }
-	}
-
 	&__auth-reg {
+		padding: 100px 0 50px 0;
 		width: 800px;
 		margin: 0 auto;
 		display: flex;
@@ -342,78 +338,6 @@ body {
 .window-ad {
 }
 
-.window-authorization {
-	&__remember {
-		display: flex;
-		align-items: center;
-		margin: 0 0 20px 10px;
-		cursor: pointer;
-
-		input {
-			 margin: 0 15px 0 0;
-			 cursor: pointer;
-		}
-
-		label {
-			cursor: pointer;
-			font-size: 16px;
-		}
-	}
-
-	&__password {
-		position: relative;
-	}
-	
-	&__icon {
-		position: absolute;
-		right: 15px;
-		top: 8px;
-		cursor: pointer;
-		font-size: 28px;
-	}
-
-	&__titles {
-        display: flex;
-		justify-content: space-between;
-		width: 250px;
-		margin: 0 auto;
-    }
-
-	&__title {
-		margin: 0;
-
-		&_active {
-			border-bottom: 2px solid $mainColor;
-		}
-    }
-
-    &__rating {
-        padding: 20px 0 20px 0;
-    }
-
-	&__form {
-		display: flex;
-		flex-direction: column;
-		width: 350px;
-		margin: 30px auto 0 auto;
-		display: none;
-
-		&_active {
-			display: flex;
-		}
-
-		@media (max-width: $mobileSmall) {
-			width: 100%;
-		}
-	}
-
-	&__question {
-		font-size: 16px;
-		margin: 0 0 20px 0;
-		cursor: pointer;
-	}
-}
-
 .navigation-chain {
 	padding: 20px 0;
 	display: flex;
@@ -502,6 +426,107 @@ body {
     }
 }
 
+.authorization {
+	width: 600px;
+
+	&__remember {
+		display: flex;
+		align-items: center;
+		margin: 0 0 20px 10px;
+		cursor: pointer;
+
+		input {
+			 margin: 0 15px 0 0;
+			 cursor: pointer;
+		}
+
+		label {
+			cursor: pointer;
+			font-size: 16px;
+		}
+	}
+
+	&__password {
+		position: relative;
+	}
+	
+	&__icon {
+		position: absolute;
+		right: 15px;
+		top: 8px;
+		cursor: pointer;
+		font-size: 28px;
+	}
+
+	&__body {
+		width: 400px;
+		margin: 0 auto;
+	}
+}
+
+.authorization,
+.registration {
+	background: #fff;
+	padding: 30px 0;
+	width: 600px;
+	margin: 0 auto;
+	box-shadow: 0px 0px 14px 7px rgba(69, 161, 229, 0.2);
+	display: none;
+
+	&_active {
+		display: block;
+	}
+}
+
+.registration {
+	width: 1100px;
+
+	&__body {
+		width: 1000px;
+		margin: 0 auto;
+	}
+
+	&__block {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-gap: 10px;
+	}
+
+	&__subtitle{
+		font-size: 18px;
+		margin: 30px 0 10px 0;
+	}
+
+	&__subdivision {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		input {
+			width: 400px;
+		}
+	}
+	
+	.button {
+		width: 400px;
+		margin:  30px auto;
+	}
+	
+	.tree {
+		margin: 0 0 20px 0;
+	}
+}
+
+.reg-auth-title {
+	font-size: 26px;
+	font-weight: 600;
+	padding: 0 0 30px 0;
+	text-align: center;
+}
+
+.block-margin {
+	height: 50px;
+}
 
 .date-disabled {
 	pointer-events: none;
@@ -509,6 +534,7 @@ body {
 .error {
 	font-size: 16px;
 	margin: 0 auto;
+	text-align: center;
 }
 
 .hierarchy-content {
@@ -529,6 +555,32 @@ body {
 	margin : 0 0 20px 0;
 }
 
+.input-block {
+	display: flex;
+	flex-direction: column;
+	
+	label{
+		font-size: 16px;
+		margin: 0 0 6px 0;
+		display: inline-block;
+	}
+}
+
+#password-different {
+	font-size: 18px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: red;
+}
+
+#textarea-subdivision {
+	width: 400px;
+	// height: 45px;
+	resize: none;
+	overflow: hidden;
+}
+
 @import "base/null";
 @import "select_box";
 @import "permission";
@@ -537,5 +589,7 @@ body {
 @import "dates_add";
 @import "responsibles_add";
 @import "tree";
+@import "role";
+@import "story";
 @import "header";
 @import "footer";

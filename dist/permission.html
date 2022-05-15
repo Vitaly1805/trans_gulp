@@ -21,24 +21,69 @@
                     </span>
                 </a>
             </div>
-            <div class="header__icon icon_reg_auth">
-                <span class="icon-user"></span>
-                <span class="header__subtitle">
-                    Войти
-                </span>
-            </div>
         </div>
     </div>
 </header>
 		<main class="content">
-			<div class="content__body _container-main">
-				<div class="content__buttons">
-					<form action="" method="post" class="content__form">
-						<input type="submit" class="content__button-checkout content__button-checkout_active" value="Оперативные"  name="operative-permissions">
-					</form>
-					<form action="" method="post" class="content__form">
-						<input type="submit" class="content__button-checkout" value="Архив" name="archive-permissions">
-					</form>
+			<div class="content__body _container-main permission">
+				<div class="permission__top">
+					<div class="content__buttons">
+						<form action="" method="post" class="content__form">
+							<input type="submit" class="content__button-checkout content__button-checkout_active" value="Оперативные"  name="operative-permissions">
+						</form>
+						<form action="" method="post" class="content__form">
+							<input type="submit" class="content__button-checkout" value="Архив" name="archive-permissions">
+						</form>
+					</div>
+					<div class="permission__pallete pallete">
+						<div class="pallete__body">
+							<div class="pallete__title">
+								Статусы разрешений
+							</div>
+							<div class="pallete__list">
+								<div class="pallete__item">
+									<div class="pallete__color pallete__color_violet">
+										
+									</div>
+									<div class="pallete__subtitle">
+										- Создание
+									</div>
+								</div>
+								<div class="pallete__item">
+									<div class="pallete__color pallete__color_beige">
+										
+									</div>
+									<div class="pallete__subtitle">
+										- Согласование
+									</div>
+								</div>
+								<div class="pallete__item">
+									<div class="pallete__color pallete__color_blue">
+
+									</div>
+									<div class="pallete__subtitle">
+										- Утверждено
+									</div>
+								</div>
+								<div class="pallete__item">
+									<div class="pallete__color pallete__color_green">
+
+									</div>
+									<div class="pallete__subtitle">
+										- Открыто
+									</div>
+								</div>
+								<div class="pallete__item">
+									<div class="pallete__color pallete__color_yellow">
+										
+									</div>
+									<div class="pallete__subtitle">
+										- Приостановлено
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 				<div class="filter-content__funcs">
 					<div class="input button button-content filter">Фильтры</div>
@@ -62,17 +107,107 @@
 						<input type="submit" class="input button button-content permission-event" value="Удаление">
 						<input type="text" class="row-id-process" hidden name="id" id="" required>
 					</form>
+                    <form action="" method="post" class="permission__block-button">
+                        <input type="submit" name="open-permission" class="input button button-content permission-event" value="Открыть">
+                        <input type="text" class="row-id-process" hidden name="id" required id="">
+						<div class="permission__status permission-status">
+							<div class="permission-status__body">
+								<div class="permission-status__subtitle">
+									Фактическое время открытия разрешения:
+								</div>
+								<div class="permission-status__date">
+									<input type="date">
+								</div>
+								<div class="permission-status__subtitle">
+									Комментарий:
+								</div>
+								<textarea class="permission-status__comment input textarea" name="" id="" cols="30" rows="10">
+								</textarea>
+								<input type="submit" class="permission-status__button input button" value="Ок">
+							</div>
+						</div>
+                    </form>
+                    <form action="" method="post" class="permission__block-button">
+                        <input type="submit" name="pause-permission" class="input button button-content permission-event" value="Открыть">
+                        <input type="text" class="row-id-process" hidden name="id" required id="">
+						<div class="permission__status permission-status">
+							<div class="permission-status__body">
+								<div class="permission-status__subtitle">
+									Фактическое время приостановки разрешения:
+								</div>
+								<div class="permission-status__date">
+									<input type="date">
+								</div>
+								<div class="permission-status__subtitle">
+									Комментарий:
+								</div>
+								<textarea class="permission-status__comment input textarea" name="" id="" cols="30" rows="10">
+								</textarea>
+								<input type="submit" class="permission-status__button input button" value="Ок">
+							</div>
+						</div>
+                    </form>
+					<form action="" method="post" class="permission__block-button">
+                        <input type="submit" name="close-permission" class="input button button-content permission-event" value="Открыть">
+                        <input type="text" class="row-id-process" hidden name="id" required id="">
+						<div class="permission__status permission-status">
+							<div class="permission-status__body">
+								<div class="permission-status__subtitle">
+									Фактическое время закрытия разрешения:
+								</div>
+								<div class="permission-status__date">
+									<input type="date">
+								</div>
+								<div class="permission-status__subtitle">
+									Комментарий:
+								</div>
+								<textarea class="permission-status__comment input textarea" name="" id="" cols="30" rows="10">
+								</textarea>
+								<input type="submit" class="permission-status__button input button" value="Ок">
+							</div>
+						</div>
+                    </form>
 				</div>
 				<div class="content__filter filter-content">
-					<div class="filter-content__block filter-block">
+					<div class="filter-content__block">
 						<div class="filter-content__list">
 							<div class="filter-content__item">
+								<div class="filter-content__subtitle">
+									Периоды работ
+								</div>
 								<div class="filter-content__date date-filter">
 									<div class="date-filter__block">
 										<span class="filter-content__span">Начальная дата</span> <input type="date">
 									</div>
 									<div class="date-filter__block">
 										<span class="filter-content__span">Конечная дата</span> <input type="date">
+									</div>
+								</div>
+							</div>
+							<div class="filter-content__item">
+								<div class="filter-content__subtitle">
+									Статусы разрешений
+								</div>
+								<div class="filter-content__status-list">
+									<div class="filter-content__status-item">
+										<input id="3" type="checkbox" checked>
+										<label for="3">Утверждено</label>
+									</div>
+									<div class="filter-content__status-item">
+										<input id="3" type="checkbox" checked>
+										<label for="3">Утверждено</label>
+									</div>
+									<div class="filter-content__status-item">
+										<input id="3" type="checkbox" checked>
+										<label for="3">Утверждено</label>
+									</div>
+									<div class="filter-content__status-item">
+										<input id="3" type="checkbox" checked>
+										<label for="3">Утверждено</label>
+									</div>
+									<div class="filter-content__status-item">
+										<input id="3" type="checkbox" checked>
+										<label for="3">Утверждено</label>
 									</div>
 								</div>
 							</div>
@@ -102,20 +237,21 @@
 							<div class="table-content__col table-content__head table-permission__head table-permission__text">Ответственные за пние раброведеот</div>
 							<div class="table-content__col table-content__head table-permission__head table-permission__text">Ответственные за пние раброведеот</div>
 						</div>
+						<input type="text" readonly value="red" hidden class="table-permission__background">
 						<div class="table-content__row table-permission__row">
-							<div class="table-content__col table-col table-permission__col">
+							<div class="table-content__col table-col table-permission__col table-permission__col_violet">
 								<input type="checkbox" class="input-choice-permission">
                             </div>
-							<div class="table-content__col table-col table-permission__col table-permission__number">
+							<div class="table-content__col table-col table-permission__col  table-permission__col_beige table-permission__number">
 								1
 							</div>
-							<div class="table-content__col table-col table-permission__col table-permission__date">
+							<div class="table-content__col table-col table-permission__col table-permission__col_blue table-permission__date">
 								08.04.2022
 							</div>
-							<div class="table-content__col table-col table-permission__col table-permission__status">
+							<div class="table-content__col table-col table-permission__col table-permission__col_green table-permission__status">
 								Утвержден
 							</div>
-							<div class="table-content__col table-col table-permission__col table-permission__subdivision">
+							<div class="table-content__col table-col table-permission__col table-permission__col_yellow table-permission__subdivision">
 								РНУ Ухтинское
 							</div>
 							<div class="table-content__col table-col table-permission__col table-permission__person">

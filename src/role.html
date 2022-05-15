@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+	@@include('html/head.html',{
+	"title":"Главная"
+	})
+	<body>
+		<div class="wrap">
+		@@include('html/header.html',{})
+		<main class="content">
+			<div class="content__body _container role">
+               <div class="role__body">
+                   <div class="role__table">
+                    <div class="content__table table-content role-table">
+                        <div class="table-content__row table-content__row_head role-table__row">
+                            <div class="table-content__col table-content__head">ФИО</div>
+                            <div class="table-content__col table-content__head">Email</div>
+                            <div class="table-content__col table-content__head">Мобильный телефон</div>
+                            <div class="table-content__col table-content__head">МАТС</div>
+                            <div class="table-content__col table-content__head">ГАТС</div>
+                            <div class="table-content__col table-content__head">DECT</div>
+                            <div class="table-content__col table-content__head">Должность</div>
+                            <div class="table-content__col table-content__head">Подразделение</div>
+                        </div>
+                        <div class="table-content__row table-row role-table__row">
+                            <input type="text" hidden readonly value="1" class="input">
+                            <div class="table-content__col table-col">
+                                <input type="text" value="Иванов Иван Иванович" name="date-1" readonly class="table-col__input">
+                            </div>
+                            <div class="table-content__col table-col">
+                                <input type="text" value="vitali@gmail.com" name="time-1" readonly class="table-col__input">
+                            </div>
+                            <div class="table-content__col table-col">
+                                <input type="text" value="89241423423" name="date-1" readonly class="table-col__input">
+                            </div>
+                            <div class="table-content__col table-col">
+                                <input type="text" value="(1232) 1232" name="time-from-1" readonly class="table-col__input">
+                            </div>
+                            <div class="table-content__col table-col">
+                                <input type="text" value="221232" name="time-from-1" readonly class="table-col__input">
+                            </div>
+                            <div class="table-content__col table-col">
+                                <input type="text" value="(1232) 1232" name="time-from-1" readonly class="table-col__input">
+                            </div>
+                            <div class="table-content__col table-col">
+                                <input type="text" value="Инженер" name="time-from-1" readonly class="table-col__input">
+                            </div>
+                            <div class="table-content__col table-col">
+                                <input type="text" value="Подразделение" name="time-from-1" readonly class="table-col__input">
+                            </div>
+                        </div>  
+                    </div>
+                   </div>
+               </div>
+            </div>
+		</main>
+		@@include('html/footer.html',{})
+		</div>
+		<script src="js/app.min.js"></script>
+	</body>
+</html>

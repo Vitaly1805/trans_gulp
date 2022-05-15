@@ -1,0 +1,15 @@
+.story-table {
+    &__row {
+        display: grid;
+        grid-template-columns: 1fr repeat(3, 4fr) repeat(2, 9fr);
+
+        .table-content__col {
+            max-width: 100%;
+            padding: 10px 0;
+            cursor: auto;
+            font-size: 14px;
+            line-height: 130%;
+            min-width: auto;
+        }
+    }
+}
