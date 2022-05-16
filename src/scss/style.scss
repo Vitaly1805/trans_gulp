@@ -218,12 +218,6 @@ body {
 	padding: 0 15px;
 }
 
-
-.hidden {
-	opacity: 0;
-	z-index: -1;
-}
-
 .button {
 	height: 45px;
 	display: flex;
@@ -343,7 +337,8 @@ body {
 	display: flex;
 
 	&__item {
-		font-size: 20px;
+		font-size: 24px;
+		font-weight: 600;
 		margin: 0 7px 0 0;
 
 		&_active {
@@ -593,3 +588,7 @@ body {
 @import "story";
 @import "header";
 @import "footer";
+
+.hidden {
+	display: none;
+}

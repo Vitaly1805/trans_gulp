@@ -26,6 +26,9 @@
 </header>
 		<main class="content">
 			<div class="content__body _container-main permission">
+				<div class="navigation-chain">
+					<div class="navigation-chain__item navigation-chain__item_active">Разрешения</div>
+				</div>
 				<div class="permission__top">
 					<div class="content__buttons">
 						<form action="" method="post" class="content__form">
@@ -86,29 +89,29 @@
 					</div>
 				</div>
 				<div class="filter-content__funcs">
-					<div class="input button button-content filter">Фильтры</div>
+					<div class="input button button-content filter button-permission">Фильтры</div>
 					<form method="post" class="content-search">
 						<input type="text" class="input input-search" placeholder="Поиск...">
 						<span class="icon-search"></span>
 						<input type="submit" hidden name="search_permission" class="permission-search">
 					</form>
 					<form action="" method="post">
-						<input type="submit" class="input button button-content" value="Создать">
+						<input type="submit" class="input button button-content button-permission" value="Создать">
 					</form>
 					<form action="" method="post">
-						<input type="submit" class="input button button-content permission-event"  value="Создать на основе">
+						<input type="submit" class="input button button-content permission-event button-permission"  value="Создать на основе">
 						<input type="text" class="row-id-process" hidden name="id" id="" required>
 					</form>
 					<form action="" method="post">
-						<input type="submit" class="input button button-content permission-event" value="Править">
+						<input type="submit" class="input button button-content permission-event button-permission" value="Править">
 						<input type="text" class="row-id-process" hidden name="id" id="" required>
 					</form>
 					<form action="" method="post">
-						<input type="submit" class="input button button-content permission-event" value="Удаление">
+						<input type="submit" class="input button button-content permission-event button-permission" value="Удаление">
 						<input type="text" class="row-id-process" hidden name="id" id="" required>
 					</form>
                     <form action="" method="post" class="permission__block-button">
-                        <input type="submit" name="open-permission" class="input button button-content permission-event" value="Открыть">
+                        <input type="submit" name="open-permission" class="input button button-content permission-event button-permission" value="Открыть">
                         <input type="text" class="row-id-process" hidden name="id" required id="">
 						<div class="permission__status permission-status">
 							<div class="permission-status__body">
@@ -128,7 +131,7 @@
 						</div>
                     </form>
                     <form action="" method="post" class="permission__block-button">
-                        <input type="submit" name="pause-permission" class="input button button-content permission-event" value="Открыть">
+                        <input type="submit" name="pause-permission" class="input button button-content permission-event button-permission" value="Открыть">
                         <input type="text" class="row-id-process" hidden name="id" required id="">
 						<div class="permission__status permission-status">
 							<div class="permission-status__body">
@@ -148,7 +151,7 @@
 						</div>
                     </form>
 					<form action="" method="post" class="permission__block-button">
-                        <input type="submit" name="close-permission" class="input button button-content permission-event" value="Открыть">
+                        <input type="submit" name="close-permission" class="input button button-content permission-event button-permission" value="Открыть">
                         <input type="text" class="row-id-process" hidden name="id" required id="">
 						<div class="permission__status permission-status">
 							<div class="permission-status__body">
@@ -212,11 +215,11 @@
 								</div>
 							</div>
 							<div class="filter-content__item">
-								<div class="filter-content__buttons">
+								<div class="button-permissions">
 									<form action="" method="post">
-										<input type="submit" class="input button filter-content__button" value="Применить">
+										<input type="submit" class="input button button-permission" value="Применить">
 									</form>
-									<div class="input button filter-content__button close-filter">Закрыть</div>
+									<div class="input button button-permission close-filter">Закрыть</div>
 								</div>
 							</div>
 						</div>
