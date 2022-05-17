@@ -1666,6 +1666,9 @@ h6 {
 .pallete__color_yellow {
   background: #F5F6CE;
 }
+.pallete__color_gray {
+  background: #EAE5E5;
+}
 .pallete__title {
   font-size: 16px;
   margin: 0 0 5px 0;
@@ -1734,6 +1737,9 @@ h6 {
 }
 .table-permission__col_yellow {
   background: #F5F6CE;
+}
+.table-permission__col_gray {
+  background: #EAE5E5;
 }
 .table-permission__row input {
   cursor: pointer;

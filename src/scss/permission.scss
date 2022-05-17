@@ -3,6 +3,7 @@ $beige: #CEF6F5;
 $blue: #CED8F6;
 $green: #E0F8E0;
 $yellow: #F5F6CE;
+$gray: #EAE5E5;
 
 .permission {
 	&__number {
@@ -71,6 +72,9 @@ $yellow: #F5F6CE;
 
 		&_yellow {
 			background: $yellow;
+		}
+		&_gray {
+			background: $gray;
 		}
 	}
 
@@ -160,6 +164,10 @@ $yellow: #F5F6CE;
 
 		&_yellow {
 			background: $yellow;
+		}
+
+		&_gray {
+			background: $gray;
 		}
 	}
 
