@@ -1967,6 +1967,7 @@ h6 {
 .permission-add__responsibles {
   display: flex;
   flex-direction: column;
+  margin: 0 0 0 25px;
 }
 .permission-add__responsible {
   display: flex;
@@ -2004,6 +2005,34 @@ h6 {
 .permission-add__clear {
   cursor: pointer;
   color: red;
+}
+
+.condition-permission__subtitle {
+  font-size: 18px;
+}
+.condition-permission__item {
+  margin: 0 0 25px 0;
+}
+.condition-permission__checkboxes {
+  display: flex;
+  width: 100px;
+  margin: 0 0 0 20px;
+  justify-content: space-between;
+}
+.condition-permission__checkboxes label {
+  cursor: pointer;
+}
+.condition-permission__checkboxes input {
+  cursor: pointer;
+}
+.condition-permission__block {
+  display: flex;
+  align-items: center;
+}
+.condition-permission__minute {
+  height: 30px;
+  width: 200px;
+  margin: 0 20px;
 }
 
 .typical-work {
